@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<article>
+  <title>Code conventions</title>
+
+  <articleinfo>
+    <date>2005-03-23</date>
+
+    <author>
+      <surname>Stein</surname>
+
+      <firstname>Bram</firstname>
+    </author>
+  </articleinfo>
+
+  <abstract>
+    <para>This document describes the programming style I used while writing
+    the GUI library. I did not write it to talk you or anyone else into using
+    it, but it could come in handy if you're interested in writing your own
+    Components and contributing to the project, although you're of course free
+    to use whatever coding convention you see fit. In the end, I don't really
+    care what you use, as long as you use it consistently.</para>
+  </abstract>
+
+  <section>
+    <title>Language</title>
+
+    <para>Only C++ is used for writing this toolkit, no C, C/C++ hybrid, only
+    pure C++. This means all C headers are illegal, and globals are bad. If
+    you must have a global, turn it into a Singleton object. All C++ files end
+    with a .cpp extension and all header files with .h. Also, all class
+    definitions must be contained in header files, and all code related to the
+    implementation must be in a file with the same name and a .cpp extension.
+    Exception to this rule are templates, where implementations go into the
+    header file.</para>
+  </section>
+
+  <section>
+    <title>Naming conventions</title>
+
+    <section>
+      <title>Classes</title>
+
+      <para>Classes should be nouns, with the first character of each noun
+      capitalized. Class names must be simple and descriptive, avoid using
+      abbreviations.</para>
+
+      <example>
+        <programlisting>Component
+SelectionManager</programlisting>
+      </example>
+    </section>
+
+    <section>
+      <title>Functions</title>
+
+      <para>Methods should be verbs, with the first character of each word
+      capitalized.</para>
+
+      <example>
+        <programlisting>getBorder
+validate</programlisting>
+      </example>
+    </section>
+
+    <section>
+      <title>Variables</title>
+
+      <para>The same rules for methods apply to variables. Make sure every
+      variable is short and descriptive.</para>
+
+      <example>
+        <programlisting>selectedComponent
+height</programlisting>
+      </example>
+    </section>
+
+    <section>
+      <title>Constants</title>
+
+      <para>#define is not used, only enumerations. All constants in an
+      enumeration must be capitalized, short and descriptive. The enumeration
+      name itself is also capitalized. “Magic numbers” should be avoided, but
+      if absolutely necessary a static const variable can be used.</para>
+
+      <example>
+        <programlisting>enum CONSTANTS
+{
+    CENTER,
+    LEFT,
+    RIGHT
+};
+
+static const int MAX_PLAYERS = 64;</programlisting>
+      </example>
+    </section>
+  </section>
+
+  <section>
+    <title>Casts</title>
+
+    <para>I prefer C++ style casts over C casts. Although C++ style casts are
+    more work (you have to type more), they stand out in the code, and show
+    the intention of the code more clearly. For example:</para>
+
+    <example>
+      <programlisting>float number = 100.0f;
+
+int result = static_cast&lt;int&gt;(number);</programlisting>
+    </example>
+  </section>
+
+  <section>
+    <title>Namespaces</title>
+
+    <para>Use namespaces to divide up the global namespace into understandable
+    portions. As a bonus, you no longer have to add prefixes to your class
+    names, for example GUICheckBox becomes:</para>
+
+    <example>
+      <programlisting>namespace gui
+{
+   class CheckBox;
+}</programlisting>
+    </example>
+
+    <para>If you do not wish to use namespace, simply import the namespaces
+    you need into the local scope with the <code>using namespace
+    &lt;namespace&gt;</code>; directive. Just be sure to never do this in a
+    header file, as it pollutes the global namespace.</para>
+  </section>
+
+  <section>
+    <title>Indentation</title>
+
+    <para>Tabs are used as indention, not spaces. Avoid using spaces as
+    indention at all costs.</para>
+  </section>
+
+  <section>
+    <title>Braces</title>
+
+    <para>Braces always appear on a new line, and the indentation of these
+    braces should always match (the opening and closing braces). This means a
+    simple if/else statement looks like this:</para>
+
+    <example>
+      <programlisting>if(someCondition)
+{
+    // do something
+}
+else
+{
+    // do something else
+}</programlisting>
+    </example>
+
+    <para>This also means if/else statements <emphasis>always</emphasis> use
+    braces. Try to avoid using the ternary operator (<code>isTrue ? true :
+    false</code>).</para>
+  </section>
+
+  <section>
+    <title>Documentation</title>
+
+    <para>Javadoc commenting style is used in header files to document
+    classes, methods and variables. This is done as follows:</para>
+
+    <example>
+      <programlisting>/**
+ * Short class description.
+ * Detailed class description.
+ * parameter list
+ */</programlisting>
+    </example>
+
+    <para>From this, API documentation is generated by <ulink
+    url="http://www.stack.nl/~dimitri/doxygen/">Doxygen</ulink>. For more
+    information on the javadoc commenting style, see the <ulink
+    url="http://www.stack.nl/~dimitri/doxygen/manual.html">Doxygen
+    manual</ulink>.</para>
+
+    <para>Other forms of comments can be used in .cpp files, as long as they
+    are there to make the code easier to understand.</para>
+  </section>
+</article>

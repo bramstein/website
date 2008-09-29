@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>jLayout — JavaScript Layout Algorithms</title>
+
+  <sidebar>
+    <title>Download</title>
+
+    <para>Version 0.2 ― 2008-08-03.</para>
+
+    <para>jLayout Core:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink type="" url="jlayout.js">jlayout.js</ulink>
+        (Uncompressed, 5.8KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jlayout.min.js">jlayout.min.js</ulink> (Minified,
+        2.6KB)</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>jQuery plugin:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
+        (Uncompressed, 3.3KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
+        (Minified, 2.2KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>License</title>
+
+    <para>jLayout is licensed under the <ulink type=""
+    url="/licenses/BSD.txt">revised BSD license</ulink>. To summarize the
+    license; jLayout is completely free for commercial and non-commercial use
+    and you can do with it whatever you want, except claim it as your own
+    work.</para>
+  </sidebar>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>The jLayout JavaScript library provides layout algorithms for laying
+    out components. A component is an abstraction; it can be implemented in
+    many ways, for example as items in a HTML5 Canvas drawing or as HTML
+    elements. The jLayout library allows you to focus on drawing the
+    individual components instead of on how to arrange them on your
+    screen.</para>
+
+    <para>The library currently provides two layout algorithms:
+    <methodname>border</methodname>, which lays out components in five
+    different regions and <methodname>grid</methodname>, which lays out
+    components in a user defined grid. An <ulink url="jquery-plugin.html"
+    userlevel="">experimental jQuery plugin</ulink> to lay out (X)HTML
+    elements is also available.</para>
+  </section>
+
+  <section>
+    <title>Usage</title>
+
+    <para>We start with the definition of a component; a component is
+    something that has a minimum size, a preferred size, and a maximum size.
+    It also has a method to set its size and position. A container is a
+    component that contains other components and lays them out according to a
+    layout algorithm (which are provided in the jLayout library.) Components
+    need to satisfy the following interface requirements in order to be used
+    with the layout algorithms.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>bounds()</term>
+
+        <listitem>
+          <para>Returns the component's position and size as a value object
+          with properties <property>x</property>, <property>y</property>,
+          <property>width</property> and <property>height</property>. All
+          properties should be present in the returned object.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>bounds(value)</term>
+
+        <listitem>
+          <para>Set the position and size of a component by using a value
+          object with properties <property>x</property>,
+          <property>y</property>, <property>width</property> and
+          <property>height</property>. The individual properties are all
+          optional, it is thus legal to supply an empty object, or any
+          combination of properties.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>preferredSize()</term>
+
+        <listitem>
+          <para>Returns the component's preferred size (i.e. the size it
+          wishes to have) as an object with properties
+          <property>width</property> and <property>height</property>. This is
+          only a hint, there is no guarantee the component will get the size
+          it prefers.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>minimumSize()</term>
+
+        <listitem>
+          <para>Returns the component's minimum size (i.e. the size it should
+          at least have) as an object with properties
+          <property>width</property> and <property>height</property>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>maximumSize()</term>
+
+        <listitem>
+          <para>Returns the component's maximum size (i.e. the size it should
+          stay below or equal to) as an object with properties
+          <property>width</property> and <property>height</property>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>isVisible()</term>
+
+        <listitem>
+          <para>Returns <literal>true</literal> if the component is visible
+          and should be taken into account when calculating the layout.
+          Returns <literal>false</literal> otherwise.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>insets()</term>
+
+        <listitem>
+          <para>Returns the offset between a container and its contents as an
+          object with properties: <property>top</property>,
+          <property>bottom</property>, <property>left</property>, and
+          <property>right</property>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>doLayout()</term>
+
+        <listitem>
+          <para>Calls the <methodname>layout</methodname> method on the layout
+          algorithm used to lay out the component (container) it is called on.
+          If the component is not a container (and does not have a layout
+          algorithm) this method can be left empty.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Note that the distinction between containers and components is
+    artificial, both implement the same interface.</para>
+  </section>
+
+  <section>
+    <title>Layout Algorithms</title>
+
+    <para>All algorithms are in the <methodname>jLayout</methodname> namespace
+    and implement the following interface.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>preferred(container)</term>
+
+        <listitem>
+          <para>Returns the preferred size of the container and its children
+          according to the layout algorithm.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>minimum(container)</term>
+
+        <listitem>
+          <para>Returns the minimum size the container and its children are
+          allowed to have according to the layout algorithm.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>maximum(container)</term>
+
+        <listitem>
+          <para>Returns the maximum size the container and its children are
+          allowed to have according to the layout algorithm.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>layout(container)</term>
+
+        <listitem>
+          <para>Performs the layout according to the algorithm; resizing and
+          positioning children if necessary.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>The layout method will not resize the container to accommodate its
+    children's preferred size. If a resize is desired, set the bounds of the
+    container to its preferred size. The example below shows both ways of
+    laying out a container; resizing the children to fit in the container, and
+    resizing the container to fit the children.</para>
+
+    <programlisting>// create a layout algorithm
+var myLayout = (…)
+
+// lay out without resizing the container
+myLayout.layout(container);
+
+// resize the container, then lay it out
+container.bounds(myLayout.preferred());
+myLayout.layout(container);</programlisting>
+
+    <para>A layout algorithm can be created by calling either the
+    <methodname>grid</methodname> or <methodname>border</methodname>
+    constructor in the <classname>jLayout</classname> namespace. Both
+    constructors take an option object containing layout specific properties.
+    Both layouts have the following properties in common:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>hgap</term>
+
+        <listitem>
+          <para>The horizontal space between the laid out components. Should
+          be a number in a coordinate space of your choice. Defaults to 0.
+          Optional.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>vgap</term>
+
+        <listitem>
+          <para>The vertical space between the laid out components. Should be
+          a number in a coordinate space of your choice. Defaults to 0.
+          Optional.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>The other properties are specific to the layout algorithm and are
+    discussed below.</para>
+
+    <section>
+      <title>Border layout</title>
+
+      <para>The border algorithm lays out components in five different
+      regions. These regions are called <property>center</property>,
+      <property>north</property>, <property>south</property>,
+      <property>east</property> and <property>west</property>. The center
+      component will be laid out in the center of the container, north on top
+      of it, south beneath it and west and east on the left and right side
+      respectively. The layout can only contain one of each region, but all
+      are optional. On the right is a visualization of a layout using all five
+      regions.</para>
+
+      <graphic fileref="border.png" />
+
+      <para>The border algorithm takes an option object as parameter which can
+      contain the following properties:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>center, north, south east, west</term>
+
+          <listitem>
+            <para>The center, north, south, east or west component. All are
+            optional.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>The following example lays out a west, center and north component
+      with a vertical space of 5 units between each component. There may be
+      additional space between the components and the container if the
+      container returns non-zero insets.</para>
+
+      <programlisting>var borderLayout = jLayout.border({
+    west:   myWestComponent,
+    center: myCenterComponent,
+    north:  myNorthComponent,
+    vgap: 5
+});
+
+borderLayout.layout(myContainer);</programlisting>
+
+      <para>If a region is not specified or the component is not visible its
+      space will be taken up by the other components.</para>
+    </section>
+
+    <section>
+      <title>Grid layout</title>
+
+      <para>The grid algorithms lays out the components in a grid, and resizes
+      each component to the same size. The number of columns and rows can be
+      specified by the user. On the right is a visualization of a grid layout
+      with four components in a 2x2 grid.</para>
+
+      <graphic fileref="grid.png" />
+
+      <para>The grid algorithm takes an option object as parameter which can
+      contain the following properties:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>rows</term>
+
+          <listitem>
+            <para>The number of rows in the grid. Optional.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>columns</term>
+
+          <listitem>
+            <para>The number of columns in the grid. Optional.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>items</term>
+
+          <listitem>
+            <para>An array containing the components to be laid out by the
+            algorithm. Optional.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>The following example lays out four components in a 2x2 grid,
+      without any spacing between the components.</para>
+
+      <programlisting>var gridLayout = jLayout.grid({
+    rows: 2,
+    columns: 2,
+    items: [myComponent1, myComponent2, myComponent3, myComponent4]
+});
+
+gridLayout.layout(myContainer);</programlisting>
+
+      <para>If the number of rows is given, the number of columns is
+      calculated automatically by taking the number of components into
+      account. If the number of rows is not given (or set to zero), and the
+      number of columns is given, the number of rows will be automatically
+      calculated using the number of components. If neither is given, the
+      number of rows is set equal to the number of components and the number
+      of rows is set to zero.</para>
+    </section>
+  </section>
+</article>

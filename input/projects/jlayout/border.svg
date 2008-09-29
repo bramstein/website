@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
+
+	<rect id="north" x="0" y="0" width="400" height="50" stroke="rgb(50,50,50)" fill="rgb(220,220,220)"/>
+	<rect id="west" x="0" y="50" width="75" height="100" stroke="rgb(50,50,50)" fill="rgb(220,220,220)"/>
+	<rect id="south" x="0" y="150" width="400" height="50" stroke="rgb(50,50,50)" fill="rgb(220,220,220)"/>
+	<rect id="center" x="75" y="50" width="250" height="100" stroke="rgb(50,50,50)" fill="rgb(220,220,220)"/>
+	<rect id="east" x="325" y="50" width="75" height="100" stroke="rgb(50,50,50)" fill="rgb(220,220,220)"/>
+	<rect id="container" x="0" y="0" width="400" height="200" stroke="black" fill="none"/>
+
+	<text x="200" y="25" text-anchor="middle" font-size="14" font-family="Verdana" dominant-baseline="mathematical">North</text>
+	<text x="37.5" y="100" text-anchor="middle" font-size="14" font-family="Verdana" dominant-baseline="mathematical">West</text>
+	<text x="200" y="175" text-anchor="middle" font-size="14" font-family="Verdana" dominant-baseline="mathematical">South</text>
+	<text x="200" y="100" text-anchor="middle" font-size="14" font-family="Verdana" dominant-baseline="mathematical">Center</text>
+	<text x="362.5" y="100" text-anchor="middle" font-size="14" font-family="Verdana" dominant-baseline="mathematical">East</text>
+</svg>

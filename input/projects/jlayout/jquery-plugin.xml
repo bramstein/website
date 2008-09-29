@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>jLayout jQuery plugin</title>
+
+  <sidebar>
+    <title>Download</title>
+
+    <para>Version 0.11 ― 2008-08-11.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
+        (Uncompressed, 3.3KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
+        (Minified), 2.2KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>License</title>
+
+    <para>jLayout jQuery plugin is licensed under the <ulink type=""
+    url="/licenses/BSD.txt">revised BSD license</ulink>. To summarize the
+    license; jLayout jQuery plugin is completely free for commercial and
+    non-commercial use and you can do with it whatever you want, except claim
+    it as your own work.</para>
+  </sidebar>
+
+  <sidebar>
+    <title>Requirements</title>
+
+    <para>The following libraries need to be available in order for the plugin
+    to work:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="http://jquery.com/">jQuery</ulink> (1.2.6+)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="/projects/jlayout/">jLayout</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="../jsizes/">JSizes</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="http://plugins.jquery.com/project/metadata">jQuery
+        metadata plugin</ulink> (optional)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>Compatibility</title>
+
+    <para>The plugin has been tested and works in the following browsers (in
+    standards mode):</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Firefox 2 &amp; 3</para>
+      </listitem>
+
+      <listitem>
+        <para>Safari 3</para>
+      </listitem>
+
+      <listitem>
+        <para>Opera 9</para>
+      </listitem>
+
+      <listitem>
+        <para>Internet Explorer 7</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>The plugin does not work in:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Internet Explorer 6</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <section>
+    <title>Introduction</title>
+
+    <note>
+      <para>This plugin is highly experimental and has only been tested on a
+      handful of browsers. It should be considered as an example of how the
+      <ulink type="" url="/projects/jlayout/">jLayout library</ulink> can be
+      used. It is not recommended to use it to create websites; it is almost
+      always possible to achieve the same layout using plain HTML and CSS
+      (which is probably more robust as well.)</para>
+    </note>
+
+    <para>The jLayout jQuery plugin provides two layout algorithms for laying
+    out HTML elements in web pages. The first is
+    <methodname>border</methodname>, which lays out components in five
+    different regions and the second algorithm is
+    <methodname>grid</methodname>, which lays out components in a user defined
+    grid. The plugin allows you to lay out your elements with as little code
+    as possible, and behaves correctly when used with margins, padding and
+    borders.</para>
+
+    <para>You can see the library in action on the <ulink
+    url="examples.html">examples page</ulink> which features grids, border
+    layouts, nested layouts, columns, and more. There is also an example of
+    using a <ulink url="borderlayout.html">full-page border layout</ulink> for
+    web application developers.</para>
+  </section>
+
+  <section>
+    <title>API</title>
+
+    <para>The following methods are added to the jQuery element method
+    namespace. Normally you would only use the <methodname>layout</methodname>
+    method, but the others are listed for completeness sake.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>layout(options)</term>
+
+        <listitem>
+          <para>Creates a new layout algorithm, parses meta data if available,
+          scans for child elements, and lays out the container. It returns the
+          jQuery object so it can be chained. The options parameter can
+          contain all of the layout algorithm properties described on the
+          <ulink url="/projects/jlayout/">jLayout project page</ulink>. It
+          accepts two additional other properties:</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>type</term>
+
+              <listitem>
+                <para>The layout algorithm to use. Should be either
+                <constant>grid</constant> or <constant>border</constant>.
+                Defaults to <constant>grid</constant>.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>resize</term>
+
+              <listitem>
+                <para>Automatically resize the container to fit its children's
+                preferred size; <constant>false</constant> resizes the child
+                elements to fit the container, <constant>true</constant>
+                resizes the container to fit the child elements. Defaults to
+                <constant>true</constant>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>doLayout()</term>
+
+        <listitem>
+          <para>Calls the layout method on the element's layout algorithm if
+          available.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>insets()</term>
+
+        <listitem>
+          <para>Returns the insets as an object with <property>top</property>,
+          <property>left</property>, <property>bottom</property>, and
+          <property>right</property> properties. For <acronym>HTML</acronym>
+          elements, the insets are equivalent to the <acronym>CSS</acronym>
+          <property>padding</property> + <property>border</property>
+          properties.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>bounds()</term>
+
+        <listitem>
+          <para>Returns the size of the element as an object with
+          <property>width</property>, <property>height</property>,
+          <property>x</property>, and <property>y</property>
+          properties.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>bounds(value)</term>
+
+        <listitem>
+          <para>Set the size and position of the element. If the element is a
+          container its <acronym>CSS</acronym> position property is set to
+          <constant>relative</constant>. If the element is a normal component,
+          its <acronym>CSS</acronym> position property is set to
+          <constant>absolute</constant>. The value object can contain any of
+          <property>width</property>, <property>height</property>,
+          <property>x</property>, and <property>y</property>
+          properties.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>minimumSize()</term>
+
+        <listitem>
+          <para>Returns the minimum size of the element as an object with
+          <property>width</property> and <property>height</property>
+          properties. If the element is a container, the layout algorithm's
+          minimum size is returned, otherwise the elements'
+          <acronym>CSS</acronym> <property>min-width</property> and
+          <property>min-height</property> properties are used.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>maximumSize()</term>
+
+        <listitem>
+          <para>Returns the maximum size of the element as an object with
+          <property>width</property> and <property>height</property>
+          properties. If the element is a container, the layout algorithm's
+          maximum size is returned, otherwise the elements'
+          <acronym>CSS</acronym> <property>max-width</property> and
+          <property>max-height</property> properties are used.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>preferredSize()</term>
+
+        <listitem>
+          <para>Returns the preferred size of the element as an object with
+          <property>width</property> and <property>height</property>
+          properties. If the element is a container, the layout algorithm's
+          preferred size is returned, otherwise the elements'
+          <acronym>CSS</acronym> <property>width</property> and
+          <property>height</property> properties are used.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
+  <section>
+    <title>Examples</title>
+
+    <sidebar>
+      <title>Note</title>
+
+      <para>It is important to set the CSS <property>display</property>
+      property correctly on elements used in a layout. The <ulink
+      url="http://www.w3.org/TR/CSS21/visudet.html#Computing_widths_and_margins">CSS
+      specification</ulink> defines the content width of a container element
+      as the sum of the contained elements margin-left, width, and
+      margin-right properties (the same applies to the height property of
+      course.) Browsers implementing this standard correctly will thus return
+      a larger computed margin than the one set by the stylesheet. If
+      automatic resizing of containers is desired remember to set the display
+      property to <property>inline-block</property> or float the elements (or
+      some other property that will “wrap” the container around the child
+      elements.) See <ulink url="examples.html">the examples</ulink> for more
+      details.</para>
+    </sidebar>
+
+    <para>Below is an example of laying out a simple 2x2 grid containing four
+    components. If the items are not specified in the code, the
+    <methodname>layout</methodname> method will use all child elements of the
+    container (not including text nodes.)</para>
+
+    <programlisting>$('#my-container').layout({
+    type: 'grid',
+    columns: 2,
+    rows: 2,
+    items: [
+        $('#component-1'),
+        $('#component-2'),
+        $('#component-3'),
+        $('#component-4')
+    ]
+});</programlisting>
+
+    <para>If you have the jQuery metadata plugin installed you can also
+    specify the layout in your HTML code. The following example will produce
+    the same result as the previous example with less code.</para>
+
+    <programlisting>$('#my-container').layout();</programlisting>
+
+    <programlisting>&lt;div id="my-container" class="{layout: {type: 'grid', columns: 2, rows: 2}}"&gt;
+    &lt;div&gt;One&lt;/div&gt;
+    &lt;div&gt;Two&lt;/div&gt;
+    &lt;div&gt;Three&lt;/div&gt;
+    &lt;div&gt;Four&lt;/div&gt;
+&lt;/div&gt;</programlisting>
+
+    <para>Note that the plugin metadata should always be contained in a
+    <property>layout</property> property whose contents is the same as the
+    options object passed to the <methodname>layout</methodname> method. If
+    the layout is set up using metadata the <methodname>layout</methodname>
+    method can be called without parameters.</para>
+
+    <para>The border layout is set up in the same way, except that when a
+    region is not given it will try to find the first element inside the
+    container with a class name for that region. It will ignore other elements
+    with the same region (class) name.</para>
+
+    <programlisting>$('#my-container').layout();</programlisting>
+
+    <programlisting>&lt;div id="my-container" class="{layout: {type: 'border' }}"&gt;
+    &lt;div class="center"&gt;Center&lt;/div&gt;
+    &lt;div class="north"&gt;North&lt;/div&gt;
+    &lt;div class="center"&gt;Center?&lt;/div&gt;
+&lt;/div&gt;</programlisting>
+
+    <para>The above example will only lay out the first center element and the
+    north element. It will ignore the second center element (it might however
+    still show up on your web page if you don't hide it yourself; the plugin
+    does not modify the visibility of elements.)</para>
+  </section>
+</article>

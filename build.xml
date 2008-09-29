@@ -1,0 +1,83 @@
+<project name="website" default="transform">
+	<description>
+		Simple project to transform arbitrary XML files to JSON format and back.
+	</description>
+	
+	<property name="website.build" value="output"/>
+	<property name="website.tmp" value="tmp"/>
+	<property name="website.lib" value="lib"/>
+	<property name="website.config" value="conf"/>
+	
+	<path id="website.classpath">
+		<fileset dir="${website.lib}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="init">
+		<mkdir dir="${website.build}"/>
+		<mkdir dir="${website.tmp}"/>
+	</target>
+	
+	<target name="transform" depends="init">
+		<xslt basedir="input" destdir="${website.tmp}" extension=".xml" style="${website.config}/reorder.xsl" includes="**/*.xml">
+			<classpath>
+				<path refid="website.classpath"/>
+			</classpath>
+		</xslt>
+
+		<xslt basedir="${website.tmp}" destdir="${website.build}" extension=".html"
+		style="${website.config}/docbook.xsl" includes="**/*.xml">
+			<classpath>
+				<path refid="website.classpath"/>
+			</classpath>
+		</xslt>
+
+		<xslt extension=".xml" style="${website.config}/rss.xsl" in="input/index.xml" out="${website.build}/rss.xml">
+			<classpath>
+				<path refid="website.classpath"/>
+			</classpath>
+		</xslt>
+
+		<copy todir="${website.build}">
+			<fileset dir="input">
+				<include name="**/*.xslt"/>
+				<include name="**/*.xsl"/>
+				<include name="**/*.png"/>
+				<include name="**/*.zip"/>
+				<include name="**/*.js"/>
+				<include name="**/*.css"/>
+				<include name="**/*.pdf"/>
+				<include name="**/*.jpg"/>
+				<include name="**/*.html"/>
+				<include name="**/*.txt"/>
+				<include name="**/*.gif"/>
+			</fileset>
+		</copy>
+
+		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+			<arg line="-o output/main.css output/main.css"/>
+		</java>
+
+		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+			<arg line="-o output/undohtml.css output/undohtml.css"/>
+		</java>
+
+		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+			<arg line="-o output/prettify.css output/prettify.css"/>
+		</java>
+
+		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+			<arg line="-o output/prettify.js output/prettify.js"/>
+		</java>
+
+		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+			<arg line="-o output/lang-ml.js output/lang-ml.js"/>
+		</java>
+	</target>
+
+	<target name="clean">
+		<delete dir="${website.build}"/>
+		<delete dir="${website.tmp}"/>
+	</target>
+</project>

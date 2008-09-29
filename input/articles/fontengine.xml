@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<article>
+  <title>Writing your own font engine</title>
+
+  <articleinfo>
+    <date>2005-08-03</date>
+
+    <author>
+      <surname>Stein</surname>
+
+      <firstname>Bram</firstname>
+    </author>
+  </articleinfo>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>To use components that draw text such as Buttons, Labels and
+    Textboxes you'll need to write your own font engine. There is no default
+    font engine in the library, because they usually require dependencies on
+    other libraries or platform dependant code.</para>
+
+    <para>Although writing your own font engine sounds complicated, it is in
+    fact quite simple, as this article will show you. It will guide you
+    through writing a simple bitmap based font engine, and hopefully explain
+    the interface sufficiently so that you can write more complex font engines
+    afterwards.</para>
+
+    <para>The code for this article is taken from the UIDemo demo application,
+    which is included in the demo applications download. Let's jump right
+    in!</para>
+  </section>
+
+  <section>
+    <title>Interfaces</title>
+
+    <para>You need to implement two interfaces,
+    <interfacename>Font</interfacename> and
+    <interfacename>AbstractFontFactory</interfacename>, in order to write a
+    font engine. The <interfacename>Font</interfacename> interface describes a
+    font in the library and is responsible for creating, rendering and
+    destroying individual fonts. The
+    <interfacename>AbstractFontFactory</interfacename> is responsible for
+    managing the fonts in your application, such as the creation of new
+    <interfacename>Font</interfacename> instances when the library requests
+    them. The <interfacename>Font</interfacename> interface defines four
+    abstract methods (pure virtual functions)—shown below—which you'll need to
+    implement.</para>
+
+    <example id="font-interface">
+      <programlisting>const std::string getFontName() const;
+std::size_t getSize() const;
+util::Dimension getStringBoundingBox(const std::string &amp;text) const;
+void drawString(int x, int y, const std::string &amp;text);</programlisting>
+    </example>
+
+    <para>While the method names are pretty self-explanatory, there are some
+    small issues to keep in mind while implementing these methods. The
+    <methodname>getFontName</methodname> method should return the name of the
+    font belonging to this instance of the <interfacename>Font</interfacename>
+    class. This means that the returned font name should be unique and used
+    consistently across calls to the function, because the name and font size
+    are used by the library to determine whether or not a font already exists
+    (and allocate a new font if it does not.) The unit returned by
+    <methodname>getSize</methodname> can be arbitrary, because the method
+    is—besides the aforementioned identification—never used inside the
+    library. The dimensions returned by the
+    <methodname>getStringBoundingBox</methodname> method are significant
+    however. They are used by the library to, for example, calculate button
+    dimensions. This method is called very often, so it is a good idea to
+    cache the dimensions of the individual characters instead of calculating
+    them on the fly. The last method, <methodname>drawString</methodname>
+    should be implemented so that the text is drawn to the screen at the
+    specified X and Y location.</para>
+
+    <para>The <interfacename>AbstractFontFactory</interfacename> interface has
+    only one abstract method. This method should create instances of your
+    <interfacename>Font</interfacename> implementation. The
+    <varname>fontName</varname> parameter is the name of the font. The
+    <varname>size</varname> parameter is the font size.</para>
+
+    <example id="bitmapfontfactory-interface">
+      <programlisting>Font * createFont(const std::string &amp;fontName, std::size_t size);</programlisting>
+    </example>
+
+    <para>For example, the library could request a font named "Arial.ttf" with
+    12 point size and your <interfacename>AbstractFontFactory</interfacename>
+    implementation could proceed by loading Arial.ttf from disk and creating
+    an instance of your <interfacename>Font</interfacename> implementation
+    with 12 point size. Alternatively, it could completely ignore the request
+    and always return the same font, with the same font size. This is what
+    we'll do for our bitmap font engine.</para>
+  </section>
+
+  <section>
+    <title>Bitmap font engine</title>
+
+    <para>Our BitmapFont header file should look similar to the code fragment
+    shown below. Note the four data members, the width and height of the font
+    texture, the texture identifier and a base index for the display list we
+    are going to use.</para>
+
+    <example id="bitmapfont-header">
+      <programlisting>class BitmapFont : public ui::Font
+{
+public:
+    BitmapFont();
+    ~BitmapFont();
+    const std::string getFontName() const;
+    std::size_t getSize() const;
+    ui::util::Dimension getStringBoundingBox(const std::string &amp;text) const;
+    void drawString(int x, int y, const std::string &amp;text);
+private:
+    static const int textureWidth = 256;
+    static const int textureHeight = 256;
+    GLuint textureId;
+    GLuint base;
+};</programlisting>
+    </example>
+
+    <para>The bitmap we are going to use stores 256 characters. The first 128
+    characters are standard <ulink url="http://www.asciitable.com">ASCII
+    characters</ulink> and the last 128 are from the <ulink
+    url="http://www.cplusplus.com/doc/papers/ascii.html">ANSI Extended ASCII
+    standard</ulink> and contain mostly special characters found in some
+    non-English languages (such as French, Swedish, Norwegian, etc). On the
+    right an example of such a bitmap.</para>
+
+    <graphic fileref="font.png" />
+
+    <sidebar>
+      <title>Note</title>
+
+      <para>Using only 256 characters is fairly short-sighted because
+      languages other than English might use characters beyond the available
+      256 ASCII characters. Languages such as Japanese and Chinese might not
+      even be stored as single byte characters, but rather as multi-byte
+      <ulink url="http://www.unicode.org/">unicode</ulink> and thus require a
+      wholly different approach. At the moment the GUI library does not
+      support unicode. For this example however, it will work just
+      fine.</para>
+    </sidebar>
+
+    <para>The constructor loads the image, loops through it and creates a
+    display list for each character. Note that the the identifiers for the
+    display lists correspond with the numeric values of the <ulink
+    url="http://www.asciitable.com">ASCII table</ulink>. For example,
+    uppercase 'A' has identifier 65 in the ASCII table and in the display
+    lists. Note that we use a base number as offset in case OpenGL has already
+    allocated other display list identifiers.</para>
+
+    <example id="bitmapfont-constructor">
+      <programlisting>
+BitmapFont::BitmapFont()
+{
+    // This uses the SDL_Image library to load a PNG file
+    SDL_Surface *font = IMG_Load("Font.png");
+
+    glEnable(GL_TEXTURE_2D);
+    glGenTextures(1,&amp;textureId);
+    glBindTexture(GL_TEXTURE_2D,textureId);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, font-&gt;w, font-&gt;h, 0, GL_RGBA, 
+                 GL_UNSIGNED_BYTE, font-&gt;pixels);
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    float cx;
+    float cy;
+
+    base = glGenLists(256);
+    
+    for(int i = 0; i &lt; 256; i++)
+    {
+        cx = float(i%16)/16.0f;
+        cy = float(i/16)/16.0f;
+
+        glNewList(base+i,GL_COMPILE);
+        glBegin(GL_QUADS);
+            glTexCoord2f(cx,cy+0.0625f);
+            glVertex2i(0,16);
+            glTexCoord2f(cx+0.0625f,cy+0.0625f);
+            glVertex2i(16,16);
+            glTexCoord2f(cx+0.0625f,cy);
+            glVertex2i(16,0);
+            glTexCoord2f(cx,cy);
+            glVertex2i(0,0);
+        glEnd();
+        glTranslated(10,0,0);
+        glEndList();
+    }
+    glDisable(GL_TEXTURE_2D);
+
+    SDL_FreeSurface(font);
+}
+
+BitmapFont::~BitmapFont()
+{
+    glDeleteTextures(1,&amp;textureId);
+    glDeleteLists(base,256);
+}</programlisting>
+    </example>
+
+    <para>The rest of the <classname>Font</classname> implementation is quite
+    simple and shown below. We draw the text by translating to the X, Y
+    coordinates and call the display lists by using the ASCII values of our
+    string. The <methodname>getFontName</methodname> and
+    <methodname>getSize</methodname> methods return a fixed value, and the
+    <methodname>getStringBounding</methodname> method returns the width as
+    &lt;number of characters&gt; * &lt;font size&gt; and height as &lt;font
+    size&gt;.</para>
+
+    <example id="bitmapfont-implementation">
+      <programlisting>void BitmapFont::drawString(int x, int y, const std::string &amp;text)
+{
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D,textureId);
+    glTranslatef(static_cast&lt;GLfloat&gt;(x),static_cast&lt;GLfloat&gt;(y),0.0f);
+    glListBase(base);
+    glCallLists(static_cast&lt;GLsizei&gt;(text.length()),GL_UNSIGNED_BYTE,text.c_str());
+    glDisable(GL_TEXTURE_2D);
+}
+
+const std::string BitmapFont::getFontName() const
+{
+    return "Bitmap";
+}
+
+std::size_t BitmapFont::getSize() const
+{
+    return 10;
+}
+
+ui::util::Dimension BitmapFont::getStringBoundingBox(const std::string &amp;text) const
+{
+    int width = static_cast&lt;int&gt;(text.length() * getSize());
+    return ui::util::Dimension(width,static_cast&lt;int&gt;(getSize()));
+}</programlisting>
+    </example>
+
+    <para>The <classname>BitmapFontFactory</classname> class definition
+    inherits the <interfacename>AbstractFontFactory</interfacename> interface,
+    implements the <methodname>createFont</methodname> method and stores a
+    pointer to a <classname>BitmapFont</classname> instance. We include a
+    constructor and destructor to allocate and deallocate the
+    <classname>BitmapFont</classname> instance.</para>
+
+    <example id="bitmapfontfactory-header">
+      <programlisting>class BitmapFontFactory : public ui::AbstractFontFactory
+{
+public:
+    ui::Font * createFont(const std::string &amp;font, std::size_t size);
+    BitmapFontFactory();
+    ~BitmapFontFactory();
+private:
+    BitmapFont *bitmapFont;
+};</programlisting>
+    </example>
+
+    <para>The implementation of <classname>BitmapFontFactory</classname> is
+    straightforwarded. The constructor creates an instance of
+    <classname>BitmapFont</classname> and the destructor deletes it. The
+    <methodname>createFont</methodname> method returns the same instance of
+    <classname>BitmapFont</classname> regardless of what the library requests,
+    so that the user interface always uses the same font.</para>
+
+    <example id="bitmap-fontfactory-implementation">
+      <programlisting>ui::Font * BitmapFontFactory::createFont(const std::string &amp;font, std::size_t size)
+{
+    return bitmapFont;
+}
+
+BitmapFontFactory::BitmapFontFactory()
+{
+    bitmapFont = new BitmapFont();
+}
+
+BitmapFontFactory::~BitmapFontFactory()
+{
+    delete bitmapFont;
+}</programlisting>
+    </example>
+
+    <para>This concludes the implementation of our bitmap font engine. The
+    last thing we need to is tell our Gui instance that it should use our
+    <classname>BitmapFontFactory</classname>, by calling the
+    <methodname>setFontFactory</methodname> method and giving an instance of
+    your <classname>BitmapFontFactory</classname> to it. If you followed the
+    <ulink url="gettingstarted.html">“Getting Started” article</ulink> you can
+    call the <methodname>setFontFactory</methodname> method on
+    <varname>guiInstance</varname> before rendering your user
+    interface.</para>
+
+    <example id="set-font-factory">
+      <programlisting>guiInstance-&gt;setFontFactory(bitmapFontFactory);</programlisting>
+    </example>
+
+    <para>We're all set and done now; the library should properly render your
+    bitmap font. Using these two interfaces you can create more advanced font
+    engines, such as the one in the UITest demo application, which uses <ulink
+    url="http://www.freetype.org/">Freetype</ulink> to create fonts.</para>
+  </section>
+</article>

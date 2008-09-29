@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article role="">
+  <title>Extracting values from JavaScript objects</title>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>The JUnify unification library allows you to extract values from
+    JavaScript objects, for example <acronym>JSON</acronym> data structures.
+    The variable syntax is however a bit cumbersome when all you want it to
+    extract properties from objects, because it requires you to repeat the
+    property name twice (e.g. <code>{title: $('title')}</code>.) The syntax
+    would be simpler if we could just indicate that we'd like a property
+    extracted, for example <code>{title: _}</code>. We will use the
+    <methodname>visit_pattern</methodname> method from the JUnify library to
+    implement a simple object extraction module.</para>
+  </section>
+
+  <section>
+    <title>Implementation</title>
+
+    <para>We start by creating a new module called
+    <methodname>extract</methodname>. In this module we define some short-hand
+    variables to methods in the unification library. We create a new visitor
+    object and implement the <type>object</type> callback function. When the
+    object value equals the wildcard <constant>_</constant> pattern we return
+    a new variable with the key as name. If the value is not a wildcard we
+    return it unmodified.</para>
+
+    <programlisting>extract = function () {
+    var unify         = unification.unify,
+        variable      = unification.variable,
+        visit_pattern = unification.visit_pattern,
+        _             = unification._;
+
+    var visitor = { 
+        'object' : function(key, value) {
+            if (value === _) {
+                return variable(key);
+            }
+            else {
+                return value;
+            }
+        }
+    };
+
+    return function (pattern, value) {
+        return unify(visit_pattern(pattern, visitor), value);
+    };
+}();</programlisting>
+
+    <para>An example of its use:</para>
+
+    <programlisting>var json = {text: "Hello", name: "World!"};
+var l = extract({text: _, name: _}, json); // l.text = "Hello", l.name = "World!"
+var r = extract({_:_, name: _}, json);     // r.name = "World!"</programlisting>
+
+    <para>Note that the simplified extract syntax only works on objects; array
+    values will require the use of the <methodname>variable</methodname>
+    method. Also, if your data contains the same property names twice, only
+    the value of the last occurance will be returned. In this case it is
+    better to use the normal variable syntax.</para>
+  </section>
+
+  <section>
+    <title>Extracting typed values</title>
+
+    <para>The JUnify unification library also supports matching typed values
+    and we can also support this in our simplified syntax. The syntax we will
+    use is: <code>{myname: MyType}</code> which returns a
+    <varname>myname</varname> binding if it is matched against another object
+    with property name <varname>myname</varname> and of type
+    <type>MyType</type>. In JavaScript objects are typed according to their
+    constructors and constructors are functions. So to create typed variable
+    we need to test if the value is a function and if it is, return a new
+    typed variable. Modify the visitor in the following way:</para>
+
+    <programlisting>    var visitor = { 
+        'object' : function(key, value) {
+            if (value === _) {
+                return variable(key);
+            }
+            else if (typeof value === 'function') {
+                return variable(key, value);
+            }
+            else {
+                return value;
+            }
+        }
+    };</programlisting>
+
+    <para>That's all we need to do to add support for extracting typed
+    objects. An example:</para>
+
+    <programlisting>var o = {date: new Date()};
+var r = extract({date: Date}, o); // r.date = "Sat Jul 05 2008 (…)"</programlisting>
+
+    <para>This concludes the implementation of an object property extractor
+    using the JUnify library. You can download the code <ulink
+    url="extract.js">extract.js</ulink> for your convenience.</para>
+  </section>
+</article>

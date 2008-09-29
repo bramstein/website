@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>Latest updates</title>
+
+  <sidebar>
+    <title>About</title>
+
+    <para>I'm a programmer and web developer from the Netherlands with a
+    passion for creating usable software, websites, and when I have some spare
+    time, games.</para>
+
+    <para>This site contains some of my work and hobby projects. Feel free to
+    look around.</para>
+  </sidebar>
+
+  <sidebar>
+    <title>Feed</title>
+
+    <para><mediaobject>
+        <imageobject>
+          <imagedata fileref="/images/feed.png" />
+        </imageobject>
+      </mediaobject> <ulink url="rss.xml">RSS Feed</ulink></para>
+  </sidebar>
+
+  <section>
+    <title><ulink type=""
+    url="http://www.bramstein.com/projects/xsltjson/">Rayfish convention
+    support for XSLTJSON</ulink></title>
+
+    <subtitle>Posted on Wednesday 03 September 2008</subtitle>
+
+    <para>The XSLTJSON project now supports <ulink
+    url="http://onperl.org/blog/onperl/page/rayfish">Micheal Matthew's Rayfish
+    convention</ulink> for converting XML to JSON. The Rayfish convention
+    creates highly structured JSON from your XML, and is a good choice when
+    dealing with data centric XML files. Additionally I've created unit tests
+    for all supported output formats and made sure that all are
+    passing.</para>
+  </section>
+
+  <section>
+    <title>JavaScript Pattern Matching &amp; JUnify, jLayout updates</title>
+
+    <subtitle>Posted on Tuesday 12 August 2008</subtitle>
+
+    <para>I've uploaded a new article on <ulink
+    url="http://www.bramstein.com/articles/advanced-pattern-matching.html">advanced
+    functional pattern matching in JavaScript</ulink>. The article introduces
+    a simplified pattern matching syntax, and shows how to use it with
+    algebraic data types. There are also new versions of the <ulink
+    url="http://www.bramstein.com/projects/junify/">JUnify library</ulink> and
+    the <ulink url="http://www.bramstein.com/projects/jlayout/">jLayout
+    library</ulink>. The new JUnify version contains a small modification to
+    work together with <ulink
+    url="http://w3future.com/weblog/stories/2008/06/16/adtinjs.xml">Sjoerd
+    Visscher's algebraic data type library</ulink>, and the jLayout library
+    now includes support for Safari 3.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/jlayout/">jLayout
+    Layout Algorithms &amp; jQuery plugin</ulink></title>
+
+    <subtitle>Posted on Monday 4 August 2008</subtitle>
+
+    <para>The <ulink url="http://www.bramstein.com/projects/jlayout/">jLayout
+    JavaScript library</ulink> provides layout algorithms for laying out
+    components and containers. The library currently provides two layout
+    algorithms: border, which lays out components in five different regions
+    and grid, which lays out components in a user defined grid. An <ulink
+    url="http://www.bramstein.com/projects/jlayout/jquery-plugin.html"
+    userlevel="">experimental jQuery plugin</ulink> to lay out (X)HTML
+    elements is also available.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/junify/">JUnify
+    unification library</ulink></title>
+
+    <subtitle>Posted on Friday 1 August 2008</subtitle>
+
+    <para>JUnify is a JavaScript library for performing unification on objects
+    and arrays. Unification is an algorithm to determine the substitutions
+    needed to make two expressions match. If the expressions contain
+    variables, these will be bound to values in order for the match to
+    succeed. If two expressions are not identical or the variables can not be
+    bound, the match fails. Unification can, for example, be used to implement
+    <ulink
+    url="http://www.bramstein.com/articles/pattern-matching.html">pattern
+    matching</ulink>, <ulink
+    url="http://www.bramstein.com/articles/extracting-object-values.html">object
+    property extraction</ulink>, or an expert system.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/jsizes/">JSizes
+    jQuery plugin</ulink></title>
+
+    <subtitle>Posted on Saturday 26 July 2008</subtitle>
+
+    <para>JSizes is a small plugin for the jQuery JavaScript library which
+    adds support for the CSS min-width, min-height, max-width, max-height,
+    border-*-width, margin, and padding properties. Additionally it has one
+    method for determining whether an element is visible. Because all the size
+    methods return numbers, it is safe to use them in calculating DOM element
+    dimensions.</para>
+  </section>
+</article>

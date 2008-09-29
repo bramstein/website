@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>About</title>
+
+  <sidebar>
+    <graphic contentwidth="" depth="" fileref="me.jpg" width="150" />
+
+    <para></para>
+  </sidebar>
+
+  <sidebar>
+    <title>Contact</title>
+
+    <para><ulink type=""
+    url="mailto:b.l.stein@gmail.com">b.l.stein@gmail.com</ulink></para>
+  </sidebar>
+
+  <sidebar>
+    <title>Interests</title>
+
+    <itemizedlist>
+      <listitem>
+        <para>User Interfaces</para>
+      </listitem>
+
+      <listitem>
+        <para>Web development</para>
+      </listitem>
+
+      <listitem>
+        <para>Data visualizations</para>
+      </listitem>
+
+      <listitem>
+        <para>Real-time rendering</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <section>
+    <title>Who is Bram Stein?</title>
+
+    <para>I'm a programmer and web developer from the Netherlands. I am
+    currently living in Sweden, Uppsala, but will soon move to Copenhagen,
+    Denmark. I have a passion for developing usable programs, websites,
+    visualizations―and when I have some spare time―games.</para>
+
+    <para>I'm currently self-employed, so if you need a talented programmer
+    and designer, please have a look at my Curriculum Vitæ below (or <ulink
+    url="cv-bram-stein.pdf">download as a PDF</ulink>.) I'm always open for
+    interesting projects and problems, so do not hesitate to contact
+    me.</para>
+  </section>
+
+  <section>
+    <title>Education</title>
+
+    <section>
+      <title>Master of Science in Computer Science</title>
+
+      <subtitle>Uppsala University, Sweden</subtitle>
+
+      <para>Expected date of graduation: September 2008.</para>
+    </section>
+
+    <section>
+      <title>Bachelor of Engineering in Media Technology</title>
+
+      <subtitle>Utrecht University of Applied Sciences, The
+      Netherlands</subtitle>
+
+      <para>Graduated in January 2005, <emphasis>with
+      Distinction</emphasis>.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Professional experience</title>
+
+    <section>
+      <title>Software Developer &amp; System Administrator</title>
+
+      <subtitle>Stockholm International Peace Research Institute,
+      Sweden</subtitle>
+
+      <para>Software developer on the FIRST project and system administrator
+      in the IT department. As software developer I was in charge of the
+      development of the FIRST database system. As system administrator I was
+      responsible for the computer network, servers, project databases, and
+      management of external consultants.</para>
+
+      <para>April 2006 - January 2008</para>
+    </section>
+
+    <section>
+      <title>Research Assistant</title>
+
+      <subtitle>Stockholm International Peace Research Institute,
+      Sweden</subtitle>
+
+      <para>Research assistant on the FIRST project. I was in charge of
+      designing and implementing a new user-friendly version of the FIRST
+      database system.</para>
+
+      <para>September 2004 - April 2006</para>
+    </section>
+
+    <section>
+      <title>Programmer and Designer</title>
+
+      <subtitle>Quality Net Link, The Netherlands</subtitle>
+
+      <para>Programmer and web-designer on various projects. My tasks
+      consisted of programming website back-ends, website design, database
+      tool development, and database software maintenance.</para>
+
+      <para>January 2003 - January 2006</para>
+    </section>
+
+    <section>
+      <title>Technical consultant</title>
+
+      <subtitle>Utrecht University of Applied Sciences, The
+      Netherlands</subtitle>
+
+      <para>Technical consultant in the design phase of the NetCodeGame
+      project, a platform for teaching students the principles of software
+      engineering through the programming of a multi-player game.</para>
+
+      <para>July 2004 - September 2004</para>
+    </section>
+
+    <section>
+      <title>Programmer</title>
+
+      <subtitle>Stockholm International Peace Research Institute,
+      Sweden</subtitle>
+
+      <para>Programmer on the second version of the Facts on International
+      Relations and Security Trends (FIRST) database system. I was in charge
+      of the design of the new system, the implementation and data set
+      conversion.</para>
+
+      <para>July 2001 - October 2002</para>
+    </section>
+
+    <section>
+      <title>Designer</title>
+
+      <subtitle>Lukkien Digital Studios, The Netherlands</subtitle>
+
+      <para>Designer on multimedia projects. My tasks consisted of designing
+      online advertisements and websites for various clients, including:
+      Philips, Ladyline, and several others.</para>
+
+      <para>August 2000 - September 2000</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Theoretical and technical knowledge</title>
+
+    <variablelist>
+      <varlistentry>
+        <term>Programming languages</term>
+
+        <listitem>
+          <para>C#, C++, Erlang, Java, JavaScript, PHP, SML;</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Markup languages</term>
+
+        <listitem>
+          <para>HTML, XHTML, XML;</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Other languages</term>
+
+        <listitem>
+          <para>CSS, JSON, Latex, OpenGL, SQL, SVG, XPath, XQuery, XSL-FO,
+          XSLT;</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Theoretical</term>
+
+        <listitem>
+          <para>Artificial Intelligence, Compiler Design, Data Mining, Design
+          Patterns, Distributed Systems, Functional Programming, Machine
+          Learning, Object Oriented Programming, Refactoring, Relational
+          Database theory, Usability testing;</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Tools/Other</term>
+
+        <listitem>
+          <para>3D Studio Max, Adobe Illustrator, Adobe Photoshop, Ant, Apache
+          web server, askSam Freeform database, Debian GNU/Linux, Eclipse,
+          Freedom XML database, Macromedia Director, Macromedia Flash,
+          Microsoft Visual Studio, Microsoft Windows, MySQL, Oracle,
+          PostgreSQL, Version Control Systems.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</article>

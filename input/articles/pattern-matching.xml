@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>Pattern matching in JavaScript</title>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>Pattern matching is a form of conditional branching which allows you
+    to concisely match on data structure patterns and bind variables at the
+    same time<footnote>
+        <para>Wikipedia, <ulink
+        url="http://en.wikipedia.org/wiki/Conditional_statement#Pattern_matching">Conditional
+        Statements, Pattern Matching</ulink>.</para>
+      </footnote>. Pattern matching is supported in some functional languages
+    such as ML, Haskell, OCaml, and Erlang. The factorial function can be
+    implemented in ML like so (note that is not an efficient way to calculate
+    factorials, but it serves as a good introduction to pattern
+    matching):</para>
+
+    <sidebar>
+      <para>Pattern matching might seem like an esoteric functional
+      programming feature, but anyone who has written an XSLT stylesheet has
+      used pattern matching before, through the <code>&lt;xsl:template
+      match="mynode"&gt;</code> element. If you look hard enough however,
+      you'll notice XSLT is basically a thinly disguised functional
+      (declarative) programming language.</para>
+    </sidebar>
+
+    <programlisting>fun fact 0 = 1
+  | fact n = n * fact(n - 1);</programlisting>
+
+    <para>When you call <function>fact(10)</function> the value
+    <literal>10</literal> is first matched against the first pattern
+    <literal>0</literal>. This match fails and the next pattern is evaluated.
+    The <varname>n</varname> in the next pattern is an example of a variable.
+    Matching an integer against a variable succeeds, so the system binds
+    <literal>10</literal> to the variable <varname>n</varname>. The statements
+    following the pattern are then executed. Since this is a recursive
+    function it will match the second pattern until the argument to the
+    function reaches zero and then terminates. Haskell, OCaml, and Erlang have
+    similar syntax for pattern matching. In this article we will introduce
+    pattern matching to the JavaScript language using the <ulink
+    url="../../projects/junify/">JUnify unification library</ulink>.</para>
+  </section>
+
+  <section>
+    <title>Implementation</title>
+
+    <para>At its core, pattern matching is simply a conditional branch with
+    pattern matching as the expressions. Below is a simple implementation of
+    the factorial function in JavaScript, using the JUnify library.</para>
+
+    <sidebar>
+      <para>Make sure to include the JUnify library in your page before
+      running this code. You can find out how to include it and more about its
+      behaviour and API on the <ulink url="../../projects/junify/">JUnify
+      project page</ulink>.</para>
+    </sidebar>
+
+    <programlisting>var $ = unification.variable;
+var unify = unification.unify;
+
+var fact = function (n) {
+    var r;
+
+    if (unify(0, n)) {
+        return 1;
+    }
+    else if (r = unify($('n'), n)) {
+        return r.n * fact(r.n - 1);
+    }
+};
+
+fact(10); // 3628800</programlisting>
+
+    <para>We can improve the syntax a bit by creating a module that does the
+    matching for us and executes a closure when the match is made. The match
+    module returns a function that takes two parameters: an array of patterns
+    and closures, and a value to match against. The array of patterns and
+    closures is itself an array containing the pattern to match on and a
+    closure to execute once the pattern is matched. If no match is made, the
+    module returns undefined. If however a match is made, the closure is
+    executed and passed the result of the unification (the variable bindings,
+    if any).</para>
+
+    <programlisting>match = function () {
+    var unify = unification.unify;
+
+    function match_aux(patterns, value) {
+        var i, result;
+
+        for (i = 0; i &lt; patterns.length; i += 1) {
+            result = unify(patterns[i][0], value);
+            if (result) {
+                return patterns[i][1](result);
+            }
+        }
+        return undefined;
+    }
+
+    return function(patterns, value) {
+        return match_aux(patterns, value);
+    };
+}();
+
+var fact = function (n) {
+    return match([
+        [0, function() { return 1; }],
+        [$('n'), function(result) { return result.n * fact(result.n - 1); }]
+    ], n);
+};</programlisting>
+
+    <para>The above code listing shows the factorial function using the
+    <methodname>match</methodname> module. Notice however that we limit the
+    number of arguments we can match on to one. This also means that functions
+    using the match module are limited to only one argument. If they need more
+    than one argument they would have to construct an object or array and pass
+    that to the <methodname>match</methodname> method. We can make this a bit
+    more flexible by allowing an arbitrary number of arguments and reserve the
+    last item in the match array for the closure. We only need to change the
+    <function>match_aux</function> function to accomplish this. Instead of
+    passing the first value of the match array to
+    <methodname>unify</methodname> we pass an array of length - 1 to it. We
+    also modify the factorial function to pass its arguments array as the
+    second argument (<varname>value</varname>) to the match module. The
+    arguments pseudo-array is turned into a real array by the
+    <methodname>Array.slice</methodname> method before being passed to the
+    <methodname>match</methodname> module.</para>
+
+    <sidebar>
+      <para>At first glance the arguments array seems like a real array, but
+      it is not. Even though it does have a length property, it does not have
+      any of the other array methods, such as <methodname>push</methodname> or
+      <methodname>concat</methodname>. To fix this we call the Array
+      <methodname>slice</methodname> method which takes the pseudo-array and
+      turns it into a real array.</para>
+    </sidebar>
+
+    <programlisting>match = function () {
+    var unify = unification.unify;
+
+    function match_aux(patterns, value) {
+        var i, result, length;
+
+        for (i = 0; i &lt; patterns.length; i += 1) {
+            length = patterns[i].length;
+   
+            // we only try to match if the match array contains at
+            // least two items and the last item is a function (closure)
+            if (length &gt;= 2 &amp;&amp; typeof patterns[i][length - 1] === 'function') {
+                result = unify(patterns[i].slice(0, length - 1), value);
+                if (result) {
+                    return patterns[i][length - 1](result);
+                }
+            }
+        }
+        return undefined;
+    }
+
+    (…)
+
+}();
+
+var fact = function () {
+    return match([
+        [0, function() { return 1; }],
+        [$('n'), function(result) { return result.n * fact(result.n - 1); }]
+    ], Array.prototype.slice.apply(arguments));
+};</programlisting>
+
+    <para>The new factorial function is however longer than the previous
+    version. We can improve it by removing the function literal and manually
+    passing the arguments of the function. We do this by wrapping the returned
+    closure in another closure and passing the inner closure's arguments to
+    the <function>match</function> function.</para>
+
+    <programlisting>match = function () {
+
+    (…)
+
+    return function(patterns) {
+        return function () {
+            return match_aux(patterns, Array.prototype.slice.apply(arguments));
+        };
+    };
+}();</programlisting>
+
+    <para>The <methodname>match</methodname> module can now be called wih only
+    one argument. This returns a closure (the function we're building) whose
+    arguments, together with the patterns, are then passed to the
+    <function>match_aux</function> function. Again, the arguments pseudo-array
+    is turned into a real array. This small change simplifies our factorial
+    function tremendously.</para>
+
+    <programlisting>var fact = match([
+    [0, function() { return 1; }],
+    [$('n'), function(result) { return result.n * fact(result.n - 1); }]
+]);</programlisting>
+
+    <para>Notice that the array brackets around the match arrays are now
+    redundant, since the arguments to a function are already an array (albeit
+    a pseudo-array, but that can be fixed.) So let's get rid of those too. We
+    modify the return statement to pass the arguments array of the outer
+    closure as the first value of the inner closure. We have to introduce an
+    extra variable here because the arguments variable is local to a function.
+    By saving it as a variable we can access the arguments of the outer
+    closure from inside the inner closure.</para>
+
+    <programlisting>match = function () {
+    var slice = Array.prototype.slice;
+
+    (…)
+
+    return function () {
+        var args = slice.apply(arguments);
+        return function () {
+            return match_aux(args, slice.apply(arguments));
+        };
+    };
+}();
+
+
+var fact = match(
+    [0, function() { return 1; }],
+    [$('n'), function(r) { return r.n * fact(r.n - 1); }]
+);</programlisting>
+  </section>
+
+  <section>
+    <title>Conclusion</title>
+
+    <para>This concludes our implementation of basic pattern matching in
+    JavaScript. In the <ulink url="advanced-pattern-matching.html">next
+    article</ulink> we'll discuss more advanced pattern matching techniques
+    and simplify the syntax even further. You can download the final <ulink
+    url="match.js">match.js</ulink> code for your convenience.</para>
+
+    <para>We can also use JUnify's support for types in our pattern matcher
+    to―for example―implement DOM traversal. The following function traverses
+    the DOM and returns the number of characters in the element given to it as
+    a parameter. It does this by first matching on the <type>Text</type> type
+    and returning the number of characters. The other match pattern matches
+    any other type of node in the <abbrev>DOM</abbrev> (e.g.
+    <type>Element</type>) and iterates through its children and calls the
+    <function>count_characters</function> function recursively.</para>
+
+    <programlisting>var count_characters = match(
+    [$('node', Text), function(result) { 
+        return result.node.length; 
+    }],
+    [$('node'), function(result) {
+        var count = 0;
+        var n = result.node.firstChild;
+
+        while (n) {
+            count += count_characters(n);
+            n = n.nextSibling;
+        } 
+        return count;
+    }]
+);
+
+// display the number of characters in the document body
+alert(count_characters(document.body)); </programlisting>
+  </section>
+</article>

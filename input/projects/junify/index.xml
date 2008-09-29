@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>JUnify ― JavaScript Unification Library</title>
+
+  <sidebar>
+    <title>Download</title>
+
+    <para>Version 0.22 ― 2008-08-12.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="unification.js">unification.js</ulink>
+        (Uncompressed, 6.7KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="unification.min.js">unification.min.js</ulink>
+        (Minified, 3.0KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>License</title>
+
+    <para>JUnify is licensed under the <ulink url="/licenses/BSD.txt">revised
+    BSD license</ulink>. To summarize the license; JUnify is completely free
+    for commercial and non-commercial use and you can do with it whatever you
+    want, except claim it as your own work.</para>
+  </sidebar>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>JUnify is a JavaScript library for performing <ulink type=""
+    url="http://en.wikipedia.org/wiki/Unification">unification</ulink> on
+    objects and arrays. It can be executed by any browser that supports
+    JavaScript version 1.5 and up. Unification is an algorithm to determine
+    the substitutions needed to make two expressions match. If the expressions
+    contain variables, these will need to be bound to values in order for the
+    match to succeed. If two expressions are not identical or the variables
+    can not be bound, the match fails. In the following example unification is
+    used to extract values from a <ulink
+    url="http://www.json.org/"><acronym>JSON</acronym></ulink> object using an
+    pattern object:</para>
+
+    <programlisting>var point = {
+    coords: [12, 10, 80], 
+    color:  [255, 0, 0]
+};
+
+var pattern = {
+    coords: [variable('x'), variable('y'), _], 
+    color:  variable('color')
+};
+
+var a = unify(pattern, point); // a.x = 12, a.y = 10, a.color = [255, 0, 0]</programlisting>
+
+    <para>The syntax and use-case in this example is similar to <ulink
+    url="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7#Destructuring_assignment">destructoring
+    assignment in JavaScript 1.7</ulink>. Its use is however not limited to
+    extracting fields. Unification can, for example, also be used to implement
+    pattern matching or an expert system<footnote>
+        <para>Artificial Intelligence, Structures and Strategies for Complex
+        Problem Solving, by George F. Luger. Addison Wesley, ISBN:
+        0-201-64866-0, page 68.</para>
+      </footnote>. The following articles give some examples of the features
+    that could be implemented using the JUnify library.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink type=""
+        url="../../articles/extracting-object-values.html">Extracting values
+        from JavaScript objects</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink type=""
+        url="../../articles/pattern-matching.html">Pattern matching in
+        JavaScript</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink
+        url="../../articles/advanced-pattern-matching.html">Advanced pattern
+        matching in JavaScript</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>API</title>
+
+    <para>All code in the library is contained in the
+    <classname>unification</classname> module. To keep the examples in this
+    section simple, the module name is left out, but it should be present in
+    any real code. The module exposes three public methods and one constant.
+    The two most important methods are <methodname>unify</methodname> and
+    <methodname>variable</methodname>.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>unify(pattern1, pattern2)</term>
+
+        <listitem>
+          <para>Unifies pattern1 with pattern2. Returns
+          <constant>false</constant> if the unification fails, otherwise it
+          returns an object containing the variable bindings necessary for the
+          unification.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>variable(name, type)</term>
+
+        <listitem>
+          <para>Creates a new named variable with an optionally specified
+          type. The returned variable can be used in the patterns when calling
+          <methodname>unify</methodname>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Both the unify and variable methods were demonstrated in the
+    introduction. Note however that the unification works both ways, that is,
+    both patterns can contain variables:</para>
+
+    <programlisting>var a = { text: 'Hello', name: variable('name') };
+var b = { text: variable('text'), name: 'World!' };
+
+var c = unify(a, b); // c.text = 'Hello', c.name = 'World!'</programlisting>
+
+    <para>Variable names can however occur only once per pattern; they must be
+    unique.</para>
+
+    <para>JUnify can only perform unification on objects and arrays, not on
+    atoms. The following types are considered atoms: <type>Boolean</type>,
+    <type>Number</type>, <type>String</type>, <type>NaN</type>,
+    <type>Infinity</type>, <type>undefined</type> and <type>null</type>.
+    Functions are not considered atoms, nor can they be unified. Variables can
+    also be typed, so they only match if the types are identical in both
+    patterns.</para>
+
+    <programlisting>var a = new Date();
+var b = new Boolean(true);
+var c = unify(variable('date', Date), a);  // c.date = Mon Jun 23 2008 (…)
+var d = unify(variable('date', Date), b);  // d = false</programlisting>
+
+    <para>The introduction also demonstrated the use of the wildcard constant
+    "<constant>_</constant>", which can be used to match an item (atom, array,
+    or object) but does not create a binding.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>"_"</term>
+
+        <listitem>
+          <para>Wildcard variable which matches any atom, array or object, but
+          does not create any binding.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>The wildcard constant can also be used instead of an object property
+    name, effectively matching any other object against it (but again, not
+    creating a binding.) It is important that the wildcard symbol is
+    <emphasis>not</emphasis> renamed (i.e. assigned another variable name), as
+    the library uses it internally to identify wildcard object property names.
+    An example of both uses:</para>
+
+    <programlisting>var a = { text: 'Hello', name: 'World!' };
+var b = { text: _, name: variable('name') };
+var c = { text: _, var: _ };
+var d = { text: _, _:_ };
+
+var r = unify(a, a);   // r = {}
+var r = unify(a, b);   // r.name = 'World!'
+var r = unify(a, c);   // r = false (no match)
+var r = unify(a, d);   // r = {} (d can be matched against any object with 
+                       //         two properties, one of them being "text")</programlisting>
+
+    <para>The last method is <methodname>visit_pattern</methodname>, which is
+    used to traverse a pattern using a visitor object with callbacks. This can
+    be used to rewrite custom pattern syntax before passing it to the
+    <methodname>unify</methodname> method.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>visit_pattern(pattern, visitor)</term>
+
+        <listitem>
+          <para>Traverse the pattern using the <parameter>visitor</parameter>.
+          The visitor should be an object containing callback functions for
+          variables, wildcards, functions, objects and atoms. None of these
+          are required; if a callback function is not available the item under
+          inspection is returned unmodified. All callback functions should
+          return a value if implemented, which is then inserted at its
+          original position in the pattern. The following callback functions
+          are available:</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>variable(value)</term>
+
+              <listitem>
+                <para>Called when the pattern visitor encounters a variable.
+                The variable is supplied as a parameter.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>wildcard()</term>
+
+              <listitem>
+                <para>Called when the pattern visitor encounters a wildcard
+                variable.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>func(value)</term>
+
+              <listitem>
+                <para>Called when the pattern visitor encounters a function.
+                The function is supplied as a parameter.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>object(name, value)</term>
+
+              <listitem>
+                <para>Called when the pattern visitor encounters an object.
+                The property name and value are supplied as parameters. The
+                value parameter is visited <emphasis>after</emphasis> calling
+                the object callback. The callback function should only return
+                the value. It can not modify the key.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>atom(value)</term>
+
+              <listitem>
+                <para>Called when the pattern visitor encounters an atom. The
+                atom is supplied as a parameter.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>An example of using the <methodname>visit_pattern</methodname>
+    method can be found in <ulink
+    url="../../articles/extracting-object-values.html">the article on
+    extracting values from JavaScript objects</ulink>, where it is used to
+    implement a simplified syntax for extracting object properties.</para>
+  </section>
+
+  <section>
+    <title>Example</title>
+
+    <para>First include the JUnify library in your web page by adding a script
+    element to the head element. For production use it is recommend to use the
+    <ulink url="unification.min.js">minified version of JUnify</ulink>.</para>
+
+    <programlisting>&lt;script type="text/javascript" src="scripts/unification.min.js"&gt;&lt;/script&gt;</programlisting>
+
+    <para>In this example we set up some variable names for convenience (you
+    can also use the fully qualified names without any problems―I would
+    actually recommend it.) Remember that the wildcard constant
+    <constant>_</constant> must be an underscore. The methods can be renamed
+    freely. We also create a function to display the results. If the
+    unification succeeds this function will display all the variables and
+    their bindings, or if the unification fails, display an error
+    message.</para>
+
+    <programlisting>var _ = unification._;
+var $ = unification.variable;
+var unify = unification.unify;
+
+function display(value) {
+    var name;
+
+    if (value) {
+        for (name in value) {
+            if (value.hasOwnProperty(name)) {
+                alert(name + " = " + value[name]);
+            }
+        }
+    }
+    else {
+        alert("no match!");
+    }
+}</programlisting>
+
+    <para>It is then possible to use the library to either unify two patterns
+    or extract values from objects.</para>
+
+    <programlisting>
+var a = [1, $('k'), 5, 7, 11];
+var b = [1, 3, $('i'), 7, $('j')];
+
+display(unify(a, b)); // i = 5, j = 11, k = 3
+
+var json = {
+    article: {
+        title: 'Pattern Matching in JavaScript',
+        date: new Date(), 
+        author: 'Bram Stein'
+    }, 
+    refid: '12480E'
+};
+
+var pattern = { 
+    article: { 
+        title: $('title'), 
+        date: $('date', Date), 
+        author: $('author') 
+    },
+    _ : _ 
+};
+
+display(unify(pattern, json)); // title  = 'Pattern Matching in JavaScript',
+                               // date   = 'Mon Jun 23 2008 (…)', 
+                               // author = 'Bram Stein'</programlisting>
+
+    <para>In the first example we unify two arrays, both containing variables.
+    The returned object contains binding for all variables, from both arrays.
+    The second example extracts the title, date and author properties from an
+    article object if the date property has a type of <type>Date</type>. It
+    returns an object with those properties if the match is succesfull.</para>
+  </section>
+</article>
