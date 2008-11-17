@@ -16,7 +16,7 @@
         url="../projects/junify/">JUnify unification library</ulink> to
         implement a simple object property extractor. The end result allows
         you to extract properties from objects in a style similar to
-        destructoring assignment in JavaScript 1.7.</para>
+        destructuring assignment in JavaScript 1.7.</para>
       </listitem>
 
       <listitem>

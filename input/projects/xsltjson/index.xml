@@ -24,9 +24,10 @@
 
     <para>Don't have an XSLT 2.0 processor? Check out <ulink
     url="http://alanlewis.typepad.com/">Alan Lewis</ulink>'s excellent <ulink
-    url="xml-2-json.xsl">XML 2 JSON project</ulink>, or <ulink
+    url="xml-2-json.xsl">XML 2 JSON project</ulink>, <ulink
     url="http://onperl.org/blog/onperl/page/rayfish">Micheal Matthew's Rayfish
-    project</ulink>.</para>
+    project</ulink>, or <ulink
+    url="http://code.google.com/p/xml2json-xslt/">xml2json</ulink>.</para>
   </sidebar>
 
   <sidebar>

@@ -7,19 +7,19 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.2 ― 2008-08-03.</para>
+    <para>Version 0.3 ― 2008-10-04.</para>
 
     <para>jLayout Core:</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink type="" url="jlayout.js">jlayout.js</ulink>
-        (Uncompressed, 5.8KB)</para>
+        (Uncompressed, 8.1KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jlayout.min.js">jlayout.min.js</ulink> (Minified,
-        2.6KB)</para>
+        4.0KB)</para>
       </listitem>
     </itemizedlist>
 
@@ -28,12 +28,12 @@
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 3.3KB)</para>
+        (Uncompressed, 3.5KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
-        (Minified, 2.2KB)</para>
+        (Minified, 2.3KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -42,10 +42,9 @@
     <title>License</title>
 
     <para>jLayout is licensed under the <ulink type=""
-    url="/licenses/BSD.txt">revised BSD license</ulink>. To summarize the
-    license; jLayout is completely free for commercial and non-commercial use
-    and you can do with it whatever you want, except claim it as your own
-    work.</para>
+    url="/licenses/BSD.txt">new BSD license</ulink>. To summarize the license;
+    jLayout is completely free for commercial and non-commercial use and you
+    can do with it whatever you want, except claim it as your own work.</para>
   </sidebar>
 
   <section>
@@ -58,12 +57,13 @@
     individual components instead of on how to arrange them on your
     screen.</para>
 
-    <para>The library currently provides two layout algorithms:
+    <para>The library currently provides three layout algorithms:
     <methodname>border</methodname>, which lays out components in five
-    different regions and <methodname>grid</methodname>, which lays out
-    components in a user defined grid. An <ulink url="jquery-plugin.html"
-    userlevel="">experimental jQuery plugin</ulink> to lay out (X)HTML
-    elements is also available.</para>
+    different regions; <methodname>grid</methodname>, which lays out
+    components in a user defined grid, and <methodname>flex-grid</methodname>
+    which offers a grid with flexible column and row sizes. An <ulink
+    url="jquery-plugin.html" userlevel="">experimental jQuery plugin</ulink>
+    to lay out (X)HTML elements is also available.</para>
   </section>
 
   <section>
@@ -359,6 +359,67 @@ borderLayout.layout(myContainer);</programlisting>
 });
 
 gridLayout.layout(myContainer);</programlisting>
+
+      <para>If the number of rows is given, the number of columns is
+      calculated automatically by taking the number of components into
+      account. If the number of rows is not given (or set to zero), and the
+      number of columns is given, the number of rows will be automatically
+      calculated using the number of components. If neither is given, the
+      number of rows is set equal to the number of components and the number
+      of rows is set to zero.</para>
+    </section>
+
+    <section>
+      <title>Flex grid layout</title>
+
+      <para>The flex grid algorithms lays out the components in a grid with
+      flexible row and columns sizes. The number of columns and rows can be
+      specified by the user. On the right is a visualization of a flex grid
+      layout with six components in a 3x2 grid.</para>
+
+      <graphic fileref="flexgrid.png" />
+
+      <para>The flex grid algorithm takes an option object as parameter which
+      can contain the following properties:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>rows</term>
+
+          <listitem>
+            <para>The number of rows in the flex grid. Optional.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>columns</term>
+
+          <listitem>
+            <para>The number of columns in the flex grid. Optional.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>items</term>
+
+          <listitem>
+            <para>An array containing the components to be laid out by the
+            algorithm. Optional.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>The following example lays out six components in a 3x2 grid,
+      without any spacing between the components.</para>
+
+      <programlisting>var flexGridLayout = jLayout.flexGrid({
+    rows: 2,
+    columns: 2,
+    items: [myComponent1, myComponent2, myComponent3, 
+            myComponent4, myComponent5, myComponent6]
+});
+
+flexGridLayout.layout(myContainer);</programlisting>
 
       <para>If the number of rows is given, the number of columns is
       calculated automatically by taking the number of components into

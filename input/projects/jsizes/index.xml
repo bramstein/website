@@ -7,7 +7,7 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.31 ― 2008-07-22.</para>
+    <para>Version 0.32 ― 2008-10-05.</para>
 
     <itemizedlist>
       <listitem>
@@ -25,9 +25,9 @@
   <sidebar>
     <title>License</title>
 
-    <para>JSizes is licensed under the <ulink url="/licenses/BSD.txt">revised
-    BSD license</ulink>. To summarize the license; JSizes is completely free
-    for commercial and non-commercial use and you can do with it whatever you
+    <para>JSizes is licensed under the <ulink url="/licenses/BSD.txt">new BSD
+    license</ulink>. To summarize the license; JSizes is completely free for
+    commercial and non-commercial use and you can do with it whatever you
     want, except claim it as your own work.</para>
   </sidebar>
 
@@ -36,16 +36,16 @@
 
     <para>JSizes is a small plugin for the <ulink type=""
     url="http://jquery.com/">jQuery JavaScript library</ulink> which adds
-    support for the <acronym>CSS</acronym> <property>min-width</property>,
-    <property>min-height</property>, <property>max-width</property>,
-    <property>max-height</property>, <property>border-*-width</property>,
-    <property>margin</property>, and <property>padding</property> properties.
-    Additionally it has one method for determining whether an element is
-    visible. In total it adds six new methods to the jQuery element
-    <acronym>API</acronym>. It internally calls the jQuery built-in
-    <methodname>css</methodname> method, so syntax and use is identical to
-    calling <code>css('property-name', ...)</code>. An example of its use
-    follows.</para>
+    support for querying and setting the <acronym>CSS</acronym>
+    <property>min-width</property>, <property>min-height</property>,
+    <property>max-width</property>, <property>max-height</property>,
+    <property>border-*-width</property>, <property>margin</property>, and
+    <property>padding</property> properties. Additionally it has one method
+    for determining whether an element is visible. In total it adds six new
+    methods to the jQuery element <acronym>API</acronym>. It internally calls
+    the jQuery built-in <methodname>css</methodname> method, so syntax and use
+    is identical to calling <code>css('property-name', ...)</code>. An example
+    of its use follows.</para>
 
     <programlisting>jQuery(function($) {
    var myDiv = $('#myDiv');
@@ -56,7 +56,11 @@
 
     <para>Note that all returned values are converted to pixel values, without
     the <literal>px</literal> suffix. It is thus safe to use these methods in
-    calculations without having to worry about non-numeric values.</para>
+    calculations without having to worry about non-numeric values. Most
+    importantly, it does not add support for min- and max-sizes on browsers
+    that do not natively support it, it just adds convenient methods to query
+    these properties and return a sensible value when they are not available
+    or not set.</para>
   </section>
 
   <section>

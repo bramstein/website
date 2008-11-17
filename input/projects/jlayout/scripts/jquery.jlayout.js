@@ -1,21 +1,21 @@
 
 /*!
- * jLayout JQuery Plugin v0.11
+ * jLayout JQuery Plugin v0.12
  *
- * Licensed under the revised BSD License.
+ * Licensed under the new BSD License.
  * Copyright 2008, Bram Stein
  * All rights reserved.
  */
 /*global jQuery jLayout*/
 if (jQuery && jLayout) {
-	(function($){
+	(function ($) {
 		$.fn.layout = function (options) {
 			var opts = $.extend({}, $.fn.layout.defaults, options);
 			return $.each(this, function () {
 				var element = $(this),
 					o = $.metadata && element.metadata().layout ? $.extend(opts, element.metadata().layout) : opts;
 
-				if(o.type === 'border') {
+				if (o.type === 'border') {
 					$.each(['north', 'south', 'west', 'east', 'center'], function (i, name) {
 						if (element.children().hasClass(name)) {
 							o[name] = element.find('.' + name + ':first');
@@ -29,6 +29,13 @@ if (jQuery && jLayout) {
 						o.items[i] = $(this);
 					});
 					element.data('jlayout', jLayout.grid(o));
+				}
+				else if (o.type === 'flex-grid') {
+					o.items = [];
+					element.children().each(function (i) {
+						o.items[i] = $(this);
+					});
+					element.data('jlayout', jLayout.flexGrid(o));
 				}
 				if (o.resize) {
 					element.bounds(element.preferredSize());
@@ -109,7 +116,7 @@ if (jQuery && jLayout) {
 			if (this.data('jlayout')) {
 				size = this.data('jlayout').preferred(this);
 
-				minSize= this.minimumSize();
+				minSize = this.minimumSize();
 				maxSize = this.maximumSize();
 
 				size.width += margin.left + margin.right;

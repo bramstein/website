@@ -9,6 +9,10 @@
 
     <itemizedlist>
       <listitem>
+        <para><ulink url="jfun/">Pattern Matching in JavaScript</ulink></para>
+      </listitem>
+
+      <listitem>
         <para><ulink url="jlayout/">jLayout</ulink></para>
       </listitem>
 
@@ -35,15 +39,28 @@
   </sidebar>
 
   <section>
+    <title><ulink url="jfun/">Functional Pattern Matching in
+    JavaScript</ulink></title>
+
+    <para>Pattern matching is a form of conditional branching which allows you
+    to concisely match on data structure patterns and bind variables at the
+    same time. Pattern matching is supported in some functional languages such
+    as ML, Haskell, OCaml, and Erlang. This library implements pattern
+    matching for the JavaScript language in an efficient and concise
+    way.</para>
+  </section>
+
+  <section>
     <title><ulink url="jlayout/">jLayout ― JavaScript Layout
     Algorithms</ulink></title>
 
     <para>The <ulink url="jlayout/">jLayout JavaScript library</ulink>
     provides layout algorithms for laying out components and containers. The
-    library currently provides two layout algorithms:
+    library currently provides three layout algorithms:
     <methodname>border</methodname>, which lays out components in five
-    different regions and <methodname>grid</methodname>, which lays out
-    components in a user defined grid. An <ulink
+    different regions; <methodname>grid</methodname>, which lays out
+    components in a user defined grid; and flex-grid which lays out components
+    in a user defined grid with flexible column and row sizes. An <ulink
     url="jlayout/jquery-plugin.html" userlevel="">experimental jQuery
     plugin</ulink> to lay out (X)HTML elements is also available.</para>
   </section>

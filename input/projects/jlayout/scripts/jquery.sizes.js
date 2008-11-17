@@ -1,13 +1,13 @@
 
 /*!
- * JSizes - JQuery plugin v0.31
+ * JSizes - JQuery plugin v0.32
  *
  * Licensed under the revised BSD License.
  * Copyright 2008, Bram Stein
  * All rights reserved.
  */
 /*global jQuery*/
-(function($){
+(function ($) {
 	var num = function (value) {
 		return parseInt(value, 10) || 0;
 	};
@@ -31,9 +31,11 @@
 			else {
 				width = this.css(name + '-width');
 				height = this.css(name + '-height');
-				// apparently Opera returns -1px instead of none
-				return {'width': (name === 'max' && (width === 'none' || num(width) === -1) && Number.MAX_VALUE) || num(width), 
-						'height': (name === 'max' && (height === 'none' || num(height) === -1) && Number.MAX_VALUE) || num(height)};
+				// Apparently:
+				//  * Opera returns -1px instead of none
+				//  * IE6 returns undefined instead of none
+				return {'width': (name === 'max' && (width === undefined || width === 'none' || num(width) === -1) && Number.MAX_VALUE) || num(width), 
+						'height': (name === 'max' && (height === undefined || height === 'none' || num(height) === -1) && Number.MAX_VALUE) || num(height)};
 			}
 		};
 	});

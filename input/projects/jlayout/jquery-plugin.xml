@@ -7,17 +7,17 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.11 ― 2008-08-11.</para>
+    <para>Version 0.12 ― 2008-10-04.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 3.3KB)</para>
+        (Uncompressed, 3.5KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
-        (Minified), 2.2KB)</para>
+        (Minified), 2.3KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -26,10 +26,10 @@
     <title>License</title>
 
     <para>jLayout jQuery plugin is licensed under the <ulink type=""
-    url="/licenses/BSD.txt">revised BSD license</ulink>. To summarize the
-    license; jLayout jQuery plugin is completely free for commercial and
-    non-commercial use and you can do with it whatever you want, except claim
-    it as your own work.</para>
+    url="/licenses/BSD.txt">new BSD license</ulink>. To summarize the license;
+    jLayout jQuery plugin is completely free for commercial and non-commercial
+    use and you can do with it whatever you want, except claim it as your own
+    work.</para>
   </sidebar>
 
   <sidebar>
@@ -78,15 +78,11 @@
       </listitem>
 
       <listitem>
-        <para>Internet Explorer 7</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>The plugin does not work in:</para>
-
-    <itemizedlist>
-      <listitem>
         <para>Internet Explorer 6</para>
+      </listitem>
+
+      <listitem>
+        <para>Internet Explorer 7</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -103,14 +99,15 @@
       (which is probably more robust as well.)</para>
     </note>
 
-    <para>The jLayout jQuery plugin provides two layout algorithms for laying
-    out HTML elements in web pages. The first is
+    <para>The jLayout jQuery plugin provides three layout algorithms for
+    laying out HTML elements in web pages. The first is
     <methodname>border</methodname>, which lays out components in five
-    different regions and the second algorithm is
-    <methodname>grid</methodname>, which lays out components in a user defined
-    grid. The plugin allows you to lay out your elements with as little code
-    as possible, and behaves correctly when used with margins, padding and
-    borders.</para>
+    different regions. The second algorithm is <methodname>grid</methodname>,
+    which lays out components in a user defined grid. The third algorithm is
+    <methodname>flex-grid</methodname>, which lays out components in a grid
+    with flexible column and row sizes. The plugin allows you to lay out your
+    elements with as little code as possible, and behaves correctly when used
+    with margins, padding and borders.</para>
 
     <para>You can see the library in action on the <ulink
     url="examples.html">examples page</ulink> which features grids, border
@@ -144,8 +141,9 @@
 
               <listitem>
                 <para>The layout algorithm to use. Should be either
-                <constant>grid</constant> or <constant>border</constant>.
-                Defaults to <constant>grid</constant>.</para>
+                <constant>grid</constant>, <constant>border</constant>, or
+                <methodname>flex-grid</methodname>. Defaults to
+                <constant>grid</constant>.</para>
               </listitem>
             </varlistentry>
 

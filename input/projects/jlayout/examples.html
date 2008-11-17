@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,6 +13,7 @@
 			jQuery(function($)
 			{
 				$('.grid').layout();
+				$('.flex-grid').layout();
 				$('.column').layout();
 				$('.border').layout();
 				$('.mpb').layout();
@@ -30,14 +30,18 @@
 				$('.code').layout({
 					type: 'grid', 
 					items: [
-						$('.col-1').bounds({width: 500}), 
-						$('.col-2').bounds({width: 500})], 
+						$('.col-1').bounds({width: 400}), 
+						$('.col-2').bounds({width: 400})], 
 					vgap: 3, 
 					hgap: 3
 				});
 			});
 		</script>
 		<style>
+			.grid, .flex-grid, .column, .border, .mpb, .nested-center, .nested, .code {
+				overflow: auto;
+			}
+
 			.c {
 				background-color: rgb(220,220,220);
 				border: 1px solid rgb(200,200,200);
@@ -45,6 +49,10 @@
 				width: 100px;
 				height: 100px;
 				display: inline-block;
+			}
+
+			.d {
+				width: 200px;
 			}
 
 			.nested-center, .mpb {
@@ -76,6 +84,7 @@
 		</style>
 	</head>
 	<body>
+		<h1><a href="http://www.bramstein.com/projects/jlayout/">jLayout project homepage</a></h1>
 		<a name="simple-grid"></a>
 		<h1>2x2 grid</h1>
 		<div class="grid {layout: {type: 'grid', hgap: 3, vgap: 3, columns: 2, rows: 2}}">
@@ -92,6 +101,28 @@
 				Four
 			</div>
 		</div>
+
+		<h1>3x2 flex-grid</h1>
+		<div class="flex-grid {layout: {type: 'flex-grid', hgap: 3, vgap: 3, columns: 3, rows: 2}}">
+			<div class="c">
+				One
+			</div>
+			<div class="c d">
+				Two
+			</div>
+			<div class="c">
+				Three
+			</div>
+			<div class="c">
+				Four
+			</div>
+			<div class="c d">
+				Five
+			</div>
+			<div class="c">
+				Six
+			</div>
+		</div>	
 
 		<a name="columns"></a>
 		<h1>Automatic columns</h1>
@@ -184,5 +215,7 @@
 <p>Duis urna. Donec porta, nisl vel egestas euismod, lorem ipsum suscipit ligula, nec venenatis leo lorem non dolor. Sed fringilla mauris at elit. Suspendisse potenti. Proin magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur vel arcu. Donec dapibus mi vitae metus. Ut vestibulum nunc id nisi. Nunc convallis, tellus at fringilla pulvinar, lacus dui gravida risus, id sollicitudin nibh urna sit amet purus.</p>
 			</div>
 		</div>
+
+		<a href="http://www.bramstein.com/projects/jlayout/">Back to the jLayout project homepage</a>
 	</body>
 </html>

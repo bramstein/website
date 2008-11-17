@@ -26,6 +26,37 @@
   </sidebar>
 
   <section>
+    <title><ulink url="http://www.bramstein.com/projects/jfun/">Functional
+    Pattern Matching in JavaScript</ulink></title>
+
+    <subtitle>Posted on Sunday 05 October 2008</subtitle>
+
+    <para>I've turned the articles on pattern matching in JavaScript into a
+    library. The code is completely rewritten, shorter, more efficient, better
+    tested and no longer depends on the Junify unification library. Please see
+    the <ulink type="" url="http://www.bramstein.com/projects/jfun/">project
+    page</ulink> for details on the syntax, documentation and examples.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/jlayout/">New jLayout
+    algorithm &amp; IE6 support</ulink></title>
+
+    <subtitle>Posted on Saturday 04 October 2008</subtitle>
+
+    <para>I've uploaded a new version of <ulink
+    url="http://www.bramstein.com/projects/jlayout/">jLayout</ulink>, with
+    support for a new layout algorithm called ‘flex-grid’. The flex-grid
+    algorithm allows you to lay out components in a grid with flexible column
+    and row sizes. The <ulink
+    url="http://www.bramstein.com/projects/jlayout/jquery-plugin.html">jLayout
+    jQuery plugin</ulink> has also been updated and now supports Internet
+    Explorer 6 (in standards mode). Support for IE6 brought up a small bug in
+    the <ulink url="http://www.bramstein.com/projects/jsizes/">JSizes jQuery
+    plugin</ulink>, which has now been corrected as well.</para>
+  </section>
+
+  <section>
     <title><ulink type=""
     url="http://www.bramstein.com/projects/xsltjson/">Rayfish convention
     support for XSLTJSON</ulink></title>

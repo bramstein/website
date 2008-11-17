@@ -59,7 +59,7 @@ var pattern = {
 var a = unify(pattern, point); // a.x = 12, a.y = 10, a.color = [255, 0, 0]</programlisting>
 
     <para>The syntax and use-case in this example is similar to <ulink
-    url="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7#Destructuring_assignment">destructoring
+    url="http://developer.mozilla.org/en/docs/New_in_JavaScript_1.7#Destructuring_assignment">destructuring
     assignment in JavaScript 1.7</ulink>. Its use is however not limited to
     extracting fields. Unification can, for example, also be used to implement
     pattern matching or an expert system<footnote>
