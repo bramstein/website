@@ -55,23 +55,23 @@
 			</fileset>
 		</copy>
 
-		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/main.css output/main.css"/>
 		</java>
 
-		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/undohtml.css output/undohtml.css"/>
 		</java>
 
-		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/prettify.css output/prettify.css"/>
 		</java>
 
-		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/prettify.js output/prettify.js"/>
 		</java>
 
-		<java jar="${website.lib}/yuicompressor-2.3.5.jar" fork="true">
+		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/lang-ml.js output/lang-ml.js"/>
 		</java>
 	</target>

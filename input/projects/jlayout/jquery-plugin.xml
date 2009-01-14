@@ -17,9 +17,18 @@
 
       <listitem>
         <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
-        (Minified), 2.3KB)</para>
+        (Minified, 2.3KB)</para>
       </listitem>
     </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>Questions, suggestions, or problems?</title>
+
+    <para>Please use the <ulink
+    url="http://groups.google.com/group/jlayout/">jLayout Google Group</ulink>
+    for any questions, suggestions, ideas or problems you might have using the
+    jLayout library or the jQuery plugin. Feedback is much appreciated.</para>
   </sidebar>
 
   <sidebar>
@@ -89,15 +98,6 @@
 
   <section>
     <title>Introduction</title>
-
-    <note>
-      <para>This plugin is highly experimental and has only been tested on a
-      handful of browsers. It should be considered as an example of how the
-      <ulink type="" url="/projects/jlayout/">jLayout library</ulink> can be
-      used. It is not recommended to use it to create websites; it is almost
-      always possible to achieve the same layout using plain HTML and CSS
-      (which is probably more robust as well.)</para>
-    </note>
 
     <para>The jLayout jQuery plugin provides three layout algorithms for
     laying out HTML elements in web pages. The first is

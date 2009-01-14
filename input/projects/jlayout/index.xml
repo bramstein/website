@@ -39,6 +39,15 @@
   </sidebar>
 
   <sidebar>
+    <title>Questions, suggestions, or problems?</title>
+
+    <para>Please use the <ulink
+    url="http://groups.google.com/group/jlayout/">jLayout Google Group</ulink>
+    for any questions, suggestions, ideas or problems you might have using the
+    jLayout library or the jQuery plugin. Feedback is much appreciated.</para>
+  </sidebar>
+
+  <sidebar>
     <title>License</title>
 
     <para>jLayout is licensed under the <ulink type=""
@@ -61,9 +70,9 @@
     <methodname>border</methodname>, which lays out components in five
     different regions; <methodname>grid</methodname>, which lays out
     components in a user defined grid, and <methodname>flex-grid</methodname>
-    which offers a grid with flexible column and row sizes. An <ulink
-    url="jquery-plugin.html" userlevel="">experimental jQuery plugin</ulink>
-    to lay out (X)HTML elements is also available.</para>
+    which offers a grid with flexible column and row sizes. A <ulink
+    url="jquery-plugin.html" userlevel="">jQuery plugin</ulink> to lay out
+    (X)HTML elements is also available.</para>
   </section>
 
   <section>
