@@ -26,6 +26,29 @@
   </sidebar>
 
   <section>
+    <title><ulink url="http://www.bramstein.com/projects/jlayout/">jQuery 1.3
+    support for jLayout</ulink></title>
+
+    <subtitle>Posted on Saturday 17 January 2009</subtitle>
+
+    <para>Happy belated new year! It has been a while since I posted; moving
+    twice, starting a new job, and writing your thesis simultaneously tends to
+    do that. Things seem to be calming down now, and I hope to finish and
+    release two new projects soon. In the meantime I've set up a <ulink
+    type="" url="http://groups.google.com/group/jlayout/">support group for
+    the jLayout library</ulink> for general discussion and support. I have
+    also tested both <ulink
+    url="http://www.bramstein.com/projects/jlayout/">jLayout</ulink> and
+    <ulink url="http://www.bramstein.com/projects/jsizes/">JSizes</ulink> with
+    the new <ulink
+    url="http://blog.jquery.com/2009/01/14/jquery-13-and-the-jquery-foundation/">jQuery
+    1.3 release</ulink>. Neither required any changes, so no new release. I
+    did however remove the “experimental” warning on the jLayout plugin page,
+    and consider it stable and reasonably well tested―it works in all major
+    browsers including Internet Explorer 6.</para>
+  </section>
+
+  <section>
     <title><ulink url="http://www.bramstein.com/projects/jfun/">Functional
     Pattern Matching in JavaScript</ulink></title>
 

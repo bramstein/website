@@ -42,10 +42,10 @@
   <section>
     <title>Who is Bram Stein?</title>
 
-    <para>I'm a programmer and web developer from the Netherlands. I am
-    currently living in Sweden, Uppsala, but will soon move to Copenhagen,
-    Denmark. I have a passion for developing usable programs, websites,
-    visualizations―and when I have some spare time―games.</para>
+    <para>I'm a programmer and web developer from the Netherlands, but
+    currently living in Copenhagen, Denmark. I have a passion for developing
+    usable programs, websites, visualizations―and when I have some spare
+    time―games.</para>
 
     <para>I'm currently self-employed, so if you need a talented programmer
     and designer, please have a look at my Curriculum Vitæ below (or <ulink
@@ -167,7 +167,7 @@
         <term>Programming languages</term>
 
         <listitem>
-          <para>C#, C++, Erlang, Java, JavaScript, PHP, SML;</para>
+          <para>C#, C++, Erlang, Java, JavaScript, Perl, PHP, SML;</para>
         </listitem>
       </varlistentry>
 
