@@ -62,7 +62,7 @@
 		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/undohtml.css output/undohtml.css"/>
 		</java>
-
+<!--
 		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/prettify.css output/prettify.css"/>
 		</java>
@@ -74,6 +74,7 @@
 		<java jar="${website.lib}/yuicompressor-2.4.2.jar" fork="true">
 			<arg line="-o output/lang-ml.js output/lang-ml.js"/>
 		</java>
+-->
 	</target>
 
 	<target name="clean">
