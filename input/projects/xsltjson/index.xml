@@ -8,7 +8,7 @@
     <title>Download</title>
 
     <para>Download: <ulink url="xml-to-json.xsl">xml-to-json.xsl</ulink>
-    (XSLTJSON v0.7 - 2008-09-03 - 15 kB)</para>
+    (XSLTJSON v0.81 - 2009-02-27 - 15 kB)</para>
   </sidebar>
 
   <sidebar>
@@ -157,6 +157,12 @@
           url="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</ulink>;
           prepend the <acronym>JSON</acronym> output with the given string.
           Defaults to an empty string.</para>
+        </listitem>
+
+        <listitem>
+          <para><literal>skip-root</literal> — Enable or disable skipping the
+          root element and returning only the child elements of the root.
+          Disabled by default.</para>
         </listitem>
       </itemizedlist>
 
@@ -438,6 +444,7 @@
     <title>Credits</title>
 
     <para>Thanks to: Chick Markley (Octal number &amp; numbers with
-    terminating period fix).</para>
+    terminating period fix), Torben Schreiter (Suggestions for skip root, and
+    newline entities bug fix).</para>
   </section>
 </article>
