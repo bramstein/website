@@ -41,6 +41,19 @@
   </section>
 
   <section>
+    <title>Book Reviews</title>
+
+    <itemizedlist>
+      <listitem>
+        <para>“<ulink
+        url="http://www.bramstein.com/articles/object-oriented-javascript.html">Object
+        Oriented JavaScript: Create scalable, reusable high-quality JavaScript
+        applications and libraries</ulink>” by Stoyan Stefanov</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
     <title>Graphical User Interface Library</title>
 
     <itemizedlist>
