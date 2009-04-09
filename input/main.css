@@ -357,6 +357,10 @@ h6 { font-size: 0.83em; }
 	font-weight: normal;
 }
 
+#content .sidebar dt {
+	font-size: 0.85em;
+}
+
 #content .sidebar ul {
 	width: 100%;
 	list-style-type: circle;
