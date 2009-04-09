@@ -26,6 +26,58 @@
   </sidebar>
 
   <section>
+    <title><ulink type=""
+    url="http://www.bramstein.com/articles/object-oriented-javascript.html">Book
+    Review: Object Oriented JavaScript</ulink></title>
+
+    <subtitle>Posted on Tuesday 31 March 2009</subtitle>
+
+    <para>A few weeks ago I was asked by <ulink type=""
+    url="http://www.packtpub.com/">Packt Publishing</ulink> to review one of
+    their titles “<ulink
+    url="http://www.packtpub.com/object-oriented-javascript-applications-libraries/book">Object
+    Oriented JavaScript: Create scalable, reusable high-quality JavaScript
+    applications and libraries</ulink>” by Stoyan Stefanov. As an avid reader
+    and obsessed with all things JavaScript I couldn't say no, as you can see
+    in <ulink
+    url="http://www.bramstein.com/articles/object-oriented-javascript.html">my
+    review of Object Oriented JavaScript</ulink>.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/xsltjson/">New
+    XSLTJSON version</ulink></title>
+
+    <subtitle>Posted on Friday 27 February 2009</subtitle>
+
+    <para>I've just uploaded a <ulink
+    url="http://www.bramstein.com/projects/xsltjson/">new XSLTJSON
+    version</ulink>, with exactly one new feature and two minor bug fixes. It
+    is now possible to skip the root element of a XML document and only have
+    the child elements returned using the skip-root parameter. The
+    <acronym>JSONP</acronym> support has changed to not produce parentheses
+    when it is turned off (invalidating the <acronym>JSON</acronym>), and the
+    stylesheet now supports <acronym>XML</acronym> parsers that do not
+    properly match entity encoded new line control characters (that's a
+    mouthful, but what it comes down to is that running XSLTJSON on some XSLT
+    processors generated JSON with unescaped newlines.)</para>
+
+    <para>Last updated I mentioned two new projects that have kept me busy. I
+    haven't finished either project yet, but I'll give some hints as to the
+    nature of one of them: <ulink
+    url="http://www.bramstein.com/projects/chart/scatter.png">Canvas</ulink>,
+    <ulink
+    url="http://www.bramstein.com/projects/chart/bar.png">JavaScript</ulink>,
+    <ulink
+    url="http://www.bramstein.com/projects/chart/line.png">chart</ulink>,
+    <ulink type=""
+    url="http://www.bramstein.com/projects/chart/plot.png">plotting</ulink>,
+    and <ulink url="http://www.bramstein.com/projects/chart/histogram.png"
+    userlevel="">almost finished</ulink>. I hope you can figure it out from
+    that.</para>
+  </section>
+
+  <section>
     <title><ulink url="http://www.bramstein.com/projects/jlayout/">jQuery 1.3
     support for jLayout</ulink></title>
 

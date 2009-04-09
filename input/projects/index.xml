@@ -60,9 +60,9 @@
     <methodname>border</methodname>, which lays out components in five
     different regions; <methodname>grid</methodname>, which lays out
     components in a user defined grid; and flex-grid which lays out components
-    in a user defined grid with flexible column and row sizes. An <ulink
-    url="jlayout/jquery-plugin.html" userlevel="">experimental jQuery
-    plugin</ulink> to lay out (X)HTML elements is also available.</para>
+    in a user defined grid with flexible column and row sizes. A <ulink
+    url="jlayout/jquery-plugin.html" userlevel="">jQuery plugin</ulink> to lay
+    out (X)HTML elements is also available.</para>
   </section>
 
   <section>
