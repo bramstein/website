@@ -7,19 +7,19 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.3 ― 2008-10-04.</para>
+    <para>Version 0.4 ― 2009-04-15.</para>
 
     <para>jLayout Core:</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink type="" url="jlayout.js">jlayout.js</ulink>
-        (Uncompressed, 8.1KB)</para>
+        (Uncompressed, 7.8KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jlayout.min.js">jlayout.min.js</ulink> (Minified,
-        4.0KB)</para>
+        3.9KB)</para>
       </listitem>
     </itemizedlist>
 
@@ -28,7 +28,7 @@
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 3.5KB)</para>
+        (Uncompressed, 3.6KB)</para>
       </listitem>
 
       <listitem>

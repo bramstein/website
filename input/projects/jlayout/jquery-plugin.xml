@@ -2,17 +2,17 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <article>
-  <title>jLayout jQuery plugin</title>
+  <title>jLayout — jQuery plugin</title>
 
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.12 ― 2008-10-04.</para>
+    <para>Version 0.13 ― 2009-04-15.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 3.5KB)</para>
+        (Uncompressed, 3.6KB)</para>
       </listitem>
 
       <listitem>
@@ -112,8 +112,10 @@
     <para>You can see the library in action on the <ulink
     url="examples.html">examples page</ulink> which features grids, border
     layouts, nested layouts, columns, and more. There is also an example of
-    using a <ulink url="borderlayout.html">full-page border layout</ulink> for
-    web application developers.</para>
+    using a <ulink url="borderlayout.html">full-page border layout</ulink>,
+    and a <ulink type="" url="borderlayout-resize.html">resizable full-page
+    border layout using jQuery UI</ulink> for web application
+    developers.</para>
   </section>
 
   <section>
@@ -333,23 +335,24 @@
     <variablelist>
       <varlistentry>
         <term>I'm using a full page layout. When I recalculate the layout at
-        the onresize event sometimes there is empty space around the edges of
-        my layout. How can I solve this?</term>
+        the <methodname>onresize</methodname> event sometimes there is empty
+        space around the edges of my layout. How can I solve this?</term>
 
         <listitem>
           <para>This is caused by unmaximizing the window. The browser detects
           the window change, resizes the window and redraws the content. At
           this point it detects the window size is too small for your layout
           and adds horizontal or vertical scroll bars if necessary. It then
-          fires the onresize event. The layout manager recalculates the layout
-          using the size of the window minus the size of the scrollbars and
-          lays out the container accordingly. The browser then detects the
-          content suddenly fits into the browser window and removes the scroll
-          bars. Gaps remain where the scroll bars once were, and the layout it
-          not calculated again since the window has not been resized. To fix
-          this, set the overflow property of the html or body elements to
-          hidden. This will ensure that scrollbars never show up on
-          unmaximize, and the layout is calculated correctly.</para>
+          fires the <methodname>onresize</methodname> event. The layout
+          manager recalculates the layout using the size of the window minus
+          the size of the scrollbars and lays out the container accordingly.
+          The browser then detects the content suddenly fits into the browser
+          window and removes the scroll bars. Gaps remain where the scroll
+          bars once were, and the layout it not calculated again since the
+          window has not been resized. To fix this, set the overflow property
+          of the <classname>html</classname> or <classname>body</classname>
+          elements to hidden. This will ensure that scrollbars never show up
+          on unmaximize, and the layout is calculated correctly.</para>
         </listitem>
       </varlistentry>
 
@@ -362,11 +365,12 @@
           interaction the library can easily be integrated with libraries that
           support resizable components. One such library is <ulink
           url="http://jqueryui.com/">jQuery UI</ulink> which has a
-          <classname>resizable</classname> interaction. Using this interaction
-          you can make any layout element (container, child element) resizable
-          by simply calling the <methodname>resizable</methodname> method. For
-          example if you have a border layout and wish the north component
-          with id <classname>#north</classname> to become resizable you invoke
+          <classname>resizable</classname> interaction widget. Using this
+          interaction you can make any layout element (container, child
+          element) resizable by simply calling the
+          <methodname>resizable</methodname> method. For example if you have a
+          border layout and wish the north component with id
+          <classname>#north</classname> to become resizable you invoke
           <code>$('#north').resizable();</code>. For more options please refer
           to the <ulink url="http://jqueryui.com/demos/resizable/">jQuery UI
           resizable documentation</ulink> or examine <ulink

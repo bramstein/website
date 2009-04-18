@@ -1,56 +1,22 @@
 
 /*!
- * jLayout - JavaScript Layout Algorithms v0.3
+ * jLayout - JavaScript Layout Algorithms v0.4
  *
  * Licensed under the new BSD License.
- * Copyright 2008, Bram Stein
+ * Copyright 2008-2009, Bram Stein
  * All rights reserved.
  */
 /*global jLayout */
 jLayout = {
-	layout : function (spec, shared) {
-		var that = {},
-			my = shared || {};
-
-		my.hgap = spec.hgap || 0;
-		my.vgap = spec.vgap || 0;
-
-		/**
-		 * Lay out the container using a layout algorithm.
-		 */
-		that.layout = function (container) {
-			return container;
-		};
-
-		/**
-		 * Return the preferred size of the container.
-		 */
-		that.preferred = function (container) {
-			return {width: my.hgap, height: my.vgap};
-		};
-
-		/**
-		 * Return the minimum size the container is allowed to have.
-		 */
-		that.minimum = function (container) {
-			return {width: my.hgap, height: my.vgap};
-		};
-
-		/**
-		 * Return the maximum size the container is allowed to have.
-		 */
-		that.maximum = function (container) {
-			return {width: Number.MAX_VALUE, height: Number.MAX_VALUE};
-		};
-		return that;
-	},
-
 	/**
 	 * Grid layout
 	 */
 	grid : function (spec, shared) {
 		var my = shared || {},
-			that = this.layout(spec, my);
+			that = {};
+
+		my.hgap = spec.hgap || 0;
+		my.vgap = spec.vgap || 0;
 
 		// initialize the number of columns to the number of items
 		// we're laying out.
@@ -64,6 +30,12 @@ jLayout = {
 		else {
 			my.rows = Math.floor((my.items.length + my.columns - 1) / my.columns);
 		}
+
+		that.items = function () {
+			var r = [];
+			Array.prototype.push.apply(r, my.items);
+			return r;
+		};
 
 		that.layout = function (container) {
 			var i, j,
@@ -114,8 +86,10 @@ jLayout = {
 					width = Math.max(width, type_size.width);
 					height = Math.max(height, type_size.height);
 				}
-				return {'width': insets.left + insets.right + my.columns * width + (my.columns - 1) * my.hgap, 
-						'height': insets.top + insets.bottom + my.rows * height + (my.rows - 1) * my.vgap};
+				return {
+					'width': insets.left + insets.right + my.columns * width + (my.columns - 1) * my.hgap, 
+					'height': insets.top + insets.bottom + my.rows * height + (my.rows - 1) * my.vgap
+				};
 			};
 		}
 
@@ -228,13 +202,40 @@ jLayout = {
 	 */
 	border : function (spec) {
 		var my = {},
-			that = this.layout(spec, my),
+			that = {},
 			east = spec.east,
 			west = spec.west,
 			north = spec.north,
 			south = spec.south,
 			center = spec.center;
-		
+
+		my.hgap = spec.hgap || 0;
+		my.vgap = spec.vgap || 0;
+
+		that.items = function () {
+			var items = [];
+			if (east) {
+				items.push(east);
+			}
+
+			if (west) {
+				items.push(west);
+			}
+
+			if (north) {
+				items.push(north);
+			}
+
+			if (south) {
+				items.push(south);
+			}
+
+			if (center) {
+				items.push(center);
+			}
+			return items;
+		};		
+
 		that.layout = function (container) {
 			var size = container.bounds(),
 				insets = container.insets(),
@@ -312,8 +313,10 @@ jLayout = {
 					height += type_size.height + my.vgap;
 				}
 
-				return {'width': width + insets.left + insets.right, 
-						'height': height + insets.top + insets.bottom};
+				return {
+					'width': width + insets.left + insets.right, 
+					'height': height + insets.top + insets.bottom
+				};
 			};
 		}
 		that.preferred = typeLayout('preferred');

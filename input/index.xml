@@ -26,6 +26,41 @@
   </sidebar>
 
   <section>
+    <title><ulink url="http://www.bramstein.com/projects/column/">jQuery
+    column selector plugin</ulink></title>
+
+    <subtitle>Posted on Thursday 16 April 2009</subtitle>
+
+    <para>New project time; I mentioned some time ago that I was close to
+    finishing two new projects. Today I finally got around to releasing a new
+    <ulink url="http://www.bramstein.com/projects/column/">jQuery plugin for
+    selecting table columns</ulink>. The plugin adds a new selector to the
+    jQuery selector API for retrieving table cells by their column index. It
+    supports tables with column and row spans transparently, no matter how
+    complex a table is. The syntax for selecting column cells is simple and
+    similar to other jQuery selectors, so the learning curve should be very
+    small.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/jlayout/">jLayout
+    updated &amp; jQuery UI integration example</ulink></title>
+
+    <subtitle>Posted on Wednesday 15 April 2009</subtitle>
+
+    <para>The <ulink url="http://www.bramstein.com/projects/jlayout/">jLayout
+    library</ulink> has received an update; the new version is mostly a
+    refactoring of the code and as a result the file size is slightly smaller
+    than before (while keeping the same functionality.) It is also a first
+    step towards integration with the jQuery UI framework. Also included in
+    this update is a new example which demonstrates how to use the jQuery UI
+    framework to make a <ulink type=""
+    url="http://www.bramstein.com/projects/jlayout/borderlayout-resize.html">full-screen
+    resizable border layout</ulink>. As a bonus, this version has been tested
+    with jQuery 1.3.2, which works just fine.</para>
+  </section>
+
+  <section>
     <title><ulink type=""
     url="http://www.bramstein.com/articles/object-oriented-javascript.html">Book
     Review: Object Oriented JavaScript</ulink></title>

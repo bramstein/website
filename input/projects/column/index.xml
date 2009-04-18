@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>jQuery column cell selector</title>
+
+  <sidebar>
+    <title>Download</title>
+
+    <para>Version 0.12 ― 2009-04-16.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink type="" url="jquery.column.js">jquery.column.js</ulink>
+        (Uncompressed, 2.4KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jquery.column.min.js">jquery.column.min.js</ulink>
+        (Minified, 1.3KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>Requirements</title>
+
+    <para>This plugin requires at least version 1.3 of jQuery.</para>
+  </sidebar>
+
+  <sidebar>
+    <title>License</title>
+
+    <para>This plugin is licensed under the <ulink type=""
+    url="/licenses/BSD.txt">new BSD license</ulink>. To summarize the license;
+    it is completely free for commercial and non-commercial use and you can do
+    with it whatever you want, except claim it as your own work.</para>
+  </sidebar>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>This plugin adds a new selector to the jQuery selector API for
+    retrieving table cells by their column index. It supports tables with
+    column and row spans transparently, no matter how complex your table is.
+    The syntax is simple and similar to other jQuery selectors so there is a
+    very small learning curve. The following example shows how to select all
+    the cells in the fourth column of a table.</para>
+
+    <programlisting>$('#mytable tbody td:nth-col(4)');</programlisting>
+
+    <para>The selector can take several types of arguments for selecting
+    columns, such as keywords, numeric indexes, and equations. These are
+    explained in more detail in the API section.</para>
+  </section>
+
+  <section>
+    <title>API</title>
+
+    <para>This plugin adds one new pseudo selector to the jQuery selector API,
+    called <methodname>nth-col</methodname>. Additionally it adds one new
+    method to the jQuery function namespace called
+    <methodname>nthCol</methodname> (which one to use depends on your use
+    case, please refer to the <acronym>FAQ</acronym> section for details.)
+    Both the selector and extension function provide the same functionality
+    and accept the same arguments. The following arguments can be used:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>even</term>
+
+        <listitem>
+          <para>Selects and returns all cells in even columns.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>odd</term>
+
+        <listitem>
+          <para>Selects and returns all cells in uneven columns.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>equation</term>
+
+        <listitem>
+          <para>An equation in the form of <code>a * n + b</code>, where both
+          <varname>a</varname> and <varname>b</varname> can be negative or
+          positive, and n represents the column index. This will split the
+          columns in groups of size <varname>a</varname> and select the child
+          with position <varname>b</varname> in each group. Both
+          <varname>a</varname> and <varname>b</varname> are optional, but at
+          least one should be provided. The syntax is identical to that of the
+          <ulink
+          url="http://www.w3.org/TR/2009/WD-css3-selectors-20090310/#nth-child-pseudo">CSS
+          nth-child pseudo selector</ulink>. Invalid equations are ignored and
+          return no results.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>number</term>
+
+        <listitem>
+          <para>Selects and returns a single column with the specified numeric
+          index. This is a simplified version of the equation syntax.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Note that column numbering starts at one, not at zero as in most
+    programming languages. Please have a look at the examples in the next
+    section to see how the equation syntax is used.</para>
+  </section>
+
+  <section>
+    <title>Examples</title>
+
+    <para>The following are all examples of using both the column selector and
+    extension function. Note that the syntax for both is identical, but that
+    equations and keywords passed to the <methodname>nthCol</methodname>
+    extension function must be properly escaped.</para>
+
+    <programlisting>// select all even cells in the tbody section of #mytable
+$('#mytable tbody td:nth-col(even)');
+
+// same as above, but using the nthCol extension function
+$('#mytable tbody td').nthCol('even');
+
+// selects both table header and table data cells from the third column of #mytable
+$('#mytable th:nth-col(3), #mytable td:nth-col(3)');
+
+// same as above but using the nthCol extension function
+$('#mytable th, #mytable td).nthCol(3);
+
+// select the first element in the third group
+$('#mytable td:nth-col(3n+1)');
+
+// same as above but using the nthCol extension function
+$('#mytable td').nthCol('3n+1');
+
+// select the cells in the 9th, 19th, 29th, etc, column of #mytable
+$('#mytable td:nth-col(10n-1)');</programlisting>
+
+    <para>More examples are available on a separate page which shows <ulink
+    url="examples.html">examples of column selectors</ulink> used with tables
+    containing complicated column and row spans.</para>
+  </section>
+
+  <section>
+    <title>Frequently Asked Questions</title>
+
+    <variablelist>
+      <varlistentry>
+        <term>What is the difference between the selector and the nthCol
+        jQuery extension function?</term>
+
+        <listitem>
+          <para>Although both use the same code, the
+          <methodname>nthCol</methodname> extension function is probably
+          faster. The reason for this is that the selector engine in jQuery
+          uses a bottom up approach. This is a good thing for most selectors,
+          but not so much for a column selector because it needs context
+          information, such as access to rows and table sections
+          (<code>thead</code>, <code>tbody</code> and <code>tfoot</code>.) For
+          example, say you write the following selector: "<code>#mytable tbody
+          td:nth-col(even)</code>". The selector engine will first select all
+          <code>td</code> elements in your document and pass them to the
+          column selector. This means the column selector will have to
+          calculate the correct column cells for all tables in the document
+          instead of just the ones in <code>#mytable</code>. Although it does
+          so in the most efficient way possible, there is still a cost for
+          doing these calculations on tables you did not intend to select. The
+          <methodname>nthCol</methodname> extension function on the other hand
+          works on the result of the selector, meaning all irrelevant elements
+          have already been thrown out, and as such it does not do any
+          unnecessary work. My recommendation for now is that you start with
+          using the column selector in your code, and only if profiling shows
+          a performance problem switch to the <code>nthCol</code> extension
+          function.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Why not just use col and colgroup?</term>
+
+        <listitem>
+          <para>There are several reasons you might want to use this plugin
+          over <classname>col</classname> and <classname>colgroup</classname>.
+          First, <ulink
+          url="http://www.w3.org/TR/CSS21/tables.html#columns"><classname>col</classname>
+          and <classname>colgroup</classname> are restricted in the CSS
+          attributes they support</ulink>, which may be problematic if you
+          want to do advanced styling. They are limited because
+          <classname>col</classname> and <classname>colgroup</classname>
+          define artificial elements that are not actually there in the source
+          document. This plugin on the other hand returns the actual table
+          cells that make up the column. These cells can then be styled in any
+          way. Second, browser support for those <classname>col</classname>
+          and <classname>colgroup</classname> attributes that can be styled is
+          <ulink
+          url="http://www.quirksmode.org/css/columns.html">problematic</ulink>,
+          while all browsers fully support styling table cells.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>What is the difference between using this plugin and using the
+        standard "#mytable tbody &gt; td:nth-child(n)" selector?</term>
+
+        <listitem>
+          <para>For tables that have no row or column span attributes this
+          works just fine, and is the recommended method if you know for sure
+          your tables will never contain a row or column span. If you have row
+          or column spans in your table, or at least the possibility that they
+          might one day be there, you should use the column selector plugin
+          which handles column and row spans correctly.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
+  <section>
+    <title>Credits</title>
+
+    <para>The algorithm used in the column selector was inspired by the work
+    done by <ulink type="" url="http://www.javascripttoolbox.com/">Matt Kruse
+    of The Javascript Toolbox</ulink>.</para>
+  </section>
+</article>

@@ -9,10 +9,6 @@
 
     <itemizedlist>
       <listitem>
-        <para><ulink url="column/">jQuery column selector</ulink></para>
-      </listitem>
-
-      <listitem>
         <para><ulink url="jfun/">Pattern Matching in JavaScript</ulink></para>
       </listitem>
 
@@ -41,17 +37,6 @@
       </listitem>
     </itemizedlist>
   </sidebar>
-
-  <section>
-    <title><ulink url="column/">jQuery column cell selector</ulink></title>
-
-    <para>This jQuery plugin adds a new selector to the selector API for
-    retrieving table cells by their column index. It supports tables with
-    column and row spans transparently, no matter how complex a table is. The
-    syntax for selecting column cells is simple and similar to other jQuery
-    selectors. The selector can take several types of arguments for selecting
-    columns, such as keywords, numeric indexes, and equations.</para>
-  </section>
 
   <section>
     <title><ulink url="jfun/">Functional Pattern Matching in
