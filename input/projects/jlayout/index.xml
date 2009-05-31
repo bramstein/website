@@ -7,19 +7,39 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.4 ― 2009-04-15.</para>
+    <para>Version 0.4 ― 2009-05-29.</para>
 
     <para>jLayout Core:</para>
 
     <itemizedlist>
       <listitem>
-        <para><ulink type="" url="jlayout.js">jlayout.js</ulink>
-        (Uncompressed, 7.8KB)</para>
+        <para><ulink url="jlayout.grid.js">jlayout.grid.js</ulink>
+        (Uncompressed 2.6KB)</para>
       </listitem>
 
       <listitem>
-        <para><ulink url="jlayout.min.js">jlayout.min.js</ulink> (Minified,
-        3.9KB)</para>
+        <para><ulink url="jlayout.grid.min.js">jlayout.grid.min.js</ulink>
+        (Minified 1.4KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink type="" url="jlayout.border.js">jlayout.border.js</ulink>
+        (Uncompressed 3.3KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jlayout.border.min.js">jlayout.border.min.js</ulink>
+        (Minified 1.7KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jlayout.flexgrid.js">jlayout.flexgrid.js</ulink>
+        (Uncompressed 2.7KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jlayout.flexgrid.min.js"
+        userlevel="">jlayout.flexgrid.min.js</ulink> (Minified 1.5KB)</para>
       </listitem>
     </itemizedlist>
 
@@ -28,12 +48,12 @@
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 3.6KB)</para>
+        (Uncompressed, 4.3KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
-        (Minified, 2.3KB)</para>
+        (Minified, 2.5KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>

@@ -7,17 +7,47 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.13 ― 2009-04-15.</para>
+    <para>Version 0.15 ― 2009-05-29.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 3.6KB)</para>
+        (Uncompressed, 4.3KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
-        (Minified, 2.3KB)</para>
+        (Minified, 2.5KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>Examples</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="examples.html">Simple examples</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="borderlayout.html">Full page border
+        layout</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="borderlayout-resize.html">Resizable border
+        layout</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink type="" url="borderlayout-toggle.html">Toggle-able border
+        layout</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="content-scroll.html">Scrolling
+        content</ulink></para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -79,6 +109,10 @@
       </listitem>
 
       <listitem>
+        <para>Chrome</para>
+      </listitem>
+
+      <listitem>
         <para>Safari 3</para>
       </listitem>
 
@@ -87,11 +121,7 @@
       </listitem>
 
       <listitem>
-        <para>Internet Explorer 6</para>
-      </listitem>
-
-      <listitem>
-        <para>Internet Explorer 7</para>
+        <para>Internet Explorer 6, 7, 8</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -104,7 +134,7 @@
     <methodname>border</methodname>, which lays out components in five
     different regions. The second algorithm is <methodname>grid</methodname>,
     which lays out components in a user defined grid. The third algorithm is
-    <methodname>flex-grid</methodname>, which lays out components in a grid
+    <methodname>flexGrid</methodname>, which lays out components in a grid
     with flexible column and row sizes. The plugin allows you to lay out your
     elements with as little code as possible, and behaves correctly when used
     with margins, padding and borders.</para>
@@ -121,9 +151,8 @@
   <section>
     <title>API</title>
 
-    <para>The following methods are added to the jQuery element method
-    namespace. Normally you would only use the <methodname>layout</methodname>
-    method, but the others are listed for completeness sake.</para>
+    <para>The following method is added to the jQuery element method
+    namespace.</para>
 
     <variablelist>
       <varlistentry>
@@ -161,93 +190,6 @@
               </listitem>
             </varlistentry>
           </variablelist>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>doLayout()</term>
-
-        <listitem>
-          <para>Calls the layout method on the element's layout algorithm if
-          available.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>insets()</term>
-
-        <listitem>
-          <para>Returns the insets as an object with <property>top</property>,
-          <property>left</property>, <property>bottom</property>, and
-          <property>right</property> properties. For <acronym>HTML</acronym>
-          elements, the insets are equivalent to the <acronym>CSS</acronym>
-          <property>padding</property> + <property>border</property>
-          properties.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>bounds()</term>
-
-        <listitem>
-          <para>Returns the size of the element as an object with
-          <property>width</property>, <property>height</property>,
-          <property>x</property>, and <property>y</property>
-          properties.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>bounds(value)</term>
-
-        <listitem>
-          <para>Set the size and position of the element. If the element is a
-          container its <acronym>CSS</acronym> position property is set to
-          <constant>relative</constant>. If the element is a normal component,
-          its <acronym>CSS</acronym> position property is set to
-          <constant>absolute</constant>. The value object can contain any of
-          <property>width</property>, <property>height</property>,
-          <property>x</property>, and <property>y</property>
-          properties.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>minimumSize()</term>
-
-        <listitem>
-          <para>Returns the minimum size of the element as an object with
-          <property>width</property> and <property>height</property>
-          properties. If the element is a container, the layout algorithm's
-          minimum size is returned, otherwise the elements'
-          <acronym>CSS</acronym> <property>min-width</property> and
-          <property>min-height</property> properties are used.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>maximumSize()</term>
-
-        <listitem>
-          <para>Returns the maximum size of the element as an object with
-          <property>width</property> and <property>height</property>
-          properties. If the element is a container, the layout algorithm's
-          maximum size is returned, otherwise the elements'
-          <acronym>CSS</acronym> <property>max-width</property> and
-          <property>max-height</property> properties are used.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>preferredSize()</term>
-
-        <listitem>
-          <para>Returns the preferred size of the element as an object with
-          <property>width</property> and <property>height</property>
-          properties. If the element is a container, the layout algorithm's
-          preferred size is returned, otherwise the elements'
-          <acronym>CSS</acronym> <property>width</property> and
-          <property>height</property> properties are used.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -361,12 +303,12 @@
         borders?</term>
 
         <listitem>
-          <para>Although the layout managers have no notion of user
-          interaction the library can easily be integrated with libraries that
-          support resizable components. One such library is <ulink
+          <para>Although the jLayout plugin has no notion of user interaction
+          it can easily be integrated with libraries that support resizable
+          components. One such library is <ulink
           url="http://jqueryui.com/">jQuery UI</ulink> which has a
           <classname>resizable</classname> interaction widget. Using this
-          interaction you can make any layout element (container, child
+          interaction you can make any layout element (container, or child
           element) resizable by simply calling the
           <methodname>resizable</methodname> method. For example if you have a
           border layout and wish the north component with id
@@ -374,8 +316,64 @@
           <code>$('#north').resizable();</code>. For more options please refer
           to the <ulink url="http://jqueryui.com/demos/resizable/">jQuery UI
           resizable documentation</ulink> or examine <ulink
-          url="borderlayout-resize.html">an example of a resizable
+          url="borderlayout-resize.html">an example of a resizable border
           layout</ulink>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Is it possible to save the position of the layout when
+        navigating to other pages?</term>
+
+        <listitem>
+          <para>Sure, the easiest way to do this is to query the sizes of all
+          components and containers using the <methodname>width</methodname>
+          and <methodname>height</methodname> methods. Serialize this
+          information to a cookie, and restore the layout on page load using
+          the information in the cookie and the <methodname>width</methodname>
+          and <methodname>height</methodname> methods.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>How do I hide or show a component or container (with an
+        animation?)</term>
+
+        <listitem>
+          <para>The easiest way is to use the standard jQuery
+          <methodname>animate</methodname> method. When handling the event
+          that should toggle a certain component you call the
+          <methodname>animate</methodname> function with the property you
+          would like to animate (say the <property>width</property> or
+          <property>height</property>), and the parameters to the animation.
+          The following code example will toggle a component's width and
+          animate it accordingly. Note that both callbacks to the
+          <methodname>layout</methodname> method are necessary; the
+          <property>complete</property> callback will be executed when the
+          animation reached its final point, and the <property>step</property>
+          callback will be executed during the intermediate steps.</para>
+
+          <programlisting>var container = $('.layout');
+$('#mycomponent').animate({width: 'toggle'}, {duration: 500, complete: container.layout, step: container.layout});</programlisting>
+
+          <para>You might also want to take a look at the examples, which
+          includes a <ulink url="borderlayout-toggle.html">border layout with
+          toggle-able components</ulink>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Can I have scroll bars for content that does not fit into a
+        component?</term>
+
+        <listitem>
+          <para>No problem, just set the CSS overflow: auto property like you
+          normally would on an absolute or relativily positioned element, and
+          scroll bars will appear when necessary. You might also want to set
+          the <property>resize</property> option to false, to keep jLayout
+          from resizing your containers. There is an <ulink
+          url="content-scroll.html">example of a layout with scroll
+          bars</ulink> available as well.</para>
         </listitem>
       </varlistentry>
     </variablelist>

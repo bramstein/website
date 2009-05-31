@@ -8,7 +8,7 @@
     <title>Download</title>
 
     <para>Download: <ulink url="xml-to-json.xsl">xml-to-json.xsl</ulink>
-    (XSLTJSON v0.81 - 2009-02-27 - 15 kB)</para>
+    (XSLTJSON v0.85 - 2009-05-31 - 14.2 kB)</para>
   </sidebar>
 
   <sidebar>
@@ -183,6 +183,20 @@
       should add the following parameter definition to your stylesheet.</para>
 
       <programlisting>    &lt;xsl:param name="use-badgerfish" as="xs:boolean" select="true()"/&gt;</programlisting>
+
+      <para>You can force the creation of an array by adding the
+      <literal>force-array</literal> parameter to your <acronym>XML</acronym>.
+      So instead of creating two nested objects, the following example will
+      create an object containing an array. </para>
+
+      <programlisting>&lt;list json:force-array="true" xmlns:json="http://json.org/"&gt;
+  &lt;item&gt;one&lt;/item&gt;
+&lt;/list&gt;
+
+{list: {item: ['one']}}</programlisting>
+
+      <para>The <literal>force-array</literal> attribute will not be copied to
+      the output <acronym>JSON</acronym>.</para>
     </section>
 
     <section>

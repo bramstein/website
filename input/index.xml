@@ -26,6 +26,49 @@
   </sidebar>
 
   <section>
+    <title><ulink url="http://www.bramstein.com/projects/jlayout/">New jLayout
+    release</ulink></title>
+
+    <subtitle>Posted on Sunday May 31 2009</subtitle>
+
+    <para>In a further step to compatibility with the jQuery UI guidelines,
+    this new release reduces the number of methods added to the jQuery
+    function namespace to exactly one. Additionally, each layout algorithm is
+    now distributed as a seperate file, which hopefully makes it easier to
+    extend the library with other algorithms. The <ulink
+    url="http://www.bramstein.com/projects/jlayout/jquery-plugin.html">jLayout
+    jQuery plugin</ulink> page now features more examples (such as a <ulink
+    url="http://www.bramstein.com/projects/jlayout/borderlayout-toggle.html">toggle-able
+    border layout</ulink>, and a <ulink
+    url="http://www.bramstein.com/projects/jlayout/content-scroll.html">layout
+    with scrolling content</ulink>), and an updated <abbrev>FAQ</abbrev>
+    section. I'm planning on soon releasing a new layout algorithm plus
+    articles on how to extend jLayout with new algorithms, and how to use
+    jLayout with the HTML5 canvas element.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/xsltjson/">New
+    XSLTJSON version</ulink></title>
+
+    <subtitle>Posted on Sunday May 31 2009</subtitle>
+
+    <para>This new release includes better handling of native JSON data types
+    such as booleans and numbers, and a new source attribute that instructs
+    XSLTJSON to create arrays instead of objects.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/column/">Bug fix for
+    jQuery column selector plugin</ulink></title>
+
+    <subtitle>Posted on Sunday 17 May 2009</subtitle>
+
+    <para>Version 0.13 of the column selector plugin has been released, and
+    fixes the plugin inadvertently polluting the global namespace.</para>
+  </section>
+
+  <section>
     <title><ulink url="http://www.bramstein.com/projects/column/">jQuery
     column selector plugin</ulink></title>
 
@@ -97,7 +140,7 @@
     mouthful, but what it comes down to is that running XSLTJSON on some XSLT
     processors generated JSON with unescaped newlines.)</para>
 
-    <para>Last updated I mentioned two new projects that have kept me busy. I
+    <para>Last update I mentioned two new projects that have kept me busy. I
     haven't finished either project yet, but I'll give some hints as to the
     nature of one of them: <ulink
     url="http://www.bramstein.com/projects/chart/scatter.png">Canvas</ulink>,

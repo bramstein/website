@@ -104,6 +104,7 @@
 						<div class="columns">
 							<div class="left-column">
 								<h2>Project updates</h2>
+								<p><a href="/projects/column/"><em>jQuery column selector</em> ― A plugin for the jQuery JavaScript library which adds a table column cell selector</a>.</p>
 								<p><a href="/projects/jlayout/"><em>jLayout</em> ― The jLayout JavaScript library provides layout algorithms for laying out components and containers</a>.</p>
 								<p><a href="/projects/junify/"><em>JUnify</em> ― JUnify is a JavaScript library for performing unification on objects and arrays</a>.</p>
 								<p><a href="/projects/xsltjson/"><em>XSLTJSON</em> ― XSLTJSON is an <acronym>XSLT</acronym> 2.0 stylesheet to transform
@@ -138,7 +139,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<div id="footer-navigation">
-				<p>Copyright 2008, Bram Stein. All rights reserved.</p>
+				<p>Copyright 2008-2009, Bram Stein. All rights reserved.</p>
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/projects/">Projects</a></li>

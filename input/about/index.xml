@@ -62,7 +62,7 @@
 
       <subtitle>Uppsala University, Sweden</subtitle>
 
-      <para>Expected date of graduation: March 2009.</para>
+      <para>Graduated in May 2009.</para>
     </section>
 
     <section>
@@ -78,6 +78,18 @@
 
   <section>
     <title>Professional experience</title>
+
+    <section>
+      <title>Software Developer</title>
+
+      <subtitle>Technical University of Denmark</subtitle>
+
+      <para>Software developer at the Technical Information Center of Denmark.
+      My work consists of data processing for the DADS article database and
+      development of the upcoming DTU Digital Library web application.</para>
+
+      <para>November 2008 - Present</para>
+    </section>
 
     <section>
       <title>Software Developer &amp; System Administrator</title>
@@ -175,7 +187,7 @@
         <term>Markup languages</term>
 
         <listitem>
-          <para>HTML, XHTML, XML;</para>
+          <para>DocBook, HTML, XHTML, XML;</para>
         </listitem>
       </varlistentry>
 
@@ -183,8 +195,8 @@
         <term>Other languages</term>
 
         <listitem>
-          <para>CSS, JSON, Latex, OpenGL, SQL, SVG, XPath, XQuery, XSL-FO,
-          XSLT;</para>
+          <para>CSS, JSON, Latex, OpenGL, RDF, SQL, SVG, XPath, XQuery,
+          XSL-FO, XSLT;</para>
         </listitem>
       </varlistentry>
 
@@ -195,7 +207,7 @@
           <para>Artificial Intelligence, Compiler Design, Data Mining, Design
           Patterns, Distributed Systems, Functional Programming, Machine
           Learning, Object Oriented Programming, Refactoring, Relational
-          Database theory, Usability testing;</para>
+          Database theory, REST, Usability testing;</para>
         </listitem>
       </varlistentry>
 
@@ -205,8 +217,8 @@
         <listitem>
           <para>3D Studio Max, Adobe Illustrator, Adobe Photoshop, Ant, Apache
           web server, askSam Freeform database, Debian GNU/Linux, Eclipse,
-          Freedom XML database, Macromedia Director, Macromedia Flash,
-          Microsoft Visual Studio, Microsoft Windows, MySQL, Oracle,
+          Freedom XML database, jQuery, Macromedia Director, Macromedia Flash,
+          Maven, Microsoft Visual Studio, Microsoft Windows, MySQL, Oracle,
           PostgreSQL, Version Control Systems.</para>
         </listitem>
       </varlistentry>

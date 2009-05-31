@@ -1,5 +1,5 @@
 /*!
- * jQuery Column cell selector v0.12
+ * jQuery Column cell selector v0.13
  *
  * Licensed under the new BSD License.
  * Copyright 2009, Bram Stein
@@ -9,41 +9,6 @@
 (function ($) {
 	var equationRegExp = /([\+\-]?\d*)[nN]([\+\-]?\d*)/,
 		cache, equation;
-
-	function nthCol(element, match, index) {
-		var difference = c[index] - (equation.offset - 1);
-		if (equation.multiplier === 0) {
-			return difference === 0;
-		} else {
-			return (difference % equation.multiplier === 0 && difference / equation.multiplier >= 0);
-		}
-	}
-
-	$.extend(jQuery.fn, {
-		nthCol: function (e) {
-			equation = parseEquation(e);
-			c = generateCache(this);
-			return $(this).filter(function (i) {
-				return nthCol(this, undefined, i);
-			});
-		}
-	});
-
-	$.extend(jQuery.expr.match, {
-		COLUMN: /:nth-col\((even|odd|[\dnN\+\-]*)\)/
-	});
-
-	$.extend(jQuery.expr.preFilter, {
-		COLUMN: function (match, items) {
-			equation = parseEquation(match[1]);
-			c = generateCache(items);
-			return match;
-		}
-	});
-
-	$.extend(jQuery.expr.filter, {
-		COLUMN: nthCol
-	});
 
 	function parseEquation(str) {
 		var tmp = [],
@@ -114,4 +79,39 @@
 		});
 		return lookup;
 	}
+
+	function nthCol(element, match, index) {
+		var difference = cache[index] - (equation.offset - 1);
+		if (equation.multiplier === 0) {
+			return difference === 0;
+		} else {
+			return (difference % equation.multiplier === 0 && difference / equation.multiplier >= 0);
+		}
+	}
+
+	$.extend(jQuery.fn, {
+		nthCol: function (e) {
+			equation = parseEquation(e);
+			cache = generateCache(this);
+			return $(this).filter(function (i) {
+				return nthCol(this, undefined, i);
+			});
+		}
+	});
+
+	$.extend(jQuery.expr.match, {
+		COLUMN: /:nth-col\((even|odd|[\dnN\+\-]*)\)/
+	});
+
+	$.extend(jQuery.expr.preFilter, {
+		COLUMN: function (match, items) {
+			equation = parseEquation(match[1]);
+			cache = generateCache(items);
+			return match;
+		}
+	});
+
+	$.extend(jQuery.expr.filter, {
+		COLUMN: nthCol
+	});
 })(jQuery);
