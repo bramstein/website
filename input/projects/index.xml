@@ -9,6 +9,10 @@
 
     <itemizedlist>
       <listitem>
+        <para><ulink url="text-overflow/">jQuery text overflow</ulink></para>
+      </listitem>
+
+      <listitem>
         <para><ulink url="column/">jQuery column selector</ulink></para>
       </listitem>
 
@@ -41,6 +45,20 @@
       </listitem>
     </itemizedlist>
   </sidebar>
+
+  <section>
+    <title><ulink url="text-overflow/">jQuery CSS3 text overflow
+    plugin</ulink></title>
+
+    <para>This jQuery plugin implements a simplified version of the <ulink
+    url="https://developer.mozilla.org/en/CSS/text-overflow">CSS3
+    text-overflow</ulink> property. The <property>text-overflow</property>
+    property allows stylesheet authors to specify how and where text should be
+    clipped. This is usually done by adding an ellipsis character
+    "<literal>…</literal>" or three dots at the point the text should be cut
+    off. Unfortunately, not all browser support this CSS property, and this
+    plugin was designed to simulate it when not natively available.</para>
+  </section>
 
   <section>
     <title><ulink url="column/">jQuery column cell selector</ulink></title>

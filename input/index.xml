@@ -26,6 +26,43 @@
   </sidebar>
 
   <section>
+    <title><ulink type=""
+    url="http://www.bramstein.com/projects/text-overflow/">New jQuery plugin:
+    CSS3 text-overflow</ulink></title>
+
+    <subtitle>Posted on Sunday June 28 2009</subtitle>
+
+    <para>This new jQuery plugin implements a simplified version of the <ulink
+    url="https://developer.mozilla.org/en/CSS/text-overflow">CSS3
+    text-overflow</ulink> property, which allows stylesheet authors to specify
+    how and where text should be clipped. This is usually done by adding an
+    ellipsis character "<literal>…</literal>" or three dots at the point the
+    text should be cut off. Unfortunately, not all browser support this CSS
+    property, and this plugin was designed to simulate it when the property is
+    not natively available. The plugin is basically a rewrite of <ulink
+    url="http://devongovett.wordpress.com/2009/04/06/text-overflow-ellipsis-for-firefox-via-jquery/">an
+    existing jQuery text-overflow plugin</ulink>, with the goal of being
+    faster and more reliable (for example, one of the optimizations is that it
+    uses a binary search to find the correct clipping point, instead of a
+    linear search.)</para>
+  </section>
+
+  <section>
+    <title><ulink type=""
+    url="http://www.bramstein.com/projects/xsltjson/">XSLTJSON Bug fix
+    release</ulink></title>
+
+    <subtitle>Posted on Sunday June 28 2009</subtitle>
+
+    <para>Today sees a new release of <ulink
+    url="http://www.bramstein.com/projects/xsltjson/">XSLTJSON</ulink>,
+    bringing the version number up to 0.87. This new release contains several
+    bug fixes for to recently introduced json:force-array feature. Upgrading
+    from previous versions is recommended if you are using the force-array
+    feature.</para>
+  </section>
+
+  <section>
     <title><ulink url="http://www.bramstein.com/projects/jlayout/">New jLayout
     release</ulink></title>
 
@@ -34,7 +71,7 @@
     <para>In a further step to compatibility with the jQuery UI guidelines,
     this new release reduces the number of methods added to the jQuery
     function namespace to exactly one. Additionally, each layout algorithm is
-    now distributed as a seperate file, which hopefully makes it easier to
+    now distributed as a separate file, which hopefully makes it easier to
     extend the library with other algorithms. The <ulink
     url="http://www.bramstein.com/projects/jlayout/jquery-plugin.html">jLayout
     jQuery plugin</ulink> page now features more examples (such as a <ulink

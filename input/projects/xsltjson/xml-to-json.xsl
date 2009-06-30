@@ -8,7 +8,7 @@
 	<xsl:strip-space elements="*"/>
 
 	<!--
-	   XSLTJSON v0.85.
+	   XSLTJSON v0.87.
 	
 	   You can use these parameters to control the output by supplying them to 
 	   stylesheet. Consult the manual of your XSLT processor for instructions 
@@ -31,6 +31,7 @@
 	   Credits: 
 		Chick Markley (chick@diglib.org) - Octal number & numbers with terminating period.
 		Torben Schreiter (Torben.Schreiter@inubit.com) - Suggestions for skip root and node list.
+		Michael Nilsson - Bug report and unit tests for json:force-array feature.
 
 	   Copyright:
            	2006-2009, Bram Stein
@@ -190,7 +191,7 @@
 		<xsl:choose>
 			<xsl:when test="exists($node/child::text()) and count($node/child::node()) eq 1">
 				<xsl:choose>
-					<xsl:when test="(count($node/namespace::*) gt 0 and $use-namespaces) or count($node/@*) gt 0">
+					<xsl:when test="(count($node/namespace::*) gt 0 and $use-namespaces) or count($node/@*[not(../@json:force-array) or count(.|../@json:force-array)=2]) gt 0">
 						<json:object>
 							<xsl:copy-of select="json:create-namespaces($node)"/>
 							<xsl:copy-of select="json:create-attributes($node)"/>
@@ -207,7 +208,7 @@
 			</xsl:when>
 			<xsl:when test="exists($node/child::text())">
 				<xsl:choose>
-					<xsl:when test="(count($node/namespace::*) gt 0 and $use-namespaces) or count($node/@*) gt 0">
+					<xsl:when test="(count($node/namespace::*) gt 0 and $use-namespaces) or count($node/@*[not(../@json:force-array) or count(.|../@json:force-array)=2]) gt 0">
 						<json:object>
 							<xsl:copy-of select="json:create-namespaces($node)"/>
 							<xsl:copy-of select="json:create-attributes($node)"/>
@@ -224,13 +225,13 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:when>
-			<xsl:when test="exists($node/child::node()) or ((count($node/namespace::*) gt 0 and $use-namespaces) or count($node/@*) gt 0)">
+			<xsl:when test="exists($node/child::node()) or ((count($node/namespace::*) gt 0 and $use-namespaces) or count($node/@*[not(../@json:force-array) or count(.|../@json:force-array)=2]) gt 0)">
 				<json:object>
 					<xsl:copy-of select="json:create-namespaces($node)"/>
 					<xsl:copy-of select="json:create-attributes($node)"/>	
 					<xsl:for-each-group select="$node/child::node()" group-adjacent="local-name()">
 						<xsl:choose>
-							<xsl:when test="count(current-group()) eq 1">
+							<xsl:when test="count(current-group()) eq 1 and (not(exists(./@json:force-array)) or ./@json:force-array eq 'false')">
 								<xsl:copy-of select="json:create-node(current-group()[1], false())"/>
 							</xsl:when>
 							<xsl:otherwise>
@@ -307,7 +308,7 @@
 	
 	<xsl:function name="json:create-attributes" as="node()*">
 		<xsl:param name="node" as="node()"/>
-		<xsl:for-each select="$node/@*">
+		<xsl:for-each select="$node/@*[not(../@json:force-array) or count(.|../@json:force-array)=2]">
 			<json:member>
 				<json:name><xsl:if test="$use-badgerfish or $use-rabbitfish">@</xsl:if><xsl:value-of select="if($use-namespaces) then name() else local-name()"/></json:name>
 				<json:value><xsl:value-of select="."/></json:value>

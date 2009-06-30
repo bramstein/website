@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>jQuery Text Overflow plugin</title>
+
+  <sidebar>
+    <title>Download</title>
+
+    <para>Version 0.52 ― 2009-06-27.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink
+        url="jquery.text-overflow.js">jquery.text-overflow.js</ulink>
+        (Uncompressed, 2.4KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink
+        url="jquery.text-overflow.min.js">jquery.text-overflow.min.js</ulink>
+        (Minified, 0.8KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>Example</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="examples.html">Text Overflow example</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>License</title>
+
+    <para>This plugin is licensed under the <ulink type=""
+    url="/licenses/BSD.txt">new BSD license</ulink>. To summarize the license;
+    the plugin is completely free for commercial and non-commercial use and
+    you can do with it whatever you want, except claim it as your own
+    work.</para>
+  </sidebar>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>This jQuery plugin implements a simplified version of the <ulink
+    url="https://developer.mozilla.org/en/CSS/text-overflow">CSS3
+    text-overflow</ulink> property. The <property>text-overflow</property>
+    property allows stylesheet authors to specify how and where text should be
+    clipped. This is usually done by adding an ellipsis character
+    "<literal>…</literal>" or three dots at the point the text should be cut
+    off. Various browsers support this property, such as Opera, Internet
+    Explorer and Safari. Firefox unfortunately does not. However, using this
+    plugin you can simulate this functionality.</para>
+
+    <note>
+      <para>Unfortunately, the current CSS3 specification is missing a
+      description of the <property>text-overflow</property> property. Also
+      note that <emphasis>the plugin will strip all non-text descendants of
+      the element it is called on</emphasis>. Future versions of this plugin
+      might implement the specification fully and also have support for inline
+      markup.</para>
+    </note>
+
+    <para>To use it you simply call the <methodname>textOverflow</methodname>
+    method on elements you want clipped. Clipping is only applied when the
+    browser does not support it natively. The following is an example of how
+    to clip all header elements on a page using the default plugin
+    settings.</para>
+
+    <programlisting>$('h1').textOverflow();</programlisting>
+
+    <para>The <methodname>textOverflow</methodname> method optionally supports
+    two arguments: the string to use for clipping the text, and a boolean to
+    determine whether the plugin should automatically update the clipping when
+    a change in the document has been detected.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>textOverflow([str, autoUpdate])</term>
+
+        <listitem>
+          <variablelist>
+            <varlistentry>
+              <term>str</term>
+
+              <listitem>
+                <para>The string to append to the content before it is
+                clipped. Defaults to the ellipsis character
+                "<literal>…</literal>". May also contain HTML, but the string
+                itself is not subject to being clipped.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>autoUpdate</term>
+
+              <listitem>
+                <para>Automatically update the clipped text when the available
+                space for the text becomes smaller or larger. Defaults to
+                false (because it incurs some extra costs.)</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>The following example shows how to replace the default ellipsis
+    character on all list elements with a three dot version, and turn on
+    automatic updating.</para>
+
+    <programlisting>$('li').textOverflow('...', true);</programlisting>
+
+    <para>Please see the <ulink url="examples.html">examples page</ulink> for
+    more examples on how to use the plugin.</para>
+  </section>
+</article>

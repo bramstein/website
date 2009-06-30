@@ -8,7 +8,7 @@
     <title>Download</title>
 
     <para>Download: <ulink url="xml-to-json.xsl">xml-to-json.xsl</ulink>
-    (XSLTJSON v0.85 - 2009-05-31 - 14.2 kB)</para>
+    (XSLTJSON v0.87 - 2009-06-28 - 14.6 kB)</para>
   </sidebar>
 
   <sidebar>
@@ -187,7 +187,7 @@
       <para>You can force the creation of an array by adding the
       <literal>force-array</literal> parameter to your <acronym>XML</acronym>.
       So instead of creating two nested objects, the following example will
-      create an object containing an array. </para>
+      create an object containing an array.</para>
 
       <programlisting>&lt;list json:force-array="true" xmlns:json="http://json.org/"&gt;
   &lt;item&gt;one&lt;/item&gt;
@@ -459,6 +459,7 @@
 
     <para>Thanks to: Chick Markley (Octal number &amp; numbers with
     terminating period fix), Torben Schreiter (Suggestions for skip root, and
-    newline entities bug fix).</para>
+    newline entities bug fix), Michael Nilsson (Bug report &amp; text cases
+    for json:force-array.)</para>
   </section>
 </article>
