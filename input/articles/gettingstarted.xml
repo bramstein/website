@@ -385,6 +385,8 @@ glMatrixMode(GL_MODELVIEW);</programlisting>
       corner as its 0,0 point. This also means that any custom painting in the
       GUI or derived classes have to take this into account.</para>
 
+	<para>If you are using <methodname>glOrtho</methodname> instead of <methodname>gluOrtho2D</methodname> <emphasis>make sure that the depth range is from -1 to 1</emphasis>, as this is required for the GUI to operate correctly.</para>
+
       <para>In order for blending to work (which is used by most font engines
       and the default theme of the Menu component) you might also wish to set
       the blending function to <constant>GL_SRC_ALPHA,
