@@ -2,11 +2,114 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <article>
-  <title>jQuery character text alignment plugin</title>
+  <title>jQuery Text Alignment Plugin</title>
 
   <section>
     <title>Introduction</title>
 
-    <para></para>
+    <para>Imagine you have worked hard to make your tables look good, but one
+    thing keeps bugging you; the alignment of the text in table cells. For
+    example, you would like to align the contents of each cell on the comma
+    character. Unfortunately, no browser supports aligning table cells on
+    characters. This is where the jQuery Text Alignment Plugin comes in; it
+    adds support for aligning text based on characters to all browsers.</para>
+
+    <note>
+      <para>Please keep in mind that when this plugin is used to align on
+      characters, it will convert the children of the element it is called on
+      to text, and apply the alignment to that. Inline markup will thus be
+      effectively removed. Future versions of this plugin might correct this,
+      once I figure out what to do with complex content.</para>
+    </note>
+
+    <para>The following examples selects all the cells in an example table,
+    then uses the <ulink url="../column/">jQuery Column Selector
+    plugin</ulink> to select the first column, and finally aligns the cells in
+    that column on the comma character.</para>
+
+    <programlisting>$('#example td:nth-col(1)').textAlign(',');</programlisting>
+
+    <para>The <methodname>textAlign</methodname> method only accepts a single
+    parameter, and will align all selected elements according to the same
+    criteria. The method returns the elements it was called on, and can thus
+    be chained.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>textAlign(str)</term>
+
+        <listitem>
+          <para>Align the text in the selected elements according to
+          <parameter>str</parameter> parameter. The parameter can be either
+          one of the following keywords, or a single character:</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>left</term>
+
+              <listitem>
+                <para>Align the elements to the left.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>right</term>
+
+              <listitem>
+                <para>Align the elements to the right.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>center</term>
+
+              <listitem>
+                <para>Align the elements centered.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>justify</term>
+
+              <listitem>
+                <para>Align the elements justified.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>start</term>
+
+              <listitem>
+                <para>Align the elements according to the left-to-right locale
+                (start means left in western languages.)</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>end</term>
+
+              <listitem>
+                <para>Align the elements according to the left-to-right locale
+                (end means right in western languages.)</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>&lt;character&gt;</term>
+
+              <listitem>
+                <para>Align the the elements on the character. Note that
+                elements that do not have the character are aligned as if they
+                ended with the character. The element as a whole is aligned
+                according to the inherited text alignment property,</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Please see the <ulink url="examples.html">text alignment example
+    page</ulink> for example code on how to use the plugin.</para>
   </section>
 </article>
