@@ -4,6 +4,45 @@
 <article>
   <title>jQuery Text Alignment Plugin</title>
 
+  <sidebar>
+    <title>Download</title>
+
+    <para>Version 0.02 ― 2009-07-02.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="jquery.text-align.js">jquery.text-align.js</ulink>
+        (Uncompressed, 1.5KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink
+        url="jquery.text-align.min.js">jquery.text-align.min.js</ulink>
+        (Minified, 0.8KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>Example</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="examples.html">Text alignment example</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>License</title>
+
+    <para>This plugin is licensed under the <ulink type=""
+    url="/licenses/BSD.txt">new BSD license</ulink>. To summarize the license;
+    the plugin is completely free for commercial and non-commercial use and
+    you can do with it whatever you want, except claim it as your own
+    work.</para>
+  </sidebar>
+
   <section>
     <title>Introduction</title>
 
