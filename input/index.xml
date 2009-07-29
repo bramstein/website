@@ -26,6 +26,43 @@
   </sidebar>
 
   <section>
+    <title><ulink url="http://www.bramstein.com/projects/jlayout/">New jLayout
+    algorithm, examples &amp; plugin update</ulink></title>
+
+    <subtitle>Posted on Thursday July 30 2009</subtitle>
+
+    <para>As promised a new layout algorithm: flow layout. The flow layout
+    algoritm lays out components in rows with components overflowing to new
+    rows if there is not enough horizontal space. The <ulink
+    url="http://www.bramstein.com/projects/jlayout/jquery-plugin.html">jQuery
+    jLayout plugin</ulink> has also been updated with a minor bug fix for
+    nested border layouts. There are also three new examples, <ulink
+    url="http://www.bramstein.com/projects/jlayout/borderlayout-resize-nested.html">a
+    nested resizable border layout</ulink>, <ulink
+    url="http://www.bramstein.com/projects/jlayout/borderlayout-resize-ghost.html">a
+    resizable layout with guides</ulink>, and <ulink
+    url="http://www.bramstein.com/projects/jlayout/borderlayout-resize-smooth.html">an
+    example of a smoothly resizing layout</ulink>.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/articles/jquery-ui.html">Book
+    Review: JQuery UI 1.6: The User Interface Library for
+    jQuery</ulink></title>
+
+    <subtitle>Posted on Wednesday July 29 2009</subtitle>
+
+    <para>I recently started using the <ulink
+    url="http://jqueryui.com/">jQuery UI library</ulink> in a work project so
+    I was rather interested when I noticed a book had been published on this
+    library by <ulink url="http://www.danwellman.co.uk/">Dan Wellman</ulink>.
+    You can read <ulink
+    url="http://www.bramstein.com/articles/jquery-ui.html">my review of
+    “jQuery UI 1.6: The User Interface Library for jQuery”</ulink> in the
+    articles book review section.</para>
+  </section>
+
+  <section>
     <title><ulink url="http://www.bramstein.com/projects/text-align/">Text
     Alignment jQuery plugin</ulink></title>
 

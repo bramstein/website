@@ -45,10 +45,14 @@
 
     <itemizedlist>
       <listitem>
-        <para>“<ulink
-        url="http://www.bramstein.com/articles/object-oriented-javascript.html">Object
-        Oriented JavaScript: Create scalable, reusable high-quality JavaScript
+        <para>“<ulink url="object-oriented-javascript.html">Object Oriented
+        JavaScript: Create scalable, reusable high-quality JavaScript
         applications and libraries</ulink>” by Stoyan Stefanov</para>
+      </listitem>
+
+      <listitem>
+        <para>“<ulink url="jquery-ui.html">jQuery UI 1.6: The User Interface
+        Library for jQuery</ulink>” by Dan Wellman</para>
       </listitem>
     </itemizedlist>
   </section>

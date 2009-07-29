@@ -7,7 +7,7 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.4 ― 2009-05-29.</para>
+    <para>Last updated: 2009-07-29.</para>
 
     <para>jLayout Core:</para>
 
@@ -41,6 +41,16 @@
         <para><ulink url="jlayout.flexgrid.min.js"
         userlevel="">jlayout.flexgrid.min.js</ulink> (Minified 1.5KB)</para>
       </listitem>
+
+      <listitem>
+        <para><ulink url="jlayout.flow.js">jlayout.flow.js</ulink>
+        (Uncompressed 3.1KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="jlayout.flow.min.js">jlayout.flow.min.js</ulink>
+        (Minified 1.6 KB)</para>
+      </listitem>
     </itemizedlist>
 
     <para>jQuery plugin:</para>
@@ -48,12 +58,12 @@
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 4.3KB)</para>
+        (Uncompressed, 5KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
-        (Minified, 2.5KB)</para>
+        (Minified, 2.8KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -86,13 +96,14 @@
     individual components instead of on how to arrange them on your
     screen.</para>
 
-    <para>The library currently provides three layout algorithms:
+    <para>The library currently provides four layout algorithms:
     <methodname>border</methodname>, which lays out components in five
     different regions; <methodname>grid</methodname>, which lays out
-    components in a user defined grid, and <methodname>flex-grid</methodname>
-    which offers a grid with flexible column and row sizes. A <ulink
-    url="jquery-plugin.html" userlevel="">jQuery plugin</ulink> to lay out
-    (X)HTML elements is also available.</para>
+    components in a user defined grid, <methodname>flex-grid</methodname>
+    which offers a grid with flexible column and row sizes, and
+    <methodname>flow</methodname> which flows components in a user defined
+    direction. A <ulink url="jquery-plugin.html" userlevel="">jQuery
+    plugin</ulink> to lay out (X)HTML elements is also available.</para>
   </section>
 
   <section>
@@ -341,7 +352,7 @@ borderLayout.layout(myContainer);</programlisting>
     <section>
       <title>Grid layout</title>
 
-      <para>The grid algorithms lays out the components in a grid, and resizes
+      <para>The grid algorithm lays out the components in a grid, and resizes
       each component to the same size. The number of columns and rows can be
       specified by the user. On the right is a visualization of a grid layout
       with four components in a 2x2 grid.</para>
@@ -401,7 +412,7 @@ gridLayout.layout(myContainer);</programlisting>
     <section>
       <title>Flex grid layout</title>
 
-      <para>The flex grid algorithms lays out the components in a grid with
+      <para>The flex grid algorithm lays out the components in a grid with
       flexible row and columns sizes. The number of columns and rows can be
       specified by the user. On the right is a visualization of a flex grid
       layout with six components in a 3x2 grid.</para>
@@ -457,6 +468,53 @@ flexGridLayout.layout(myContainer);</programlisting>
       calculated using the number of components. If neither is given, the
       number of rows is set equal to the number of components and the number
       of rows is set to zero.</para>
+    </section>
+
+    <section>
+      <title>Flow layout</title>
+
+      <para>The flow algorithm lays out the components on a row. When the
+      component does not fit on the current row it is moved to the next row.
+      The alignment within the row can be user specified. On the right is an
+      example of a flow layout using five components with the alignment for
+      each row set to left.</para>
+
+      <graphic fileref="flow.png" />
+
+      <para>The flow algorithm takes an option object as parameter which can
+      contain the following properties:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>alignment</term>
+
+          <listitem>
+            <para>A string of either <literal>center</literal>,
+            <literal>left</literal>, or <literal>right</literal>. Defaults to
+            <literal>left</literal>.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>items</term>
+
+          <listitem>
+            <para>An array containing the components to be laid out by the
+            algorithm. Optional.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>The following example lays out five components using a center
+      alignment, without any spacing between the components.</para>
+
+      <programlisting>var flowLayout = jLayout.flow({
+    alignment: 'center',
+    items: [myComponent1, myComponent2, myComponent3, 
+            myComponent4, myComponent5]
+});
+
+flowLayout.layout(myContainer);</programlisting>
     </section>
   </section>
 </article>
