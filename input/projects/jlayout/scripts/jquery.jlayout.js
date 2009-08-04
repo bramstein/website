@@ -1,6 +1,6 @@
 
 /*!
- * jLayout JQuery Plugin v0.15
+ * jLayout JQuery Plugin v0.17
  *
  * Licensed under the new BSD License.
  * Copyright 2008-2009 Bram Stein
@@ -13,15 +13,16 @@ if (jQuery && jLayout) {
 		 * This wraps jQuery objects in another object that supplies
 		 * the methods required for the layout algorithms.
 		 */
-		function wrap(item) {
+		function wrap(item, resize) {
 			var that = {};
 
 			$.each(['min', 'max'], function (i, name) {
 				that[name + 'imumSize'] = function (value) {
-					if (item.data('jlayout')) {
-						return item.data('jlayout')[name + 'imum'](that);
-					}
-					else {
+                    var l = item.data('jlayout');
+                    
+					if (l) {
+						return l[name + 'imum'](that);
+					} else {
 						return item[name + 'Size'](value);
 					}
 				};
@@ -29,8 +30,10 @@ if (jQuery && jLayout) {
 
 			$.extend(that, {
 				doLayout: function () {
-					if (item.data('jlayout')) {
-						item.data('jlayout').layout(that);
+                    var l = item.data('jlayout');
+                    
+					if (l) {
+                        l.layout(that);
 					}
 					item.css({position: 'absolute'});
 				},
@@ -41,10 +44,12 @@ if (jQuery && jLayout) {
 					var p = item.padding(),
 						b = item.border();
 
-					return {'top': p.top, 
+					return {
+                        'top': p.top, 
 						'bottom': p.bottom + b.bottom + b.top, 
 						'left': p.left, 
-						'right': p.right + b.right + b.left};
+						'right': p.right + b.right + b.left
+                    };
 				},
 				bounds: function (value) {
 					var tmp = {};
@@ -66,23 +71,25 @@ if (jQuery && jLayout) {
 						}
 						item.css(tmp);
 						return item;
-					}
-					else {
+					} else {
 						tmp = item.position();
-						return {'x': tmp.left,
-								'y': tmp.top,
-								'width': item.outerWidth(false),
-								'height': item.outerHeight(false)};
+						return {
+                          	'x': tmp.left,
+                        	'y': tmp.top,
+							'width': item.outerWidth(false),
+							'height': item.outerHeight(false)
+                        };
 					}
 				},
 				preferredSize: function () {
 					var minSize,
 						maxSize,
 						margin = item.margin(),
-						size = {width: 0, height: 0};
+						size = {width: 0, height: 0},
+                        l = item.data('jlayout');
 
-					if (item.data('jlayout')) {
-						size = item.data('jlayout').preferred(that);
+					if (l && resize) {
+						size = l.preferred(that);
 
 						minSize = that.minimumSize();
 						maxSize = that.maximumSize();
@@ -93,15 +100,14 @@ if (jQuery && jLayout) {
 						if (size.width < minSize.width || size.height < minSize.height) {
 							size.width = Math.max(size.width, minSize.width);
 							size.height = Math.max(size.height, minSize.height);
-						}
-						else if (size.width > maxSize.width || size.height > maxSize.height) {
+						} else if (size.width > maxSize.width || size.height > maxSize.height) {
 							size.width = Math.min(size.width, maxSize.width);
 							size.height = Math.min(size.height, maxSize.height);
 						}
-					}
-					else {
-						size.width = that.bounds().width + margin.left + margin.right;
-						size.height = that.bounds().height + margin.top + margin.bottom;
+					} else {
+                        size = that.bounds();
+						size.width += margin.left + margin.right;
+						size.height += margin.top + margin.bottom;
 					}
 					return size;
 				}
@@ -113,34 +119,54 @@ if (jQuery && jLayout) {
 			var opts = $.extend({}, $.fn.layout.defaults, options);
 			return $.each(this, function () {
 				var element = $(this),
-					elementWrapper = wrap(element),
-					o = $.metadata && element.metadata().layout ? $.extend(opts, element.metadata().layout) : opts;
+					o = $.metadata && element.metadata().layout ? $.extend(opts, element.metadata().layout) : opts,
+					elementWrapper = wrap(element, o.resize);
 
-				if (o.type === 'border' && typeof jLayout.border !== 'undefined') {
+				if (o.type === 'border' && typeof jLayout.border !== 'undefined') {                
 					$.each(['north', 'south', 'west', 'east', 'center'], function (i, name) {
 						if (element.children().hasClass(name)) {
-							o[name] = wrap(element.find('.' + name + ':first'));
+							o[name] = wrap(element.children('.' + name + ':first'));
 						}
 					});
 					element.data('jlayout', jLayout.border(o));
-				}
-				else if (o.type === 'grid' && typeof jLayout.grid !== 'undefined') {
+				} else if (o.type === 'grid' && typeof jLayout.grid !== 'undefined') {
 					o.items = [];
 					element.children().each(function (i) {
-						o.items[i] = wrap($(this));
+						if (!$(this).hasClass('ui-resizable-handle')) {
+							o.items[i] = wrap($(this));
+						}
 					});
 					element.data('jlayout', jLayout.grid(o));
-				}
-				else if (o.type === 'flexGrid' && typeof jLayout.flexGrid !== 'undefined') {
+				} else if (o.type === 'flexGrid' && typeof jLayout.flexGrid !== 'undefined') {
 					o.items = [];
 					element.children().each(function (i) {
-						o.items[i] = wrap($(this));
+						if (!$(this).hasClass('ui-resizable-handle')) {
+							o.items[i] = wrap($(this));
+						}
 					});
 					element.data('jlayout', jLayout.flexGrid(o));
+				} else if (o.type === 'column' && typeof jLayout.column !== 'undefined') {
+					o.items = [];
+					element.children().each(function (i) {
+						if (!$(this).hasClass('ui-resizable-handle')) {
+							o.items[i] = wrap($(this));
+						}
+					});
+					element.data('jlayout', jLayout.column(o));
+				} else if (o.type === 'flow' && typeof jLayout.flow !== 'undefined') {
+					o.items = [];
+					element.children().each(function (i) {
+						if (!$(this).hasClass('ui-resizable-handle')) {
+							o.items[i] = wrap($(this));
+						}
+					});
+					element.data('jlayout', jLayout.flow(o));					
 				}
+                
 				if (o.resize) {
 					elementWrapper.bounds(elementWrapper.preferredSize());
 				}
+                
 				elementWrapper.doLayout();
 				element.css({position: 'relative'});
 				if ($.ui !== undefined) {

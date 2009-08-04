@@ -7,17 +7,17 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.15 ― 2009-05-29.</para>
+    <para>Version 0.16 ― 2009-07-15.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.jlayout.js">jquery.jlayout.js</ulink>
-        (Uncompressed, 4.3KB)</para>
+        (Uncompressed, 5KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.jlayout.min.js">jquery.jlayout.min.js</ulink>
-        (Minified, 2.5KB)</para>
+        (Minified, 2.8KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -38,6 +38,21 @@
       <listitem>
         <para><ulink url="borderlayout-resize.html">Resizable border
         layout</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="borderlayout-resize-nested.html">Resizable nested
+        border layout</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="borderlayout-resize-ghost.html">Resizable border
+        layout with guides</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="borderlayout-resize-smooth.html">Smooth resizable
+        border layout</ulink></para>
       </listitem>
 
       <listitem>
@@ -105,7 +120,7 @@
 
     <itemizedlist>
       <listitem>
-        <para>Firefox 2 &amp; 3</para>
+        <para>Firefox 2, 3, 3.5</para>
       </listitem>
 
       <listitem>
@@ -113,7 +128,7 @@
       </listitem>
 
       <listitem>
-        <para>Safari 3</para>
+        <para>Safari 3 &amp; 4</para>
       </listitem>
 
       <listitem>
@@ -129,15 +144,17 @@
   <section>
     <title>Introduction</title>
 
-    <para>The jLayout jQuery plugin provides three layout algorithms for
-    laying out HTML elements in web pages. The first is
+    <para>The jLayout jQuery plugin provides four layout algorithms for laying
+    out HTML elements in web pages. The first is
     <methodname>border</methodname>, which lays out components in five
     different regions. The second algorithm is <methodname>grid</methodname>,
     which lays out components in a user defined grid. The third algorithm is
     <methodname>flexGrid</methodname>, which lays out components in a grid
-    with flexible column and row sizes. The plugin allows you to lay out your
-    elements with as little code as possible, and behaves correctly when used
-    with margins, padding and borders.</para>
+    with flexible column and row sizes. The fourth and last algorithm is flow,
+    which lays out components in rows with components overflowing to new rows
+    if there is not enough horizontal space. The plugin allows you to lay out
+    your elements with as little code as possible, and behaves correctly when
+    used with margins, padding and borders.</para>
 
     <para>You can see the library in action on the <ulink
     url="examples.html">examples page</ulink> which features grids, border
@@ -172,8 +189,9 @@
 
               <listitem>
                 <para>The layout algorithm to use. Should be either
-                <constant>grid</constant>, <constant>border</constant>, or
-                <methodname>flex-grid</methodname>. Defaults to
+                <constant>grid</constant>, <constant>border</constant>,
+                <methodname>flex-grid</methodname>, or
+                <methodname>flow</methodname>. Defaults to
                 <constant>grid</constant>.</para>
               </listitem>
             </varlistentry>
