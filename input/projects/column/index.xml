@@ -29,6 +29,18 @@
   </sidebar>
 
   <sidebar>
+    <title>Alternatives</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink
+        url="http://slackers.se/2009/jquery-column-iterator-plugin/">jQuery
+        column iterator</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
     <title>License</title>
 
     <para>This plugin is licensed under the <ulink type=""
