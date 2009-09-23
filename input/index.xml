@@ -16,7 +16,20 @@
   </sidebar>
 
   <sidebar>
-    <title>Feed</title>
+    <title>Twitter updates</title>
+
+    <itemizedlist id="twitter_update_list">
+      <listitem>
+        <para></para>
+      </listitem>
+    </itemizedlist>
+
+    <para><ulink url="http://twitter.com/bram_stein">Follow me on
+    Twitter</ulink></para>
+  </sidebar>
+
+  <sidebar id="test">
+    <title>Feeds</title>
 
     <para><mediaobject>
         <imageobject>
@@ -24,6 +37,70 @@
         </imageobject>
       </mediaobject> <ulink url="rss.xml">RSS Feed</ulink></para>
   </sidebar>
+
+  <section>
+    <title><ulink
+    url="http://www.bramstein.com/projects/text-overflow/">jQuery text
+    overflow plugin: inline markup support</ulink></title>
+
+    <subtitle>Posted on Saturday September 12 2009</subtitle>
+
+    <para>The <ulink
+    url="http://www.bramstein.com/projects/text-overflow/">jQuery Text
+    Overflow plugin</ulink> now supports truncating text nodes with inline
+    markup. This means you can now call the plugin on any DOM element, and not
+    have to worry about it removing your inline markup or creating invalid
+    markup.</para>
+  </section>
+
+  <section>
+    <title><ulink type=""
+    url="http://www.bramstein.com/projects/interplot/plot.html">Plotting with
+    JavaScript, Canvas &amp; Interval Arithmetic</ulink></title>
+
+    <subtitle>Posted on Wednesday September 2 2009</subtitle>
+
+    <para>I decided to have some fun with the new features in Firefox 3.5 and
+    reimplemented the function plotting from my (still unreleased) chart
+    library using the HTML5 Canvas element and Web Workers. Charts are plotted
+    using <ulink type=""
+    url="http://en.wikipedia.org/wiki/Interval_arithmetic">interval
+    arithmetic</ulink>. The basic idea behind this is to recursively subdivide
+    the range in which to plot a function. It keeps subdividing the range
+    until the subdivisions are smaller than one screen pixel. At that point it
+    will plot a pixel on that location. This pixel is then guaranteed to
+    contain the correct solution. This also means that plots are always
+    correct, in that they have no missing singularities or artifacts that are
+    difficult to plot using other methods (well, that's the theory anyway―the
+    interval arithmetic implementation I wrote does not guarantee
+    correctness.) Web workers are used to run some of the recursive
+    subdivisions in separate "threads" for better performance.</para>
+
+    <para>Equations are parsed using a <ulink
+    url="http://en.wikipedia.org/wiki/Shunting-yard_algorithm">Shunting Yard
+    parser</ulink> and converted internally to interval arithmetic. Most
+    common mathematical operators are supported, such as: sin, cos, sqrt, abs,
+    fmod, exp, log, et cetera. The code is still very much alpha quality, but
+    I thought it might be interesting to put it online. You can find it right
+    here: <ulink
+    url="http://www.bramstein.com/projects/interplot/plot.html">http://www.bramstein.com/projects/interplot/plot.html</ulink>.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/preprocess/"
+    userlevel="">JavaScript Preprocessor</ulink></title>
+
+    <subtitle>Posted on Monday August 10 2009</subtitle>
+
+    <para>I spent the weekend working on a new project: a simple <ulink
+    url="http://www.bramstein.com/projects/preprocess/">JavaScript
+    preprocessor</ulink> to enable conditional compilation in JavaScript code
+    using the syntax of the C preprocessor (well, a subset of.) This will
+    hopefully make it easy to generate multiple versions of your project
+    to―for example―create a debug build, or a specialized version designed to
+    work in restrictive environments. At the moment it can be called from
+    JavaScript, an Ant build script, or the command line.</para>
+  </section>
 
   <section>
     <title><ulink url="http://www.bramstein.com/projects/jlayout/">New jLayout
@@ -114,7 +191,7 @@
     <para>Today sees a new release of <ulink
     url="http://www.bramstein.com/projects/xsltjson/">XSLTJSON</ulink>,
     bringing the version number up to 0.87. This new release contains several
-    bug fixes for to recently introduced json:force-array feature. Upgrading
+    bug fixes for the recently introduced json:force-array feature. Upgrading
     from previous versions is recommended if you are using the force-array
     feature.</para>
   </section>

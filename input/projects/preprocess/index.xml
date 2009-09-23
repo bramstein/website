@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>JavaScript Preprocessor</title>
+
+  <sidebar>
+    <title>Download</title>
+
+    <para>Version 0.32 ― 2009-08-10.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink type="" url="js-preprocess.js">js-preprocess.js</ulink>
+        (Uncompressed, 6.9KB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="js-preprocess.min.js">js-preprocess.min.js</ulink>
+        (Minified, 3.3KB)</para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>Alternatives</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink
+        url="http://code.google.com/p/js-build-tools/">js-build-tools</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="http://jscompiler.org/">JavaScript
+        Compiler</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink
+        url="http://web.archive.org/web/20080116034428/http://blog.inetoffice.com/?p=12">The
+        C preprocessor</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
+    <title>License</title>
+
+    <para>The preprocessor is licensed under the <ulink type=""
+    url="/licenses/BSD.txt">new BSD license</ulink>. To summarize the license;
+    it is completely free for commercial and non-commercial use and you can do
+    with it whatever you want, except claim it as your own work.</para>
+  </sidebar>
+
+  <section>
+    <title>Introduction</title>
+
+    <para>This is a simple JavaScript preprocessor to enable conditional
+    compilation. The syntax of the preprocessor is a subset of the C
+    preprocessor. This means that all JavaScript preprocessor directives are
+    valid C preprocessor directives and can thus be used with the C
+    preprocessor (but not the other way around.) The following directives are
+    supported:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>#define &lt;identifier&gt;</term>
+
+        <listitem>
+          <para>Defines an identifier.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>#undef &lt;identifier&gt;</term>
+
+        <listitem>
+          <para>Removes a defined identifier, or does nothing it the
+          identifier is not defined.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>#ifdef &lt;identifier&gt;</term>
+
+        <listitem>
+          <para>Tests whether an identifier is defined, and parses the code
+          block until either an <code>#endif</code> or <code>#else</code>
+          directive is reached.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>#ifndef &lt;identifier&gt;</term>
+
+        <listitem>
+          <para>Tests whether an identifier is <emphasis>not</emphasis>
+          defined, and parses the code block until either an
+          <code>#endif</code> or <code>#else</code> directive is
+          reached.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>#else</term>
+
+        <listitem>
+          <para>A code block executed when <code>#ifdef</code> or
+          <code>#ifndef</code> return false. Code is parsed until an #endif
+          directive is reached.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>#endif</term>
+
+        <listitem>
+          <para>Ends a code block.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>A simple example of some JavaScript code using conditional
+    compilation:</para>
+
+    <programlisting>#define DEBUG
+#define SAFE_LOOP
+
+function find(object, key) {
+#ifdef SAFE_LOOP
+  if (object.hasOwnProperty(key)) {
+    return object[key];
+  }
+#else
+  if (key in object) {
+    return object[key];
+  }
+#endif
+#ifdef DEBUG
+  console.log('Warning: [find] returning undefined.');
+#endif
+
+  return undefined;
+}</programlisting>
+
+    <para>Note that the definitions do not necessarily need to be in the file,
+    they can also be passed as arguments by your build tool of choice. This
+    makes it easy to generate multiple versions of your project to―for
+    example― create a debug build, or a specialized version designed to work
+    in restrictive environments.</para>
+  </section>
+
+  <section>
+    <title>Running from Ant</title>
+
+    <para>Include the following code in your <ulink
+    url="http://ant.apache.org/">Ant</ulink> build file, and ensure that the
+    <property>refid</property> attribute points to a path reference that
+    includes the <ulink url="http://www.mozilla.org/rhino/">Rhino JavaScript
+    engine</ulink>. You may also wish to change the <property>src</property>
+    attribute of the <classname>scriptdef</classname> element to point to the
+    location you have installed the JavaScript preprocessor.</para>
+
+    <programlisting>&lt;scriptdef name="preprocess" src="js-preprocess.js" language="javascript"&gt;
+  &lt;classpath&gt;
+    &lt;path refid="js.lib"/&gt;
+  &lt;/classpath&gt;
+  &lt;attribute name="defines" /&gt;
+  &lt;attribute name="todir" /&gt;
+  &lt;attribute name="file"/&gt;
+  &lt;attribute name="tofile"/&gt;
+  &lt;element name="fileset" type="fileset" /&gt;
+&lt;/scriptdef&gt;</programlisting>
+
+    <para>Once you've done that, you can use the preprocessor to pre-process a
+    set of files. Note that the preprocessor will create new files, so if you
+    set your output directory to your input directory it will effectively
+    strip the preprocessor directives from your source code.</para>
+
+    <programlisting>&lt;preprocess todir="target" defines="DEBUG"&gt;
+  &lt;fileset dir="src" includes="**/*.js" /&gt;
+&lt;/preprocess&gt;</programlisting>
+
+    <para>You may also pre-process a single file using the
+    <property>file</property> and <property>tofile</property>
+    attributes.</para>
+
+    <programlisting>&lt;preprocess file="input.js" tofile="output.js" defines="DEBUG, SAFE_LOOP" /&gt;</programlisting>
+
+    <para>You can pass multiple <property>defines</property> to the
+    preprocessor by separating them with comma's.</para>
+  </section>
+
+  <section>
+    <title>Running from the command line using Rhino</title>
+
+    <para>You can also run the preprocessor from the command line using the
+    <ulink url="http://www.mozilla.org/rhino/">Rhino JavaScript
+    engine</ulink>. The command line version takes the input file as the first
+    argument and uses the remaining arguments as preprocessor
+    definitions.</para>
+
+    <programlisting>&gt; rhino js-preprocess.js input.js [definition1 ...]</programlisting>
+
+    <para>The preprocessor writes to the standard output, so to write it to a
+    file you can redirect the standard output to a file as follows:</para>
+
+    <programlisting>&gt; rhino js-preprocess.js input.js DEBUG SAFE_LOOP &gt; output.js</programlisting>
+
+    <para>The example also shows how two definitions are passed to the
+    preprocessor.</para>
+  </section>
+
+  <section>
+    <title>Using the preprocessor from JavaScript</title>
+
+    <para>The preprocessor exposes a single function called
+    <classname>preprocess</classname>: you can simple call this function with
+    as first argument a string (or an array of strings) containing the source
+    code you want preprocessed. The second and optional argument is an object
+    with as keys the predefined definitions you would like the preprocessor to
+    use. The preprocessor will return to you an array of strings as the
+    processed output. This output will have all preprocessor directives
+    removed.</para>
+
+    <programlisting>var result = preprocess('...', { 
+  DEBUG: true,
+  SAFE_LOOP: true
+});</programlisting>
+  </section>
+
+  <section>
+    <title>Frequently Asked Questions</title>
+
+    <variablelist>
+      <varlistentry>
+        <term>Are there any plans to support <code>#include</code>
+        directives?</term>
+
+        <listitem>
+          <para>Not at the present time. I think JavaScript would be better
+          off with a proper module system, which controls dependencies, file
+          inclusions, and packaging.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>The JSLint/minification stage in my build process stops working
+        because of the preprocessor directives.</term>
+
+        <listitem>
+          <para>The simple solution is to run the preprocessor before running
+          <ulink url="http://www.jslint.com/">JSLint</ulink> or minifying your
+          code. Alternatively, you could set up a filter in your build process
+          that strips out all the preprocessor directives.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</article>

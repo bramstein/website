@@ -9,6 +9,10 @@
 
     <itemizedlist>
       <listitem>
+        <para><ulink url="preprocess/">JavaScript Preprocessor</ulink></para>
+      </listitem>
+
+      <listitem>
         <para><ulink type=""
         url="http://www.bramstein.com/projects/text-align/">jQuery text
         alignment</ulink></para>
@@ -51,6 +55,16 @@
       </listitem>
     </itemizedlist>
   </sidebar>
+
+  <section>
+    <title><ulink url="preprocess/">JavaScript Preprocessor</ulink></title>
+
+    <para>A simple JavaScript preprocessor to enable conditional compilation
+    in JavaScript code with the syntax of the C preprocessor. Conditional
+    compilation makes it easy to generate multiple versions of your project
+    to―for example―create a debug build, or a specialized version designed to
+    work in restrictive environments.</para>
+  </section>
 
   <section>
     <title><ulink url="http://www.bramstein.com/projects/text-align/">jQuery

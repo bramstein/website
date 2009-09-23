@@ -7,19 +7,19 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.52 ― 2009-06-27.</para>
+    <para>Version 0.62 ― 2009-09-12.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink
         url="jquery.text-overflow.js">jquery.text-overflow.js</ulink>
-        (Uncompressed, 2.4KB)</para>
+        (Uncompressed, 4.1KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink
         url="jquery.text-overflow.min.js">jquery.text-overflow.min.js</ulink>
-        (Minified, 0.8KB)</para>
+        (Minified, 1.3KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -55,16 +55,8 @@
     "<literal>…</literal>" or three dots at the point the text should be cut
     off. Various browsers support this property, such as Opera, Internet
     Explorer and Safari. Firefox unfortunately does not. However, using this
-    plugin you can simulate this functionality.</para>
-
-    <note>
-      <para>Unfortunately, the current CSS3 specification is missing a
-      description of the <property>text-overflow</property> property. Also
-      note that <emphasis>the plugin will strip all non-text descendants of
-      the element it is called on</emphasis>. Future versions of this plugin
-      might implement the specification fully and also have support for inline
-      markup.</para>
-    </note>
+    plugin you can simulate this functionality (well, as close as you can get
+    without a native implementation.)</para>
 
     <para>To use it you simply call the <methodname>textOverflow</methodname>
     method on elements you want clipped. Clipping is only applied when the

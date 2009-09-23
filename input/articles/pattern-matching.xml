@@ -187,9 +187,9 @@ var fact = function () {
     };
 }();</programlisting>
 
-    <para>The <methodname>match</methodname> module can now be called wih only
-    one argument. This returns a closure (the function we're building) whose
-    arguments, together with the patterns, are then passed to the
+    <para>The <methodname>match</methodname> module can now be called with
+    only one argument. This returns a closure (the function we're building)
+    whose arguments, together with the patterns, are then passed to the
     <function>match_aux</function> function. Again, the arguments pseudo-array
     is turned into a real array. This small change simplifies our factorial
     function tremendously.</para>

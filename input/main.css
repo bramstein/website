@@ -482,3 +482,32 @@ h6 { font-size: 0.83em; }
 #footer-navigation ul li:after {
 	content: ' | ';
 }
+
+/**
+ * Twitter feed
+ */#content .sidebar #twitter_update_list {
+	list-style-type: none;
+	padding:0;
+	margin:0.5em 1em 0.5em 0.5em;
+	width: auto;
+	font-size: 0.9em;
+	line-height: 1.2em;
+	color: rgb(40, 40, 40);
+}
+
+#content .sidebar #twitter_update_list a {
+	color: #00C;
+}
+
+#twitter_update_list li {
+	font-size: 0.9em;
+	background-color: rgb(245, 245, 245);
+	padding: 1em;
+	margin-bottom: 0.5em;
+	border: 1px dotted rgb(210, 210, 210);
+}
+
+#twitter_update_list li:first-child {
+	background-color: rgb(240, 240, 240);
+	border: 1px dotted rgb(200, 200, 200);
+}

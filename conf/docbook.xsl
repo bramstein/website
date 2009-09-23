@@ -158,7 +158,8 @@
 			}
 			]]>
 			</script>
-
+			<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+			<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/bram_stein.json?callback=twitterCallback2&amp;count=5"></script>
 			</body>
 		</html>
 	</xsl:template>
@@ -426,6 +427,9 @@
 	
 	<xsl:template match="itemizedlist">
 		<ul>
+			<xsl:if test="@id">
+				<xsl:attribute name="id" select="@id"/>
+			</xsl:if>
 			<xsl:apply-templates select="listitem"/>
 		</ul>
 	</xsl:template>
