@@ -384,6 +384,7 @@ h6 { font-size: 0.83em; }
 .columns {
 	width: 70%;
 	min-width: 65em;
+	overflow: auto;
 }
 
 .left-column {
@@ -412,11 +413,9 @@ h6 { font-size: 0.83em; }
 }
 
 #footer {
-	padding: 0% 6% 0% 6%;
+	padding: 0% 6% 1.5em;
 	background-color: rgb(50,50,50);
 	color: rgb(245,245,245);
-	min-width: 65em;
-	height: 65%;
 	border-top: 0.2em solid rgb(233,62,0);
 }
 

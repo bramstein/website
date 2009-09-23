@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="2.0" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns="http://www.w3.org/1999/xhtml">
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:template match="para[following-sibling::*[1]/self::graphic]">
 		<xsl:copy-of select="following-sibling::graphic[1]"/>

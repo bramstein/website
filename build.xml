@@ -1,6 +1,6 @@
 <project name="website" default="transform">
 	<description>
-		Simple project to transform arbitrary XML files to JSON format and back.
+		Website build script --- Transforms DocBook into HTML.
 	</description>
 	
 	<property name="website.build" value="output"/>

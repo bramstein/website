@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns="http://www.w3.org/1999/xhtml">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:output 
-		indent="yes" 
-		omit-xml-declaration="yes" 
-		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" 
-		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
-		method="xhtml" 
+		indent="yes"
+		method="html" 
 		encoding="utf-8"/>
 		
 	<!--<xsl:strip-space elements="*"/>-->
 	
 
 	<xsl:template match="article">
-		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+		<html>
 			<head>
-				<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" />
 				<title><xsl:value-of select="title/text()"/> - bramstein.com</title>
 				<link rel="alternate" type="application/rss+xml" title="RSS Feed for www.bramstein.com" href="/rss.xml" />
 				<link rel="stylesheet" href="/undohtml.css" />
 				<link rel="stylesheet" href="/main.css" />
 				<xsl:comment><![CDATA[[if lte IE 6]>
-	<script type="text/javascript" src="/supersleight.min.js"></script>
-	<![endif]]]></xsl:comment>
+		<script type="text/javascript" src="/supersleight.min.js"></script>
+		<![endif]]]></xsl:comment>
 				<xsl:comment><![CDATA[[if IE 7]>
-	<link rel="stylesheet" href="/ie.css" />
-	<![endif]]]></xsl:comment>
+		<link rel="stylesheet" href="/ie.css" />
+		<![endif]]]></xsl:comment>
 			</head>
 			<body>
 				<div id="header">
@@ -107,11 +102,11 @@
 								<p><a href="/projects/column/"><em>jQuery column selector</em> ― A plugin for the jQuery JavaScript library which adds a table column cell selector</a>.</p>
 								<p><a href="/projects/jlayout/"><em>jLayout</em> ― The jLayout JavaScript library provides layout algorithms for laying out components and containers</a>.</p>
 								<p><a href="/projects/junify/"><em>JUnify</em> ― JUnify is a JavaScript library for performing unification on objects and arrays</a>.</p>
-								<p><a href="/projects/xsltjson/"><em>XSLTJSON</em> ― XSLTJSON is an <acronym>XSLT</acronym> 2.0 stylesheet to transform
-						               arbitrary <acronym>XML</acronym> to JavaScript Object Notation
-						               (<acronym>JSON</acronym>)</a>.</p>
+								<p><a href="/projects/xsltjson/"><em>XSLTJSON</em> ― XSLTJSON is an <abbr>XSLT</abbr> 2.0 stylesheet to transform
+						               arbitrary <abbr>XML</abbr> to JavaScript Object Notation
+						               (<abbr>JSON</abbr>)</a>.</p>
 								
-								<p><a href="/projects/jsizes/"><em>JSizes</em> ― A small plugin for the jQuery JavaScript library which adds support for various size related <acronym>CSS</acronym> properties</a>.</p>
+								<p><a href="/projects/jsizes/"><em>JSizes</em> ― A small plugin for the jQuery JavaScript library which adds support for various size related <abbr>CSS</abbr> properties</a>.</p>
 							</div>
 							<div class="right-column">
 								<h2>Latest articles</h2>
@@ -203,7 +198,7 @@
 	
 	<xsl:template match="title">
 		<xsl:variable name="depth" select="count(ancestor-or-self::section) + (if (exists(parent::sidebar)) then 3 else 1)"/>
-		<xsl:element name="h{ if($depth lt 7) then $depth else '6'}" namespace="http://www.w3.org/1999/xhtml">
+		<xsl:element name="h{ if($depth lt 7) then $depth else '6'}">
 	
 			<xsl:apply-templates select="child::node()"/>
 			
@@ -312,7 +307,7 @@
 	</xsl:template>
 	
 	<xsl:template match="acronym">
-		<acronym><xsl:value-of select="."/></acronym>
+		<abbr><xsl:value-of select="."/></abbr>
 	</xsl:template>
 	
 	<xsl:template match="ulink">
