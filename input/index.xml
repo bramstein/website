@@ -39,6 +39,39 @@
   </sidebar>
 
   <section>
+    <title><ulink type=""
+    url="http://www.bramstein.com/projects/typeset/myfit.html">TeX line
+    breaking algorithm in HTML5 Canvas</ulink></title>
+
+    <subtitle>Posted on Saturday November 7 2009</subtitle>
+
+    <para>I spent some time over the last few weeks implementing the <ulink
+    url="http://www.bramstein.com/projects/typeset/myfit.html">Knuth and Plass
+    line breaking algorithm (as used in TeX and LaTeX) using JavaScript and
+    the HTML5 canvas</ulink> element. The code is still quite rough, but early
+    results are quite promising and in my opinion better than what browsers
+    commonly implement. The <ulink
+    url="http://www.bramstein.com/projects/typeset/myfit.html">example
+    page</ulink> contains an example paragraph, some rough documentation and a
+    rather random collection of ideas and notes.</para>
+  </section>
+
+  <section>
+    <title><ulink url="http://www.bramstein.com/projects/jlayout/">Grid layout
+    update &amp; jQuery UI integration demo</ulink></title>
+
+    <subtitle>Posted on Saturday November 7 2009</subtitle>
+
+    <para>The <ulink url="http://www.bramstein.com/projects/jlayout/">jLayout
+    grid layout</ulink> received a small bug fix and a new feature; you can
+    now specify how you want the grid to be filled in, from left to right and
+    top to bottom, or top to bottom and left to right. There is also a <ulink
+    url="http://www.bramstein.com/projects/jlayout/jquery-ui.html">new
+    demo</ulink> showing how easily jQuery UI components can be integrated
+    with jLayout.</para>
+  </section>
+
+  <section>
     <title><ulink
     url="http://www.bramstein.com/projects/text-overflow/">jQuery text
     overflow plugin: inline markup support</ulink></title>
@@ -98,8 +131,8 @@
     using the syntax of the C preprocessor (well, a subset of.) This will
     hopefully make it easy to generate multiple versions of your project
     to―for example―create a debug build, or a specialized version designed to
-    work in restrictive environments. At the moment it can be called from
-    JavaScript, an Ant build script, or the command line.</para>
+    work in restrictive environments. It can be called from JavaScript, an Ant
+    build script, or the command line.</para>
   </section>
 
   <section>

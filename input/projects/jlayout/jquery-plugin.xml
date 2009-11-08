@@ -64,6 +64,10 @@
         <para><ulink url="content-scroll.html">Scrolling
         content</ulink></para>
       </listitem>
+
+      <listitem>
+        <para><ulink url="jquery-ui.html">jQuery UI integration</ulink></para>
+      </listitem>
     </itemizedlist>
   </sidebar>
 

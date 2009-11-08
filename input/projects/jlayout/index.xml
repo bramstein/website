@@ -387,6 +387,17 @@ borderLayout.layout(myContainer);</programlisting>
             algorithm. Optional.</para>
           </listitem>
         </varlistentry>
+
+        <varlistentry>
+          <term>fill</term>
+
+          <listitem>
+            <para>The direction in which the grid is filled in. Valid values
+            are <literal>horizontal</literal> or <literal>vertical</literal>
+            for filling in the grid left to right and top to bottom, or top to
+            bottom and left to right respectivily. Optional.</para>
+          </listitem>
+        </varlistentry>
       </variablelist>
 
       <para>The following example lays out four components in a 2x2 grid,
