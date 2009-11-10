@@ -84,9 +84,7 @@
 
       <subtitle>Technical University of Denmark</subtitle>
 
-      <para>Software developer at the Technical Information Center of Denmark.
-      My work consists of data processing for the DADS article database and
-      development of the upcoming DTU Digital Library web application.</para>
+      <para>Software developer at the Technical Information Center of Denmark (DTU Library.) I am responsible for the design and development of the upcoming DTU Digital Library web application, which provides a user-friendly interface for searching more than 150 million academic publications.</para>
 
       <para>November 2008 - Present</para>
     </section>
@@ -97,11 +95,7 @@
       <subtitle>Stockholm International Peace Research Institute,
       Sweden</subtitle>
 
-      <para>Software developer on the FIRST project and system administrator
-      in the IT department. As software developer I was in charge of the
-      development of the FIRST database system. As system administrator I was
-      responsible for the computer network, servers, project databases, and
-      management of external consultants.</para>
+      <para>Lead developer on the FIRST project and system administrator in the IT department. As developer I was in charge of the design and development of the FIRST database system. As system administrator I was responsible for the computer network, servers, project databases, and management of external consultants.</para>
 
       <para>April 2006 - January 2008</para>
     </section>
@@ -179,7 +173,7 @@
         <term>Programming languages</term>
 
         <listitem>
-          <para>C#, C++, Erlang, Java, JavaScript, Perl, PHP, SML;</para>
+          <para>C, C#, C++, Erlang, Java (SE/EE), JavaScript, Perl, PHP, SML;</para>
         </listitem>
       </varlistentry>
 
@@ -187,7 +181,7 @@
         <term>Markup languages</term>
 
         <listitem>
-          <para>DocBook, HTML, XHTML, XML;</para>
+          <para>DocBook, HTML 4/5, XHTML, XML;</para>
         </listitem>
       </varlistentry>
 
@@ -195,8 +189,7 @@
         <term>Other languages</term>
 
         <listitem>
-          <para>CSS, JSON, Latex, OpenGL, RDF, SQL, SVG, XPath, XQuery,
-          XSL-FO, XSLT;</para>
+          <para>CSS, JSON, Latex, OpenGL, PL/SQL, RDF, SQL, SVG, XPath, XQuery, XSL-FO, XSLT;</para>
         </listitem>
       </varlistentry>
 
@@ -204,10 +197,7 @@
         <term>Theoretical</term>
 
         <listitem>
-          <para>Artificial Intelligence, Compiler Design, Data Mining, Design
-          Patterns, Distributed Systems, Functional Programming, Machine
-          Learning, Object Oriented Programming, Refactoring, Relational
-          Database theory, REST, Usability testing;</para>
+          <para>Artificial Intelligence, Compiler Design, Data Mining, Design Patterns, Distributed Systems, Functional Programming, Machine Learning, Object Oriented Programming, Refactoring, Relational Database theory, Service Oriented Architecture, Usability testing;</para>
         </listitem>
       </varlistentry>
 
@@ -215,11 +205,7 @@
         <term>Tools/Other</term>
 
         <listitem>
-          <para>3D Studio Max, Adobe Illustrator, Adobe Photoshop, Ant, Apache
-          web server, askSam Freeform database, Debian GNU/Linux, Eclipse,
-          Freedom XML database, jQuery, Macromedia Director, Macromedia Flash,
-          Maven, Microsoft Visual Studio, Microsoft Windows, MySQL, Oracle,
-          PostgreSQL, Version Control Systems.</para>
+          <para>Adobe Photoshop, AJAX, Ant, Apache web server, DB2, Eclipse, jQuery, jQuery UI, JUnit, Linux, Maven, Microsoft Visual Studio, MySQL, Oracle, PostgreSQL, REST, Restlet, SOAP, SQL Server, Tapestry, Tomcat, Trac, UML, Version Control Systems (Subversion/Mercurial/Git).</para>
         </listitem>
       </varlistentry>
     </variablelist>

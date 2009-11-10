@@ -9,7 +9,7 @@
 	<!--<xsl:strip-space elements="*"/>-->
 	
 
-	<xsl:template match="article">
+	<xsl:template match="article" mode="#all">
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 		<html>
 			<head>
@@ -74,20 +74,44 @@
 					</xsl:otherwise>
 				</xsl:choose>
 				<div id="content">
-					<xsl:for-each-group select="*" group-adjacent="local-name()">
-						<xsl:choose>
-							<xsl:when test="current-grouping-key() eq 'sidebar'">
-								<div class="sidebar">
-									<xsl:for-each select="current-group()">
-										<xsl:apply-templates select="child::node()"/>
-									</xsl:for-each>
-								</div>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:apply-templates select="current-group()"/>
-							</xsl:otherwise>
-						</xsl:choose>
-					</xsl:for-each-group>
+					<xsl:choose>
+					<xsl:when test="not(contains(document-uri(/), '/projects/')) and not(contains(document-uri(/), '/articles/')) and not(contains(document-uri(/), '/about/'))">
+
+						<xsl:for-each-group select="*[position() lt 15]" group-adjacent="local-name()">
+							<xsl:choose>
+								<xsl:when test="current-grouping-key() eq 'sidebar'">
+									<div class="sidebar">
+										<xsl:for-each select="current-group()">
+											<xsl:apply-templates select="child::node()"/>
+										</xsl:for-each>
+									</div>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:apply-templates select="current-group()"/>
+								</xsl:otherwise>
+							</xsl:choose>
+						</xsl:for-each-group>
+						<div class="section archive">
+							<p><a href="/news/">Archived news</a></p>
+						</div>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:for-each-group select="*" group-adjacent="local-name()">
+							<xsl:choose>
+								<xsl:when test="current-grouping-key() eq 'sidebar'">
+									<div class="sidebar">
+										<xsl:for-each select="current-group()">
+											<xsl:apply-templates select="child::node()"/>
+										</xsl:for-each>
+									</div>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:apply-templates select="current-group()"/>
+								</xsl:otherwise>
+							</xsl:choose>
+						</xsl:for-each-group>
+					</xsl:otherwise>
+					</xsl:choose>
 				</div>
 				<xsl:choose>
 					<xsl:when test="not(contains(document-uri(/), '/projects/')) and not(contains(document-uri(/), '/articles/')) and not(contains(document-uri(/), '/about/'))">
@@ -134,7 +158,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<div id="footer-navigation">
-				<p>Copyright 2008-2009, Bram Stein. All rights reserved.</p>
+				<p>Copyright 2008-2010, Bram Stein. All rights reserved.</p>
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/projects/">Projects</a></li>
@@ -158,10 +182,30 @@
 			}
 			]]>
 			</script>
-			<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-			<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/bram_stein.json?callback=twitterCallback2&amp;count=5"></script>
+			<xsl:if test="not(contains(document-uri(/), '/projects/')) and not(contains(document-uri(/), '/articles/')) and not(contains(document-uri(/), '/about/'))">
+				<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+				<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/bram_stein.json?callback=twitterCallback2&amp;count=5"></script>	
+			</xsl:if>
+			<script type="text/javascript">
+				<![CDATA[
+				(function() {
+					var links = document.getElementsByTagName('a');
+					var query = '?';
+					for(var i = 0; i < links.length; i++) {
+						if(links[i].href.indexOf('#disqus_thread') >= 0) {
+							query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+						}
+					}
+					document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/bramstein/get_num_replies.js' + query + '"></' + 'script>');
+				})();
+				]]>
+			</script>
 			</body>
 		</html>
+	</xsl:template>
+
+	<xsl:template match="cdata">
+		<xsl:copy-of select="./*"/>
 	</xsl:template>
 
 	<xsl:template match="imagedata">
@@ -207,7 +251,14 @@
 	</xsl:template>
 
 	<xsl:template match="subtitle">
-		<p class="subtitle"><xsl:apply-templates select="child::node()"/></p>
+		<xsl:variable name="parent-position"><xsl:number count="section"/></xsl:variable>
+		<xsl:variable name="total"><xsl:value-of select="count(ancestor-or-self::article/section)"/></xsl:variable>
+		<p class="subtitle"><xsl:apply-templates select="child::node()"/>
+			<xsl:if test="not(contains(document-uri(/), '/projects/')) and not(contains(document-uri(/), '/articles/')) and not(contains(document-uri(/), '/about/'))">
+				<xsl:text>, </xsl:text>
+				<a href="/news/{concat(replace(lower-case(string(normalize-space(preceding-sibling::title))), '\s', '-'), '-' , ($total - $parent-position) + 1)}.html#disqus_thread">View comments</a>
+			</xsl:if>
+		</p>
 	</xsl:template>
 	
 	<xsl:template match="para">

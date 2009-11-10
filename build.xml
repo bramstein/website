@@ -39,6 +39,18 @@
 			</classpath>
 		</xslt>
 
+		<xslt extension=".xml" style="${website.config}/news-items.xsl" in="input/index.xml" out="${website.build}/news.xml">
+			<classpath>
+				<path refid="website.classpath"/>
+			</classpath>
+		</xslt>
+
+		<xslt extension=".xml" style="${website.config}/news-index.xsl" in="input/index.xml" out="${website.build}/news/index.html">
+			<classpath>
+				<path refid="website.classpath"/>
+			</classpath>
+		</xslt>
+
 		<copy todir="${website.build}">
 			<fileset dir="input">
 				<include name="**/*.xslt"/>

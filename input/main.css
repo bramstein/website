@@ -511,3 +511,29 @@ h6 { font-size: 0.83em; }
 	background-color: rgb(240, 240, 240);
 	border: 1px dotted rgb(200, 200, 200);
 }
+
+/**
+ * Archive link
+ */
+.archive {
+	margin-top: 4em;
+}
+
+.archive p {
+	border-top: 1px solid rgb(220, 220, 220);
+	text-align: right;
+	padding: 0;
+	margin: 0;
+}
+
+/**
+ * Comments
+ */
+#content .subtitle a {
+	color: rgb(100, 100, 100);
+	font-size: 0.9em;
+}
+
+#disqus_thread {
+	width: 70%;
+}
