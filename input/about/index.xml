@@ -15,6 +15,12 @@
 
     <para><ulink type=""
     url="mailto:b.l.stein@gmail.com">b.l.stein@gmail.com</ulink></para>
+
+    <para><ulink url="http://dk.linkedin.com/in/bramstein">LinkedIn
+    profile</ulink></para>
+
+    <para><ulink url="http://twitter.com/bram_stein">Follow me on
+    Twitter</ulink></para>
   </sidebar>
 
   <sidebar>
@@ -84,7 +90,11 @@
 
       <subtitle>Technical University of Denmark</subtitle>
 
-      <para>Software developer at the Technical Information Center of Denmark (DTU Library.) I am responsible for the design and development of the upcoming DTU Digital Library web application, which provides a user-friendly interface for searching more than 150 million academic publications.</para>
+      <para>Software developer at the Technical Information Center of Denmark
+      (DTU Library.) I am responsible for the design and development of the
+      upcoming DTU Digital Library web application, which provides a
+      user-friendly interface for searching more than 150 million academic
+      publications.</para>
 
       <para>November 2008 - Present</para>
     </section>
@@ -95,22 +105,13 @@
       <subtitle>Stockholm International Peace Research Institute,
       Sweden</subtitle>
 
-      <para>Lead developer on the FIRST project and system administrator in the IT department. As developer I was in charge of the design and development of the FIRST database system. As system administrator I was responsible for the computer network, servers, project databases, and management of external consultants.</para>
+      <para>Lead developer on the FIRST project and system administrator in
+      the IT department. As developer I was in charge of the design and
+      development of the FIRST database system. As system administrator I was
+      responsible for the computer network, servers, project databases, and
+      management of external consultants.</para>
 
-      <para>April 2006 - January 2008</para>
-    </section>
-
-    <section>
-      <title>Research Assistant</title>
-
-      <subtitle>Stockholm International Peace Research Institute,
-      Sweden</subtitle>
-
-      <para>Research assistant on the FIRST project. I was in charge of
-      designing and implementing a new user-friendly version of the FIRST
-      database system.</para>
-
-      <para>September 2004 - April 2006</para>
+      <para>September 2004 - January 2008</para>
     </section>
 
     <section>
@@ -173,7 +174,8 @@
         <term>Programming languages</term>
 
         <listitem>
-          <para>C, C#, C++, Erlang, Java (SE/EE), JavaScript, Perl, PHP, SML;</para>
+          <para>C, C#, C++, Erlang, Java (SE/EE), JavaScript, Perl, PHP, Ruby,
+          SML;</para>
         </listitem>
       </varlistentry>
 
@@ -189,7 +191,8 @@
         <term>Other languages</term>
 
         <listitem>
-          <para>CSS, JSON, Latex, OpenGL, PL/SQL, RDF, SQL, SVG, XPath, XQuery, XSL-FO, XSLT;</para>
+          <para>CSS, JSON, Latex, OpenGL, PL/SQL, RDF, SQL, SVG, XPath,
+          XQuery, XSL-FO, XSLT;</para>
         </listitem>
       </varlistentry>
 
@@ -197,7 +200,11 @@
         <term>Theoretical</term>
 
         <listitem>
-          <para>Artificial Intelligence, Compiler Design, Data Mining, Design Patterns, Distributed Systems, Functional Programming, Machine Learning, Object Oriented Programming, Refactoring, Relational Database theory, Service Oriented Architecture, Usability testing;</para>
+          <para>Artificial Intelligence, Compiler Design, Data Mining, Design
+          Patterns, Distributed Systems, Functional Programming, Machine
+          Learning, Object Oriented Programming, Refactoring, Relational
+          Database theory, Service Oriented Architecture, Usability
+          testing;</para>
         </listitem>
       </varlistentry>
 
@@ -205,7 +212,11 @@
         <term>Tools/Other</term>
 
         <listitem>
-          <para>Adobe Photoshop, AJAX, Ant, Apache web server, DB2, Eclipse, jQuery, jQuery UI, JUnit, Linux, Maven, Microsoft Visual Studio, MySQL, Oracle, PostgreSQL, REST, Restlet, SOAP, SQL Server, Tapestry, Tomcat, Trac, UML, Version Control Systems (Subversion/Mercurial/Git).</para>
+          <para>Adobe Photoshop, AJAX, Ant, Apache web server, DB2, Eclipse,
+          jQuery, jQuery UI, JUnit, Linux, Maven, Microsoft Visual Studio,
+          MySQL, Oracle, PostgreSQL, REST, Restlet, SOAP, SQL Server,
+          Tapestry, Tomcat, Trac, UML, Version Control Systems
+          (Subversion/Mercurial/Git).</para>
         </listitem>
       </varlistentry>
     </variablelist>
