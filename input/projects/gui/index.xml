@@ -27,6 +27,27 @@
   </sidebar>
 
   <sidebar>
+    <title>Code repository</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="http://github.com/bramstein/ui">UI
+        library</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="http://github.com/bramstein/ui-demo">UI
+        Demo</ulink></para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="http://github.com/bramstein/ui-test">UI
+        Test</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
     <title>License</title>
 
     <para>The GUI library is released under the <ulink

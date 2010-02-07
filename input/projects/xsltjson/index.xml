@@ -12,6 +12,17 @@
   </sidebar>
 
   <sidebar>
+    <title>Code repository</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="http://github.com/bramstein/xsltjson">XSLTJSON
+        source</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </sidebar>
+
+  <sidebar>
     <title>Requirements</title>
 
     <para>XSLTJSON requires an <acronym>XSLT</acronym> 2.0 processor. An
