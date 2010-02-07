@@ -7,19 +7,19 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.62 ― 2009-09-12.</para>
+    <para>Version 0.7 ― 2010-02-07.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink
         url="jquery.text-overflow.js">jquery.text-overflow.js</ulink>
-        (Uncompressed, 4.1KB)</para>
+        (Uncompressed, 3.7KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink
         url="jquery.text-overflow.min.js">jquery.text-overflow.min.js</ulink>
-        (Minified, 1.3KB)</para>
+        (Minified, 1.4KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -110,5 +110,27 @@
 
     <para>Please see the <ulink url="examples.html">examples page</ulink> for
     more examples on how to use the plugin.</para>
+  </section>
+
+  <section>
+    <title>Credits</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><ulink
+        url="http://devongovett.wordpress.com/2009/04/06/text-overflow-ellipsis-for-firefox-via-jquery/">Devon
+        Govett</ulink> ― Original plugin.</para>
+      </listitem>
+
+      <listitem>
+        <para>Andrew A. Kononykhin ― Bug fix for markup reset on cloned
+        elements.</para>
+      </listitem>
+
+      <listitem>
+        <para>Micky Hulse ― Bug report on ellipsis character encoding &amp;
+        incorrect DOM tree truncation.</para>
+      </listitem>
+    </itemizedlist>
   </section>
 </article>
