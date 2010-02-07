@@ -7,17 +7,17 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.32 ― 2008-10-05.</para>
+    <para>Version 0.33 ― 2010-02-07.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink url="jquery.sizes.js">jquery.sizes.js</ulink>
-        (Uncompressed, 2.2KB)</para>
+        (Uncompressed, 2.3KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.sizes.min.js">jquery.sizes.min.js</ulink>
-        (Minified, 1.2KB)</para>
+        (Minified, 1.3KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>
@@ -199,10 +199,8 @@
         <term>isVisible()</term>
 
         <listitem>
-          <para>Returns true if the first matched element is visible (i.e. has
-          neither <property>visibility</property> set to
-          <constant>hidden</constant>, nor <property>display</property> set to
-          <constant>none</constant>), false otherwise.</para>
+          <para>Returns true if the any of the matched element are visible,
+          false otherwise.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -231,5 +229,15 @@
 
     <para>The above example also shows that chaining can be used on methods
     that do not return values.</para>
+  </section>
+
+  <section>
+    <title>Credits</title>
+
+    <itemizedlist>
+      <listitem>
+        <para>John Bowers ― Setting values to zero bug fix.</para>
+      </listitem>
+    </itemizedlist>
   </section>
 </article>

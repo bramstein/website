@@ -1,16 +1,15 @@
-
 /*!
- * JSizes - JQuery plugin v0.32
+ * JSizes - JQuery plugin v0.33
  *
  * Licensed under the revised BSD License.
- * Copyright 2008, Bram Stein
+ * Copyright 2008-2010 Bram Stein
  * All rights reserved.
  */
 /*global jQuery*/
 (function ($) {
 	var num = function (value) {
-		return parseInt(value, 10) || 0;
-	};
+			return parseInt(value, 10) || 0;
+		};
 
 	/**
 	 * Sets or gets the values for min-width, min-height, max-width
@@ -20,10 +19,10 @@
 		$.fn[name + 'Size'] = function (value) {
 			var width, height;
 			if (value) {
-				if (value.width) {
+				if (value.width !== undefined) {
 					this.css(name + '-width', value.width);
 				}
-				if (value.height) {
+				if (value.height !== undefined) {
 					this.css(name + '-height', value.height);
 				}
 				return this;
@@ -44,7 +43,7 @@
 	 * Returns whether or not an element is visible.
 	 */
 	$.fn.isVisible = function () {
-		return this.css('visibility') !== 'hidden' && this.css('display') !== 'none';
+		return this.is(':visible');
 	};
 
 	/**
@@ -53,16 +52,16 @@
 	$.each(['border', 'margin', 'padding'], function (i, name) {
 		$.fn[name] = function (value) {
 			if (value) {
-				if (value.top) {
+				if (value.top !== undefined) {
 					this.css(name + '-top' + (name === 'border' ? '-width' : ''), value.top);
 				}
-				if (value.bottom) {
+				if (value.bottom !== undefined) {
 					this.css(name + '-bottom' + (name === 'border' ? '-width' : ''), value.bottom);
 				}
-				if (value.left) {
+				if (value.left !== undefined) {
 					this.css(name + '-left' + (name === 'border' ? '-width' : ''), value.left);
 				}
-				if (value.right) {
+				if (value.right !== undefined) {
 					this.css(name + '-right' + (name === 'border' ? '-width' : ''), value.right);
 				}
 				return this;
