@@ -16,6 +16,7 @@
 			<xsl:variable name="a">
 				<article>
 					<xsl:copy-of select="."/>
+<!--
 					<section>
 						<title>Comments</title>
 						<cdata>
@@ -25,7 +26,7 @@
 							<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 						</cdata>
 
-					</section>
+					</section>-->
 				</article>
 			</xsl:variable>
 

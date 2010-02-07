@@ -182,10 +182,12 @@
 			}
 			]]>
 			</script>
+
 			<xsl:if test="not(contains(document-uri(/), '/projects/')) and not(contains(document-uri(/), '/articles/')) and not(contains(document-uri(/), '/about/'))">
 				<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
 				<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/bram_stein.json?callback=twitterCallback2&amp;count=5"></script>	
 			</xsl:if>
+<!--
 			<script type="text/javascript">
 				<![CDATA[
 				(function() {
@@ -200,6 +202,7 @@
 				})();
 				]]>
 			</script>
+-->
 			</body>
 		</html>
 	</xsl:template>
@@ -254,10 +257,12 @@
 		<xsl:variable name="parent-position"><xsl:number count="section"/></xsl:variable>
 		<xsl:variable name="total"><xsl:value-of select="count(ancestor-or-self::article/section)"/></xsl:variable>
 		<p class="subtitle"><xsl:apply-templates select="child::node()"/>
+			<!--
 			<xsl:if test="not(contains(document-uri(/), '/projects/')) and not(contains(document-uri(/), '/articles/')) and not(contains(document-uri(/), '/about/'))">
 				<xsl:text>, </xsl:text>
 				<a href="/news/{concat(replace(lower-case(string(normalize-space(preceding-sibling::title))), '\s', '-'), '-' , ($total - $parent-position) + 1)}.html#disqus_thread">View comments</a>
 			</xsl:if>
+			-->
 		</p>
 	</xsl:template>
 	
