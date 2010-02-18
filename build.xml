@@ -20,10 +20,16 @@
 	</target>
 	
 	<target name="transform" depends="init">
+		<xmlcatalog id="all">
+			<dtd publicId="-//OASIS//DTD DocBook XML V4.4//EN" location="lib/dummy.dtd"/>
+			<dtd publicId="-//OASIS//DTD DocBook XML V4.3//EN" location="lib/dummy.dtd"/>
+		</xmlcatalog>
+
 		<xslt basedir="input" destdir="${website.tmp}" extension=".xml" style="${website.config}/reorder.xsl" includes="**/*.xml">
 			<classpath>
 				<path refid="website.classpath"/>
 			</classpath>
+		    <xmlcatalog refid="all"/>
 		</xslt>
 
 		<xslt basedir="${website.tmp}" destdir="${website.build}" extension=".html"
@@ -31,24 +37,28 @@
 			<classpath>
 				<path refid="website.classpath"/>
 			</classpath>
+		    <xmlcatalog refid="all"/>
 		</xslt>
 
 		<xslt extension=".xml" style="${website.config}/rss.xsl" in="input/index.xml" out="${website.build}/rss.xml">
 			<classpath>
 				<path refid="website.classpath"/>
 			</classpath>
+		    <xmlcatalog refid="all"/>
 		</xslt>
 
 		<xslt extension=".xml" style="${website.config}/news-items.xsl" in="input/index.xml" out="${website.build}/news.xml">
 			<classpath>
 				<path refid="website.classpath"/>
 			</classpath>
+		    <xmlcatalog refid="all"/>
 		</xslt>
 
 		<xslt extension=".xml" style="${website.config}/news-index.xsl" in="input/index.xml" out="${website.build}/news/index.html">
 			<classpath>
 				<path refid="website.classpath"/>
 			</classpath>
+		    <xmlcatalog refid="all"/>
 		</xslt>
 
 		<copy todir="${website.build}">
@@ -64,6 +74,7 @@
 				<include name="**/*.html"/>
 				<include name="**/*.txt"/>
 				<include name="**/*.gif"/>
+				<include name="**/*.htaccess"/>
 			</fileset>
 		</copy>
 
