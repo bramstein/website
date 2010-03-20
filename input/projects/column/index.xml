@@ -7,17 +7,17 @@
   <sidebar>
     <title>Download</title>
 
-    <para>Version 0.13 ― 2009-05-17.</para>
+    <para>Version 0.14 ― 2010-03-17.</para>
 
     <itemizedlist>
       <listitem>
         <para><ulink type="" url="jquery.column.js">jquery.column.js</ulink>
-        (Uncompressed, 2.4KB)</para>
+        (Uncompressed, 2.7KB)</para>
       </listitem>
 
       <listitem>
         <para><ulink url="jquery.column.min.js">jquery.column.min.js</ulink>
-        (Minified, 1.3KB)</para>
+        (Minified, 1.4KB)</para>
       </listitem>
     </itemizedlist>
   </sidebar>

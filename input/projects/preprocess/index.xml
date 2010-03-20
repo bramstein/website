@@ -32,6 +32,11 @@
       </listitem>
 
       <listitem>
+        <para><ulink type=""
+        url="http://github.com/smartt/jsmacro">jsmacro</ulink></para>
+      </listitem>
+
+      <listitem>
         <para><ulink url="http://jscompiler.org/">JavaScript
         Compiler</ulink></para>
       </listitem>

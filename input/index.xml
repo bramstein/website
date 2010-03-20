@@ -39,6 +39,20 @@
   </sidebar>
 
   <section>
+    <title>jQuery 1.4.2 support</title>
+
+    <subtitle>Posted on Saturday 20 March 2010</subtitle>
+
+    <para>Just a quick note: <ulink
+    url="http://www.bramstein.com/projects/">all my projects</ulink> relying
+    or extending jQuery now support jQuery 1.4.2. Almost none of the projects
+    required any changes, except for the <ulink type=""
+    url="http://www.bramstein.com/projects/text-overflow/">jQuery Text
+    Overflow plugin</ulink>, which is now at version 0.14 and works with both
+    jQuery 1.3.2 and 1.4.2.</para>
+  </section>
+
+  <section>
     <title><ulink type=""
     url="http://www.bramstein.com/projects/typeset/myfit.html">TeX line
     breaking algorithm in HTML5 Canvas</ulink></title>
