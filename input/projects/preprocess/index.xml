@@ -238,29 +238,36 @@ function find(object, key) {
   <section>
     <title>Frequently Asked Questions</title>
 
-    <variablelist>
-      <varlistentry>
-        <term>Are there any plans to support <code>#include</code>
-        directives?</term>
+    <qandaset>
+      <qandadiv>
+        <qandaentry>
+          <question>
+            <para>Are there any plans to support <code>#include</code>
+            directives?</para>
+          </question>
 
-        <listitem>
-          <para>Not at the present time. I think JavaScript would be better
-          off with a proper module system, which controls dependencies, file
-          inclusions, and packaging.</para>
-        </listitem>
-      </varlistentry>
+          <answer>
+            <para>Not at the present time. I think JavaScript would be better
+            off with a proper module system, which controls dependencies, file
+            inclusions, and packaging.</para>
+          </answer>
+        </qandaentry>
 
-      <varlistentry>
-        <term>The JSLint/minification stage in my build process stops working
-        because of the preprocessor directives.</term>
+        <qandaentry>
+          <question>
+            <para>The JSLint/minification stage in my build process stops
+            working because of the preprocessor directives.</para>
+          </question>
 
-        <listitem>
-          <para>The simple solution is to run the preprocessor before running
-          <ulink url="http://www.jslint.com/">JSLint</ulink> or minifying your
-          code. Alternatively, you could set up a filter in your build process
-          that strips out all the preprocessor directives.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+          <answer>
+            <para>The simple solution is to run the preprocessor before
+            running <ulink url="http://www.jslint.com/">JSLint</ulink> or
+            minifying your code. Alternatively, you could set up a filter in
+            your build process that strips out all the preprocessor
+            directives.</para>
+          </answer>
+        </qandaentry>
+      </qandadiv>
+    </qandaset>
   </section>
 </article>

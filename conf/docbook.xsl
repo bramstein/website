@@ -265,7 +265,29 @@
 			-->
 		</p>
 	</xsl:template>
-	
+
+	<xsl:template match="qandaset">
+		<xsl:apply-templates select="qandadiv"/>
+	</xsl:template>	
+
+	<xsl:template match="qandadiv">
+		<dl>
+			<xsl:apply-templates select="qandaentry"/>
+		</dl>
+	</xsl:template>
+
+	<xsl:template match="qandaentry">
+		<xsl:apply-templates/>
+	</xsl:template>
+
+	<xsl:template match="question">
+		<dt><xsl:apply-templates/></dt>
+	</xsl:template>
+
+	<xsl:template match="answer">
+		<dd><xsl:apply-templates/></dd>
+	</xsl:template>
+
 	<xsl:template match="para">
 		<xsl:for-each select="footnote">
 			<xsl:variable name="p"><xsl:number level="any"/></xsl:variable>

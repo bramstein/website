@@ -164,74 +164,84 @@ $('#mytable td:nth-col(10n-1)');</programlisting>
   <section>
     <title>Frequently Asked Questions</title>
 
-    <variablelist>
-      <varlistentry>
-        <term>What is the difference between the selector and the nthCol
-        jQuery extension function?</term>
+    <qandaset>
+      <qandadiv>
+        <qandaentry>
+          <question>
+            <para>What is the difference between the selector and the nthCol
+            jQuery extension function?</para>
+          </question>
 
-        <listitem>
-          <para>Although both use the same code, the
-          <methodname>nthCol</methodname> extension function is probably
-          faster. The reason for this is that the selector engine in jQuery
-          uses a bottom up approach. This is a good thing for most selectors,
-          but not so much for a column selector because it needs context
-          information, such as access to rows and table sections
-          (<code>thead</code>, <code>tbody</code> and <code>tfoot</code>.) For
-          example, say you write the following selector: "<code>#mytable tbody
-          td:nth-col(even)</code>". The selector engine will first select all
-          <code>td</code> elements in your document and pass them to the
-          column selector. This means the column selector will have to
-          calculate the correct column cells for all tables in the document
-          instead of just the ones in <code>#mytable</code>. Although it does
-          so in the most efficient way possible, there is still a cost for
-          doing these calculations on tables you did not intend to select. The
-          <methodname>nthCol</methodname> extension function on the other hand
-          works on the result of the selector, meaning all irrelevant elements
-          have already been thrown out, and as such it does not do any
-          unnecessary work. My recommendation for now is that you start with
-          using the column selector in your code, and only if profiling shows
-          a performance problem switch to the <code>nthCol</code> extension
-          function.</para>
-        </listitem>
-      </varlistentry>
+          <answer>
+            <para>Although both use the same code, the
+            <methodname>nthCol</methodname> extension function is probably
+            faster. The reason for this is that the selector engine in jQuery
+            uses a bottom up approach. This is a good thing for most
+            selectors, but not so much for a column selector because it needs
+            context information, such as access to rows and table sections
+            (<code>thead</code>, <code>tbody</code> and <code>tfoot</code>.)
+            For example, say you write the following selector: "<code>#mytable
+            tbody td:nth-col(even)</code>". The selector engine will first
+            select all <code>td</code> elements in your document and pass them
+            to the column selector. This means the column selector will have
+            to calculate the correct column cells for all tables in the
+            document instead of just the ones in <code>#mytable</code>.
+            Although it does so in the most efficient way possible, there is
+            still a cost for doing these calculations on tables you did not
+            intend to select. The <methodname>nthCol</methodname> extension
+            function on the other hand works on the result of the selector,
+            meaning all irrelevant elements have already been thrown out, and
+            as such it does not do any unnecessary work. My recommendation for
+            now is that you start with using the column selector in your code,
+            and only if profiling shows a performance problem switch to the
+            <code>nthCol</code> extension function.</para>
+          </answer>
+        </qandaentry>
 
-      <varlistentry>
-        <term>Why not just use col and colgroup?</term>
+        <qandaentry>
+          <question>
+            <para>Why not just use col and colgroup?</para>
+          </question>
 
-        <listitem>
-          <para>There are several reasons you might want to use this plugin
-          over <classname>col</classname> and <classname>colgroup</classname>.
-          First, <ulink
-          url="http://www.w3.org/TR/CSS21/tables.html#columns"><classname>col</classname>
-          and <classname>colgroup</classname> are restricted in the CSS
-          attributes they support</ulink>, which may be problematic if you
-          want to do advanced styling. They are limited because
-          <classname>col</classname> and <classname>colgroup</classname>
-          define artificial elements that are not actually there in the source
-          document. This plugin on the other hand returns the actual table
-          cells that make up the column. These cells can then be styled in any
-          way. Second, browser support for those <classname>col</classname>
-          and <classname>colgroup</classname> attributes that can be styled is
-          <ulink
-          url="http://www.quirksmode.org/css/columns.html">problematic</ulink>,
-          while all browsers fully support styling table cells.</para>
-        </listitem>
-      </varlistentry>
+          <answer>
+            <para>There are several reasons you might want to use this plugin
+            over <classname>col</classname> and
+            <classname>colgroup</classname>. First, <ulink
+            url="http://www.w3.org/TR/CSS21/tables.html#columns"><classname>col</classname>
+            and <classname>colgroup</classname> are restricted in the CSS
+            attributes they support</ulink>, which may be problematic if you
+            want to do advanced styling. They are limited because
+            <classname>col</classname> and <classname>colgroup</classname>
+            define artificial elements that are not actually there in the
+            source document. This plugin on the other hand returns the actual
+            table cells that make up the column. These cells can then be
+            styled in any way. Second, browser support for those
+            <classname>col</classname> and <classname>colgroup</classname>
+            attributes that can be styled is <ulink
+            url="http://www.quirksmode.org/css/columns.html">problematic</ulink>,
+            while all browsers fully support styling table cells.</para>
+          </answer>
+        </qandaentry>
 
-      <varlistentry>
-        <term>What is the difference between using this plugin and using the
-        standard "#mytable tbody &gt; td:nth-child(n)" selector?</term>
+        <qandaentry>
+          <question>
+            <para>What is the difference between using this plugin and using
+            the standard "#mytable tbody &gt; td:nth-child(n)"
+            selector?</para>
+          </question>
 
-        <listitem>
-          <para>For tables that have no row or column span attributes this
-          works just fine, and is the recommended method if you know for sure
-          your tables will never contain a row or column span. If you have row
-          or column spans in your table, or at least the possibility that they
-          might one day be there, you should use the column selector plugin
-          which handles column and row spans correctly.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+          <answer>
+            <para>For tables that have no row or column span attributes this
+            works just fine, and is the recommended method if you know for
+            sure your tables will never contain a row or column span. If you
+            have row or column spans in your table, or at least the
+            possibility that they might one day be there, you should use the
+            column selector plugin which handles column and row spans
+            correctly.</para>
+          </answer>
+        </qandaentry>
+      </qandadiv>
+    </qandaset>
   </section>
 
   <section>

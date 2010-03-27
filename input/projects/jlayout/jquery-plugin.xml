@@ -296,108 +296,125 @@
   <section>
     <title>Frequently Asked Questions</title>
 
-    <variablelist>
-      <varlistentry>
-        <term>I'm using a full page layout. When I recalculate the layout at
-        the <methodname>onresize</methodname> event sometimes there is empty
-        space around the edges of my layout. How can I solve this?</term>
+    <qandaset>
+      <qandadiv>
+        <qandaentry>
+          <question>
+            <para>I'm using a full page layout. When I recalculate the layout
+            at the <methodname>onresize</methodname> event sometimes there is
+            empty space around the edges of my layout. How can I solve
+            this?</para>
+          </question>
 
-        <listitem>
-          <para>This is caused by unmaximizing the window. The browser detects
-          the window change, resizes the window and redraws the content. At
-          this point it detects the window size is too small for your layout
-          and adds horizontal or vertical scroll bars if necessary. It then
-          fires the <methodname>onresize</methodname> event. The layout
-          manager recalculates the layout using the size of the window minus
-          the size of the scrollbars and lays out the container accordingly.
-          The browser then detects the content suddenly fits into the browser
-          window and removes the scroll bars. Gaps remain where the scroll
-          bars once were, and the layout it not calculated again since the
-          window has not been resized. To fix this, set the overflow property
-          of the <classname>html</classname> or <classname>body</classname>
-          elements to hidden. This will ensure that scrollbars never show up
-          on unmaximize, and the layout is calculated correctly.</para>
-        </listitem>
-      </varlistentry>
+          <answer>
+            <para>This is caused by unmaximizing the window. The browser
+            detects the window change, resizes the window and redraws the
+            content. At this point it detects the window size is too small for
+            your layout and adds horizontal or vertical scroll bars if
+            necessary. It then fires the <methodname>onresize</methodname>
+            event. The layout manager recalculates the layout using the size
+            of the window minus the size of the scrollbars and lays out the
+            container accordingly. The browser then detects the content
+            suddenly fits into the browser window and removes the scroll bars.
+            Gaps remain where the scroll bars once were, and the layout it not
+            calculated again since the window has not been resized. To fix
+            this, set the overflow property of the <classname>html</classname>
+            or <classname>body</classname> elements to hidden. This will
+            ensure that scrollbars never show up on unmaximize, and the layout
+            is calculated correctly.</para>
+          </answer>
+        </qandaentry>
 
-      <varlistentry>
-        <term>Can I make the layout resizable, by―for example―dragging the
-        borders?</term>
+        <qandaentry>
+          <question>
+            <para>Can I make the layout resizable, by―for example―dragging the
+            borders?</para>
+          </question>
 
-        <listitem>
-          <para>Although the jLayout plugin has no notion of user interaction
-          it can easily be integrated with libraries that support resizable
-          components. One such library is <ulink
-          url="http://jqueryui.com/">jQuery UI</ulink> which has a
-          <classname>resizable</classname> interaction widget. Using this
-          interaction you can make any layout element (container, or child
-          element) resizable by simply calling the
-          <methodname>resizable</methodname> method. For example if you have a
-          border layout and wish the north component with id
-          <classname>#north</classname> to become resizable you invoke
-          <code>$('#north').resizable();</code>. For more options please refer
-          to the <ulink url="http://jqueryui.com/demos/resizable/">jQuery UI
-          resizable documentation</ulink> or examine <ulink
-          url="borderlayout-resize.html">an example of a resizable border
-          layout</ulink>.</para>
-        </listitem>
-      </varlistentry>
+          <answer>
+            <para>Although the jLayout plugin has no notion of user
+            interaction it can easily be integrated with libraries that
+            support resizable components. One such library is <ulink
+            url="http://jqueryui.com/">jQuery UI</ulink> which has a
+            <classname>resizable</classname> interaction widget. Using this
+            interaction you can make any layout element (container, or child
+            element) resizable by simply calling the
+            <methodname>resizable</methodname> method. For example if you have
+            a border layout and wish the north component with id
+            <classname>#north</classname> to become resizable you invoke
+            <code>$('#north').resizable();</code>. For more options please
+            refer to the <ulink
+            url="http://jqueryui.com/demos/resizable/">jQuery UI resizable
+            documentation</ulink> or examine <ulink
+            url="borderlayout-resize.html">an example of a resizable border
+            layout</ulink>.</para>
+          </answer>
+        </qandaentry>
 
-      <varlistentry>
-        <term>Is it possible to save the position of the layout when
-        navigating to other pages?</term>
+        <qandaentry>
+          <question>
+            <para>Is it possible to save the position of the layout when
+            navigating to other pages?</para>
+          </question>
 
-        <listitem>
-          <para>Sure, the easiest way to do this is to query the sizes of all
-          components and containers using the <methodname>width</methodname>
-          and <methodname>height</methodname> methods. Serialize this
-          information to a cookie, and restore the layout on page load using
-          the information in the cookie and the <methodname>width</methodname>
-          and <methodname>height</methodname> methods.</para>
-        </listitem>
-      </varlistentry>
+          <answer>
+            <para>Sure, the easiest way to do this is to query the sizes of
+            all components and containers using the
+            <methodname>width</methodname> and <methodname>height</methodname>
+            methods. Serialize this information to a cookie, and restore the
+            layout on page load using the information in the cookie and the
+            <methodname>width</methodname> and <methodname>height</methodname>
+            methods.</para>
+          </answer>
+        </qandaentry>
 
-      <varlistentry>
-        <term>How do I hide or show a component or container (with an
-        animation?)</term>
+        <qandaentry>
+          <question>
+            <para>How do I hide or show a component or container (with an
+            animation?)</para>
+          </question>
 
-        <listitem>
-          <para>The easiest way is to use the standard jQuery
-          <methodname>animate</methodname> method. When handling the event
-          that should toggle a certain component you call the
-          <methodname>animate</methodname> function with the property you
-          would like to animate (say the <property>width</property> or
-          <property>height</property>), and the parameters to the animation.
-          The following code example will toggle a component's width and
-          animate it accordingly. Note that both callbacks to the
-          <methodname>layout</methodname> method are necessary; the
-          <property>complete</property> callback will be executed when the
-          animation reached its final point, and the <property>step</property>
-          callback will be executed during the intermediate steps.</para>
+          <answer>
+            <para>The easiest way is to use the standard jQuery
+            <methodname>animate</methodname> method. When handling the event
+            that should toggle a certain component you call the
+            <methodname>animate</methodname> function with the property you
+            would like to animate (say the <property>width</property> or
+            <property>height</property>), and the parameters to the animation.
+            The following code example will toggle a component's width and
+            animate it accordingly. Note that both callbacks to the
+            <methodname>layout</methodname> method are necessary; the
+            <property>complete</property> callback will be executed when the
+            animation reached its final point, and the
+            <property>step</property> callback will be executed during the
+            intermediate steps.</para>
 
-          <programlisting>var container = $('.layout');
+            <programlisting>var container = $('.layout');
 $('#mycomponent').animate({width: 'toggle'}, {duration: 500, complete: container.layout, step: container.layout});</programlisting>
 
-          <para>You might also want to take a look at the examples, which
-          includes a <ulink url="borderlayout-toggle.html">border layout with
-          toggle-able components</ulink>.</para>
-        </listitem>
-      </varlistentry>
+            <para>You might also want to take a look at the examples, which
+            includes a <ulink url="borderlayout-toggle.html">border layout
+            with toggle-able components</ulink>.</para>
+          </answer>
+        </qandaentry>
 
-      <varlistentry>
-        <term>Can I have scroll bars for content that does not fit into a
-        component?</term>
+        <qandaentry>
+          <question>
+            <para>Can I have scroll bars for content that does not fit into a
+            component?</para>
+          </question>
 
-        <listitem>
-          <para>No problem, just set the CSS overflow: auto property like you
-          normally would on an absolute or relativily positioned element, and
-          scroll bars will appear when necessary. You might also want to set
-          the <property>resize</property> option to false, to keep jLayout
-          from resizing your containers. There is an <ulink
-          url="content-scroll.html">example of a layout with scroll
-          bars</ulink> available as well.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+          <answer>
+            <para>No problem, just set the CSS overflow: auto property like
+            you normally would on an absolute or relativily positioned
+            element, and scroll bars will appear when necessary. You might
+            also want to set the <property>resize</property> option to false,
+            to keep jLayout from resizing your containers. There is an <ulink
+            url="content-scroll.html">example of a layout with scroll
+            bars</ulink> available as well.</para>
+          </answer>
+        </qandaentry>
+      </qandadiv>
+    </qandaset>
   </section>
 </article>
