@@ -51,39 +51,23 @@
     <para>I'm a programmer and web developer from the Netherlands, but
     currently living in Copenhagen, Denmark. I have a passion for developing
     usable programs, websites, visualizations―and when I have some spare
-    time―games.</para>
-
-    <para>I'm currently self-employed, so if you need a talented programmer
-    and designer, please have a look at my Curriculum Vitæ below (or <ulink
-    url="cv-bram-stein.pdf">download as a PDF</ulink>.) I'm always open for
-    interesting projects and problems, so do not hesitate to contact
-    me.</para>
-  </section>
-
-  <section>
-    <title>Education</title>
-
-    <section>
-      <title>Master of Science in Computer Science</title>
-
-      <subtitle>Uppsala University, Sweden</subtitle>
-
-      <para>Graduated in May 2009.</para>
-    </section>
-
-    <section>
-      <title>Bachelor of Engineering in Media Technology</title>
-
-      <subtitle>Utrecht University of Applied Sciences, The
-      Netherlands</subtitle>
-
-      <para>Graduated in January 2005, <emphasis>with
-      Distinction</emphasis>.</para>
-    </section>
+    time―games. I'm always open for interesting projects and problems, so do
+    not hesitate to contact me if you need a talented programmer and designer.
+    Please have a look at my Curriculum Vitæ below (or <ulink
+    url="cv-bram-stein.pdf">download as a PDF</ulink>.)</para>
   </section>
 
   <section>
     <title>Professional experience</title>
+
+    <section>
+      <title>Front-end Developer</title>
+
+      <subtitle>One.com</subtitle>
+
+      <para>I am currently employed as a front-end developer at One.com, where
+      I work on their web based calendar and email applications.</para>
+    </section>
 
     <section>
       <title>Software Developer</title>
@@ -91,12 +75,12 @@
       <subtitle>Technical University of Denmark</subtitle>
 
       <para>Software developer at the Technical Information Center of Denmark
-      (DTU Library.) I am responsible for the design and development of the
-      upcoming DTU Digital Library web application, which provides a
-      user-friendly interface for searching more than 150 million academic
+      (DTU Library.) I was responsible for the design and development of the
+      DTU Digital Library web application, which provides a user-friendly
+      interface for searching more than 150 million academic
       publications.</para>
 
-      <para>November 2008 - Present</para>
+      <para>November 2008 - March 2010</para>
     </section>
 
     <section>
@@ -167,6 +151,28 @@
   </section>
 
   <section>
+    <title>Education</title>
+
+    <section>
+      <title>Master of Science in Computer Science</title>
+
+      <subtitle>Uppsala University, Sweden</subtitle>
+
+      <para>Graduated in May 2009.</para>
+    </section>
+
+    <section>
+      <title>Bachelor of Engineering in Media Technology</title>
+
+      <subtitle>Utrecht University of Applied Sciences, The
+      Netherlands</subtitle>
+
+      <para>Graduated in January 2005, <emphasis>with
+      Distinction</emphasis>.</para>
+    </section>
+  </section>
+
+  <section>
     <title>Theoretical and technical knowledge</title>
 
     <variablelist>
@@ -174,8 +180,7 @@
         <term>Programming languages</term>
 
         <listitem>
-          <para>C, C#, C++, Erlang, Java (SE/EE), JavaScript, Perl, PHP, Ruby,
-          SML;</para>
+          <para>C/C++, Java, JavaScript, PHP;</para>
         </listitem>
       </varlistentry>
 
@@ -191,8 +196,8 @@
         <term>Other languages</term>
 
         <listitem>
-          <para>CSS, JSON, Latex, OpenGL, PL/SQL, RDF, SQL, SVG, XPath,
-          XQuery, XSL-FO, XSLT;</para>
+          <para>CSS, JSON, Latex, OpenGL, SQL, SVG, XPath, XQuery,
+          XSLT;</para>
         </listitem>
       </varlistentry>
 
@@ -203,8 +208,7 @@
           <para>Artificial Intelligence, Compiler Design, Data Mining, Design
           Patterns, Distributed Systems, Functional Programming, Machine
           Learning, Object Oriented Programming, Refactoring, Relational
-          Database theory, Service Oriented Architecture, Usability
-          testing;</para>
+          Database theory, Unit testing, Usability testing;</para>
         </listitem>
       </varlistentry>
 
@@ -212,11 +216,10 @@
         <term>Tools/Other</term>
 
         <listitem>
-          <para>Adobe Photoshop, AJAX, Ant, Apache web server, DB2, Eclipse,
-          jQuery, jQuery UI, JUnit, Linux, Maven, Microsoft Visual Studio,
-          MySQL, Oracle, PostgreSQL, REST, Restlet, SOAP, SQL Server,
-          Tapestry, Tomcat, Trac, UML, Version Control Systems
-          (Subversion/Mercurial/Git).</para>
+          <para>Adobe Photoshop, AJAX, Ant/Maven, Apache HTTP server, Eclipse,
+          ExtJS, jQuery &amp; jQuery UI, Linux, Microsoft Visual Studio,
+          MySQL, PostgreSQL, REST, Restlet, Subversion/Mercurial/Git,
+          Tomcat.</para>
         </listitem>
       </varlistentry>
     </variablelist>
