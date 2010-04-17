@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <article>
   <title>jLayout — JavaScript Layout Algorithms</title>
 
   <sidebar>
     <title>Download</title>
 
-    <para>Last updated: 2009-07-29.</para>
+    <para>Last updated: 2010-04-10.</para>
 
     <para>jLayout Core:</para>
 
@@ -102,8 +100,11 @@
     components in a user defined grid, <methodname>flex-grid</methodname>
     which offers a grid with flexible column and row sizes, and
     <methodname>flow</methodname> which flows components in a user defined
-    direction. A <ulink url="jquery-plugin.html" userlevel="">jQuery
-    plugin</ulink> to lay out (X)HTML elements is also available.</para>
+    direction. Using the <methodname>grid</methodname> and
+    <methodname>flex-grid</methodname> algorithms you can also create
+    horizontal and vertical layouts. A <ulink url="jquery-plugin.html"
+    userlevel="">jQuery plugin</ulink> to lay out (X)HTML elements is also
+    available.</para>
   </section>
 
   <section>
@@ -526,6 +527,38 @@ flexGridLayout.layout(myContainer);</programlisting>
 });
 
 flowLayout.layout(myContainer);</programlisting>
+    </section>
+
+    <section>
+      <title>Horizontal and vertical layouts</title>
+
+      <para>Horizontal and vertical layouts can be achieved by using a grid or
+      a flex-grid layout with one row for horizontal layouts, and one column
+      for vertical layouts. The choice of a grid layout or a flex-grid layout
+      depends on whether or not you want the items in the grid to have uniform
+      sizes (grid) or their natural sizes (flex-grid.) The following layout
+      uses a flex grid so that all items are laid out in the horizontal
+      direction while still allowing the individual items to take up their
+      natural size (i.e. the second component is longer than the other
+      two.)</para>
+
+      <graphic fileref="horizontal.png" />
+
+      <programlisting>var horizontalLayout = jLayout.flexGrid({
+    rows: 1,
+    items: [myComponent1, myComponent2, myComponent3]
+});</programlisting>
+
+      <para>You can also lay out components vertically, by just changing the
+      <property>rows</property> parameter to <property>columns</property> as
+      shown in the next example.</para>
+
+      <graphic fileref="vertical.png" />
+
+      <programlisting>var verticalLayout = jLayout.flexGrid({
+    columns: 1,
+    items: [myComponent1, myComponent2, myComponent3]
+});</programlisting>
     </section>
   </section>
 </article>
