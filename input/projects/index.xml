@@ -9,6 +9,11 @@
 
     <itemizedlist>
       <listitem>
+        <para><ulink url="typeset/">TeX line breaking algorithm in
+        JavaScript</ulink></para>
+      </listitem>
+
+      <listitem>
         <para><ulink url="preprocess/">JavaScript Preprocessor</ulink></para>
       </listitem>
 
@@ -55,6 +60,17 @@
       </listitem>
     </itemizedlist>
   </sidebar>
+
+  <section>
+    <title><ulink url="typeset/">TeX line breaking algorithm in
+    JavaScript</ulink></title>
+
+    <para>This is an implementation of the Knuth and Plass line breaking
+    algorithm using JavaScript and the HTML5 canvas element. The goal of this
+    implementation is to optimally set justified text in the new HTML5 canvas
+    element, and ultimately provide a library for various line breaking
+    algorithms in JavaScript.</para>
+  </section>
 
   <section>
     <title><ulink url="preprocess/">JavaScript Preprocessor</ulink></title>

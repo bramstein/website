@@ -192,7 +192,7 @@
               <listitem>
                 <para>The layout algorithm to use. Should be either
                 <constant>grid</constant>, <constant>border</constant>,
-                <methodname>flex-grid</methodname>, or
+                <methodname>flexGrid</methodname>, or
                 <methodname>flow</methodname>. Defaults to
                 <constant>grid</constant>.</para>
               </listitem>

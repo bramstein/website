@@ -245,6 +245,9 @@
 	</xsl:template>
 	
 	<xsl:template match="title">
+		<xsl:if test="@id">
+			<a name="{@id}"/>
+		</xsl:if>
 		<xsl:variable name="depth" select="count(ancestor-or-self::section) + (if (exists(parent::sidebar)) then 3 else 1)"/>
 		<xsl:element name="h{ if($depth lt 7) then $depth else '6'}">
 	
@@ -388,7 +391,11 @@
 	<xsl:template match="acronym">
 		<abbr><xsl:value-of select="."/></abbr>
 	</xsl:template>
-	
+
+	<xsl:template match="link">
+		<a href="#{@linkend}"><xsl:value-of select="."/></a>
+	</xsl:template>	
+
 	<xsl:template match="ulink">
 		<a href="{@url}"><xsl:value-of select="."/></a>
 	</xsl:template>

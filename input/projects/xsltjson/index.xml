@@ -7,8 +7,17 @@
   <sidebar id="test1">
     <title>Download</title>
 
-    <para>Download: <ulink url="xml-to-json.xsl">xml-to-json.xsl</ulink>
-    (XSLTJSON v0.87 - 2009-06-28 - 14.6 kB)</para>
+    <itemizedlist>
+      <listitem>
+        <para><ulink url="xml-to-json.xsl">xml-to-json.xsl</ulink> (XSLTJSON
+        v0.87 - 2009-06-28 - 14.6 kB)</para>
+      </listitem>
+
+      <listitem>
+        <para><ulink url="xml-to-jsonml.xsl">xml-to-jsonml.xsl</ulink>
+        (XSLTJSON Lite v0.2 - 2010-05-08 - 4kB)</para>
+      </listitem>
+    </itemizedlist>
   </sidebar>
 
   <sidebar>
@@ -41,7 +50,9 @@
     url="http://code.google.com/p/xml2json-xslt/">xml2json</ulink>, or a
     modified <ulink
     url="http://www.xml.lt/Blog/2009/01/21/XML+to+JSON">xml2json version by
-    Martynas Jusevičius</ulink>.</para>
+    Martynas Jusevičius</ulink>. You can also use <link lang=""
+    linkend="xsltjson-lite">XSLTJSON Lite</link> to transform XML to
+    JSONML.</para>
   </sidebar>
 
   <sidebar>
@@ -72,7 +83,10 @@
     url="http://badgerfish.ning.com/">BadgerFish convention</ulink>, which
     allows round-trips between <acronym>XML</acronym> and
     <acronym>JSON</acronym>. To make things even better, it is completely free
-    and open-source.</para>
+    and open-source. If you do not have an XSLT 2.0 processor, you can use
+    <link linkend="xsltjson-lite">XSLTJSON Lite</link>, which is an XSLT 1.0
+    stylesheet to transforms XML to the <ulink url="http://jsonml.org/">JSONML
+    format</ulink>.</para>
   </section>
 
   <section>
@@ -463,6 +477,18 @@
         name.</para>
       </section>
     </section>
+  </section>
+
+  <section>
+    <title id="xsltjson-lite">XSLTJSON Lite (XSLT 1.0 compatible)</title>
+
+    <para>The <ulink url="xml-to-jsonml.xsl">XSLTJSON Lite stylesheet</ulink>
+    transforms arbitrary XML to the <ulink url="http://jsonml.org/">JSONML
+    format</ulink>. It is written in XSLT 1.0, so it is compatible with all
+    XSLT 1.0 and 2.0 processors, as well as the XSLT processor built into most
+    modern browsers (for client-side transformations.) The stylesheet doesn't
+    take any parameters and has no configurable options. Use it like you would
+    use any XSLT stylesheet.</para>
   </section>
 
   <section>

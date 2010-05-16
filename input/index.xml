@@ -39,6 +39,22 @@
   </sidebar>
 
   <section>
+    <title><ulink url="http://www.bramstein.com/projects/xsltjson/">XSLTJSON
+    Lite</ulink></title>
+
+    <subtitle>Posted on Saturday 8 May 2010</subtitle>
+
+    <para>Today in the category “software I finished over a year ago and
+    forgot about completely” ― <ulink
+    url="http://www.bramstein.com/projects/xsltjson/">XSLTJSON Lite</ulink> ―
+    a XSLT 1.0 stylesheet to transform arbitrary XML to the JSONML format. It
+    isn't as full featured as its bigger brother <ulink
+    url="http://www.bramstein.com/projects/xsltjson/">XSLTJSON</ulink>, but
+    might come in handy for developers who do not have access to an XSLT 2.0
+    processor.</para>
+  </section>
+
+  <section>
     <title>jQuery 1.4.2 support</title>
 
     <subtitle>Posted on Saturday 20 March 2010</subtitle>

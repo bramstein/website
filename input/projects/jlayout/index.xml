@@ -533,10 +533,10 @@ flowLayout.layout(myContainer);</programlisting>
       <title>Horizontal and vertical layouts</title>
 
       <para>Horizontal and vertical layouts can be achieved by using a grid or
-      a flex-grid layout with one row for horizontal layouts, and one column
-      for vertical layouts. The choice of a grid layout or a flex-grid layout
+      a flexGrid layout with one row for horizontal layouts, and one column
+      for vertical layouts. The choice of a grid layout or a flexGrid layout
       depends on whether or not you want the items in the grid to have uniform
-      sizes (grid) or their natural sizes (flex-grid.) The following layout
+      sizes (grid) or their natural sizes (flexGrid.) The following layout
       uses a flex grid so that all items are laid out in the horizontal
       direction while still allowing the individual items to take up their
       natural size (i.e. the second component is longer than the other
