@@ -1,0 +1,3 @@
+[submodule "input/projects/bit-array"]
+	path = input/projects/bit-array
+	url = git@github.com:bramstein/bit-array.git
