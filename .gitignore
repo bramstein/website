@@ -1,4 +1,2 @@
-design/*
-output/*
-*~
-tmp/*
+build
+dist
