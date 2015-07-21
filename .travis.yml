@@ -1,14 +1,14 @@
 language: node_js
-before_install: "npm install -g grunt-cli && npm install -g grunt && sudo apt-get update && sudo apt-get install -y libcairo2-dev libjpeg8-dev libgif-dev optipng pngcrush pngquant libpango1.0-dev graphicsmagick libjpeg-turbo-progs inkscape"
-
-env:
-  global:
-  - secure: c6StvPXc5dQD1j6M31uYIQArF8pA3ue8Ck/nahQ8cQ8MQOP36sWJXbijpBc8yGPHF1sx3kunAFGROycp6WUMVxcvovJOf2MlcTU8mapNdZXr0DluDwQxMH38Jhr8Ol0QqvIDdXm9nHBRunryanom/6dG1TstCm6IrUMN95jTs54=
-  - secure: r59YqCuwuOnDfbHQBrBpEzTva4R5fbOwmiyuBnJkLu7AVInnxVQ98YI6uZmRcEzWN6bqz3Ax8jv2esBtZIALh7Ui1LM2blCc00ZG0GM4cIsC1e0l1qkuRgFMMnovuyl00dGHZXRtZd2rIw8e8h6Ob8wyJEx0Zu9URo4Cccldxlo=
-
+before_install: npm install -g grunt-cli && npm install -g grunt && sudo apt-get update
+  && sudo apt-get install -y libcairo2-dev libjpeg8-dev libgif-dev optipng pngcrush
+  pngquant libpango1.0-dev graphicsmagick libjpeg-turbo-progs inkscape
 deploy:
   provider: script
-  script: "grunt deploy"
+  script: grunt deploy
   skip_cleanup: true
   on:
     branch: master
+env:
+  global:
+  - secure: THSi/bmcY1gFzKXL0poaeBYxPECblTGhL2cM8sdDs9xh/2XCIf5/tQdgGxUbgG2Jr99IqRghdUK0gdnrbwefa7py/l/ce2YhaCHwA/G1DaElH+bCYtkj9NkKDZ5P4GspcvgZ5TP/aWeHR9Oe2CsQSRJ8Ka6cX7p33vA0SitnvmI=
+  - secure: v2R6/GQmTxzaxGnlt6SV7S9HN+E0O4pJkVBA/9/xk9T2OW+KB9EqY4NmZvXgVgLMT6wirS+3/VuO5qZGO+Cqn7XyjUM/eSK1+QzUp7Hh7TJOmxQYjs9Sqh+evDPEJd7ysh6QCk4fuGL6C2WFIqu2+s1YAflAlmftC2DpB+pAfO0=
