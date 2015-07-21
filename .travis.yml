@@ -1,5 +1,5 @@
 language: node_js
-before_install: "npm install -g grunt-cli && sudo apt-get update && sudo apt-get install -y libcairo2-dev libjpeg8-dev libgif-dev optipng pngcrush pngquant libpango1.0-dev graphicsmagick libjpeg-turbo-progs inkscape"
+before_install: "npm install -g grunt-cli && npm install -g grunt && sudo apt-get update && sudo apt-get install -y libcairo2-dev libjpeg8-dev libgif-dev optipng pngcrush pngquant libpango1.0-dev graphicsmagick libjpeg-turbo-progs inkscape"
 
 env:
   global:
