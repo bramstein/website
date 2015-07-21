@@ -1,0 +1,10 @@
+env:
+  global:
+  - secure: c6StvPXc5dQD1j6M31uYIQArF8pA3ue8Ck/nahQ8cQ8MQOP36sWJXbijpBc8yGPHF1sx3kunAFGROycp6WUMVxcvovJOf2MlcTU8mapNdZXr0DluDwQxMH38Jhr8Ol0QqvIDdXm9nHBRunryanom/6dG1TstCm6IrUMN95jTs54=
+  - secure: r59YqCuwuOnDfbHQBrBpEzTva4R5fbOwmiyuBnJkLu7AVInnxVQ98YI6uZmRcEzWN6bqz3Ax8jv2esBtZIALh7Ui1LM2blCc00ZG0GM4cIsC1e0l1qkuRgFMMnovuyl00dGHZXRtZd2rIw8e8h6Ob8wyJEx0Zu9URo4Cccldxlo=
+
+deploy:
+  provider: script
+  script: grunt deploy
+  on:
+    branch: master

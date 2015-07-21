@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="234px" height="234px" viewBox="0 0 234 234" enable-background="new 0 0 234 234" xml:space="preserve">
+<g>
+	<path fill="none" stroke="#555555" stroke-width="23" stroke-miterlimit="10" d="M235,106c-75,0-23.4,93-98.8,93 M10.2,19v133.7
+		c0,29,24.2,46.2,46.2,46.2c24,0,47.1-19.7,47.1-46.2c0-45.7-47.1-46.4-47.1-46.4"/>
+</g>
+<g>
+	<g>
+		<rect x="-48" y="-140" fill="none" width="22" height="22"/>
+		<rect x="-48" y="-122.6" fill="#555555" width="22" height="4.5"/>
+		<rect x="-48" y="-130" fill="#555555" width="22" height="2"/>
+		<rect x="-48" y="-139.9" fill="#555555" width="22" height="4.5"/>
+	</g>
+	<g>
+		<rect x="-80" y="-140" fill="none" width="22" height="22"/>
+		<g>
+			<g>
+				<defs>
+					<polygon id="SVGID_1_" points="-58,-118 -58,-118.1 -80,-139.9 -80,-118 					"/>
+				</defs>
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_1_"  overflow="visible"/>
+				</clipPath>
+				<rect x="-63" y="-140" clip-path="url(#SVGID_2_)" fill="#555555" width="5" height="22"/>
+				<rect x="-70" y="-140" clip-path="url(#SVGID_2_)" fill="#555555" width="1" height="22"/>
+				<rect x="-80" y="-140" clip-path="url(#SVGID_2_)" fill="#555555" width="5" height="22"/>
+			</g>
+			<g>
+				<defs>
+					<polygon id="SVGID_3_" points="-58,-118 -58.1,-118 -79.9,-140 -58,-140 					"/>
+				</defs>
+				<clipPath id="SVGID_4_">
+					<use xlink:href="#SVGID_3_"  overflow="visible"/>
+				</clipPath>
+				<rect x="-80" y="-123" clip-path="url(#SVGID_4_)" fill="#555555" width="22" height="5"/>
+				<rect x="-80" y="-130" clip-path="url(#SVGID_4_)" fill="#555555" width="22" height="1"/>
+				<rect x="-80" y="-140" clip-path="url(#SVGID_4_)" fill="#555555" width="22" height="5"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
