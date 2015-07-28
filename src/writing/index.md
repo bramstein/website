@@ -1,5 +1,5 @@
 ---
-template: content.html
+layout: content.html
 title: Writing
 classes: writing
 ---
@@ -7,19 +7,13 @@ classes: writing
 <p class="intro">My articles have appeared in PAGE Magazine, 8 Faces magazine, the Dev.Opera blog, and the Typekit blog. I’m also the author of the Web Fonts Performance chapter in Smashing Book 5.</p>
 
 # Smashing Book 5: Web Fonts Performance
-<p class="subtitle">March 31, 2015</p>
+<p class="subtitle">July 28, 2015</p>
 
-Web fonts are great. They are also a problem because they block rendering. This effectively hides content from your users until your fonts have downloaded. You may have experienced this problem yourself while visiting a site using web fonts on a slow cellular network. The decision by most browsers to have fonts block rendering is opposite to the tenets of progressive enhancement. Content should come first and web fonts are an enhancement.
+Smashing Magazine asked me to write a chapter about web fonts performance for [Smashing Book 5](http://www.smashingmagazine.com/2015/03/real-life-responsive-web-design-smashing-book-5/). I think web fonts are great, but they suffer from one big problem: by default they block rendering in almost all browsers. You may have experienced this yourself on a site using web fonts while using a slow cellular network. Staring at a blank page is no fun, especially when the content has already loaded.
 
 ![Smashing Book 5](/assets/images/smashing-book-5-pages.png)
 
-[Smashing Magazine](https://smashingmagazine.com/) asked me to write a chapter about web fonts for Smashing Book #5. The chapter starts with the basics: the <code>@font-face</code> syntax, the various font formats, and ends with a detailed explanation of how browsers load fonts. The next section covers basic optimisations for making your fonts load faster, such as caching, compression, inlining, and subsetting. The final section introduces the new <abbr>CSS</abbr> font loading <abbr>API</abbr> and several strategies for getting consistent and efficient cross-browser font loading that avoids blocking rendering.
-
-The book can be purchased at the [Smashing Magazine web shop](http://www.smashingmagazine.com/books/) in hardcover and eBook versions. The author (and reviewer) line-up is amazing, so I highly recommend getting a copy.
-
-<button><a href="http://www.smashingmagazine.com/books/">Buy Smashing Book #5</a></button>
-
-My chapter has been reviewed by the amazing [Zach Leatherman](http://www.zachleat.com/web/). Many thanks go to [Nathan Ford](http://artequalswork.com/), [Tim Brown](http://nicewebtype.com/), and Gregor Kaplan for reviewing and commenting on my early drafts.
+Blocking rendering while downloading fonts is wrong and against the very idea of progressive enhancement. After all, the content is what people come for. Web fonts are an enhancement of that content. Important, but not critical. This chapter will show you how to optimise web fonts and how to load them without inconveniencing your visitors. [Continue reading...](smashing-book-5-web-fonts-performance.html)
 
 # Dev.Opera: State of Web Type
 <p class="subtitle">March 3, 2015</p>

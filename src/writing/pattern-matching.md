@@ -1,5 +1,5 @@
 ---
-template: content.html
+layout: content.html
 title: Pattern Matching in JavaScript
 classes: writing
 ---

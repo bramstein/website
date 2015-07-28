@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             },
             "metalsmith-headings-identifier": {
             },
-            "metalsmith-templates": {
+            "metalsmith-layouts": {
               engine: "handlebars"
             },
             "metalsmith-hyphenate": {

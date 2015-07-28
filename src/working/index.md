@@ -1,5 +1,5 @@
 ---
-template: content.html
+layout: content.html
 title: Working
 classes: working
 ---

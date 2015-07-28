@@ -1,8 +1,8 @@
-.wf-loading p, .wf-loading h1, .wf-loading h2, .wf-loading nav ul, .wf-loading button, .wf-loading pre code, .wf-loading ul {
+.wf-loading p, .wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-loading nav ul, .wf-loading button, .wf-loading pre code, .wf-loading ul {
   opacity: 0;
 }
 
-.wf-active p, .wf-active h1, .wf-active h2, .wf-active nav ul, .wf-active button, .wf-active pre code, .wf-active ul {
+.wf-active p, .wf-active h1, .wf-active h2, .wf-active h3, .wf-active nav ul, .wf-active button, .wf-active pre code, .wf-active ul {
   opacity: 1;
   transition: opacity 0.05s ease;
 }
@@ -39,7 +39,7 @@ header {
   display: flex;
   display: -webkit-flex;
   border-bottom: 1px solid #E6E6E6;
-  margin-bottom: 3.5em;
+  margin-bottom: 4em;
 }
 
 header nav {
@@ -154,6 +154,15 @@ article ul.meta {
   font-feature-settings: "kern", "liga", "smcp", "c2sc";
 }
 
+sup {
+  font-size: inherit;
+  vertical-align: baseline;
+  -webkit-font-feature-settings: "kern", "liga", "sups";
+  -moz-font-feature-settings: "kern", "liga", "sups";
+  font-feature-settings: "kern", "liga", "sups";
+  color: #ED2A7B;
+}
+
 article a {
   color: #ED2A7B;
   padding-bottom: 0.13em;
@@ -172,6 +181,18 @@ article a:hover {
     rgba(237,30,121,8) 18%,
     rgba(0,0,0,0) 18%
   );
+}
+
+article p.fineprint {
+  font-size: 14px;
+  line-height: 18px;
+  color: #555;
+  text-indent: -10px;
+  font-family: expo-sans-pro, Arial, sans-serif;
+}
+
+article p.fineprint code {
+  font-size: 13px;
 }
 
 hr {
@@ -246,6 +267,14 @@ h2 {
   font-size: 22px;
   line-height: 27px;
   font-weight: 400;
+  margin-top: 1.5em;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-top: 1.5em;
 }
 
 p.subtitle {
@@ -397,7 +426,7 @@ article ul.meta a:hover {
 @media (min-width: 1200px) {
   body {
     font-size: 18px;
-    line-height: 30px;
+    line-height: 31px;
   }
 
   button {
@@ -408,6 +437,15 @@ article ul.meta a:hover {
     font-size: 16px;
   }
 
+  article p.fineprint {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  article p.fineprint code {
+    font-size: 13px;
+  }
+
   h1 {
     font-size: 30px;
     line-height: 38px;
@@ -416,6 +454,11 @@ article ul.meta a:hover {
   h2 {
     font-size: 24px;
     line-height: 30px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 24px;
   }
 
   footer {
@@ -470,6 +513,15 @@ article ul.meta a:hover {
   h2 {
     font-size: 28px;
     line-height: 34px;
+  }
+
+  article p.fineprint {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  article p.fineprint code {
+    font-size: 15px;
   }
 
   footer {
