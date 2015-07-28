@@ -1,5 +1,5 @@
 ---
-layout: content.html
+template: content.html
 title: Advanced Pattern Matching in JavaScript
 classes: writing
 ---

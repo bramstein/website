@@ -1,5 +1,5 @@
 ---
-layout: content.html
+template: content.html
 title: "Smashing Book 5: Web Fonts Performance"
 classes: writing
 ---
