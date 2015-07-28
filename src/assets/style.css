@@ -1,8 +1,8 @@
-.wf-loading p, .wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-loading nav ul, .wf-loading button, .wf-loading pre code, .wf-loading ul {
+.wf-loading p, .wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-loading nav ul, .wf-loading a.button, .wf-loading pre code, .wf-loading ul {
   opacity: 0;
 }
 
-.wf-active p, .wf-active h1, .wf-active h2, .wf-active h3, .wf-active nav ul, .wf-active button, .wf-active pre code, .wf-active ul {
+.wf-active p, .wf-active h1, .wf-active h2, .wf-active h3, .wf-active nav ul, .wf-active a.button, .wf-active pre code, .wf-active ul {
   opacity: 1;
   transition: opacity 0.05s ease;
 }
@@ -211,10 +211,9 @@ pre {
   margin-bottom: 1.5em;
 }
 
-button {
+a.button {
   border: none;
   border-radius: 5px;
-  background-color: #ED1E79;
   background-color: #D4145A;
   color: #fff;
   font-family: expo-sans-pro, Arial, sans-serif;
@@ -223,18 +222,14 @@ button {
   font-size: 18px;
   margin: 1.5em 5%;
   display: block;
-}
-
-button a {
-  width: 100%;
-  display: block;
   padding: 0.8em 1em;
   color: #fff;
-  background: none;
+  background-image: none;
+  text-align: center;
 }
 
-button a:hover {
-  background: none;
+a.button:hover {
+  background-image: none;
 }
 
 code {
@@ -375,7 +370,7 @@ article ul.meta a:hover {
     border-bottom: 1px solid transparent;
   }
 
-  h1, h2, h3, hr, p, img, button, figure, ul {
+  h1, h2, h3, hr, p, img, a.button, figure, ul {
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
@@ -429,7 +424,7 @@ article ul.meta a:hover {
     line-height: 31px;
   }
 
-  button {
+  a.button {
     font-size: 20px;
   }
 
@@ -497,7 +492,7 @@ article ul.meta a:hover {
     line-height: 33px;
   }
 
-  button {
+  a.button {
     font-size: 22px;
   }
 

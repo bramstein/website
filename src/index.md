@@ -8,7 +8,7 @@ classes: home
 
 Please follow me on Twitter if you like to receive updates on web typography, my libraries, talks, or writing. Feel free to also get in touch if you have an idea or a question -- I love collaborating with other people.
 
-<button><a href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a></button>
+<a class="button" href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a>
 
 # Smashing Book 5: Web Fonts Performance
 <p class="subtitle">July 28, 2015</p>

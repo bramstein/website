@@ -67,6 +67,6 @@ If you need to load a lot of fonts, you should consider prioritised loading. By 
 
 The book can be purchased at the [Smashing Magazine web shop](http://www.smashingmagazine.com/books/) in hardcover and eBook versions. The author (and reviewer) line-up is amazing, so I highly recommend getting a copy.
 
-<button><a href="http://www.smashingmagazine.com/books/">Buy Smashing Book #5</a></button>
+<a class="button" href="http://www.smashingmagazine.com/books/">Buy Smashing Book #5</a>
 
 My thanks go out to my amazing reviewer [Zach Leatherman](http://www.zachleat.com/web/) -- his feedback and comments were invaluable. Many thanks as well to [Nathan Ford](http://artequalswork.com/), [Tim Brown](http://nicewebtype.com/), and Gregor Kaplan for reviewing and commenting on my early drafts.

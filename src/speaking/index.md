@@ -8,7 +8,7 @@ classes: speaking
 
 Are you interested in a talk about web typography or web development at your conference or meetup? Send me an email and let's talk.
 
-<button><a href="mailto:me@bramstein.com">Invite me to speak at your conference or meetup</a></button>
+<a class="button" href="mailto:me@bramstein.com">Invite me to speak at your conference or meetup</a>
 
 # The Consequences of Web Fonts
 <p class="subtitle">20 March, 2015</p>
