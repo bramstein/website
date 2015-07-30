@@ -1,12 +1,3 @@
-.wf-loading p, .wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-loading nav ul, .wf-loading a.button, .wf-loading pre code, .wf-loading ul {
-  opacity: 0;
-}
-
-.wf-active p, .wf-active h1, .wf-active h2, .wf-active h3, .wf-active nav ul, .wf-active a.button, .wf-active pre code, .wf-active ul {
-  opacity: 1;
-  transition: opacity 0.05s ease;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -35,16 +26,22 @@ strong {
   font-weight: 600;
 }
 
+textarea {
+  width: 100%;
+}
+
 header {
   display: flex;
   display: -webkit-flex;
+  display: -ms-flexbox;
   border-bottom: 1px solid #E6E6E6;
-  margin-bottom: 4em;
+  margin-bottom: 3em;
 }
 
 header nav {
   flex: 7;
   -webkit-flex: 7;
+  -ms-flex: 7;
   color: #666;
 }
 
@@ -54,11 +51,13 @@ header svg {
   height: 1.98em;
   flex: 1;
   -webkit-flex: 1;
+  -ms-flex: 1;
 }
 
 header ul {
   display: flex;
   display: -webkit-flex;
+  display: -ms-flexbox;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -68,6 +67,7 @@ header ul {
 header ul li {
   flex: 1;
   -webkit-flex: 1;
+  -ms-flex: 1;
 }
 
 header a {
@@ -109,7 +109,7 @@ article, figure {
   position: relative;
 }
 
-h1, h2, h3, hr, p, figure, ul {
+h1, h2, h3, hr, p, figure, ul, table, textarea {
   display: block;
   margin-left: 5%;
   margin-right: 5%;
@@ -183,15 +183,20 @@ article a:hover {
   );
 }
 
-article p.fineprint {
+article p.fineprint,
+article p.caption {
   font-size: 14px;
   line-height: 18px;
   color: #555;
-  text-indent: -10px;
   font-family: expo-sans-pro, Arial, sans-serif;
 }
 
-article p.fineprint code {
+article p.fineprint {
+  text-indent: -10px;
+}
+
+article p.fineprint code,
+article p.caption {
   font-size: 13px;
 }
 
@@ -365,12 +370,14 @@ article ul.meta a:hover {
   header {
     flex-direction: column;
     -webkit-flex-direction: column;
+    -ms-flex-direction: column;
     align-items: center;
     -webkit-align-items: center;
+    -ms-flex-align: center;
     border-bottom: 1px solid transparent;
   }
 
-  h1, h2, h3, hr, p, img, a.button, figure, ul {
+  h1, h2, h3, hr, p, img, a.button, figure, ul, table, textarea {
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
@@ -481,7 +488,7 @@ article ul.meta a:hover {
     line-height: 35px;
   }
 
-  h1, h2, h3, hr, p, img, pre code, nav, footer p, figure, ul {
+  h1, h2, h3, hr, p, img, pre code, nav, footer p, figure, ul, table, textarea {
     max-width: 640px;
   }
 }
@@ -534,7 +541,7 @@ article ul.meta a:hover {
     line-height: 38px;
   }
 
-  h1, h2, h3, hr, p, img, pre code, nav, footer p, figure, ul {
+  h1, h2, h3, hr, p, img, pre code, nav, footer p, figure, ul, table, textarea {
     max-width: 740px;
   }
 }

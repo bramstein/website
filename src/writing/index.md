@@ -6,6 +6,15 @@ classes: writing
 
 <p class="intro">My articles have appeared in PAGE Magazine, 8 Faces magazine, the Dev.Opera blog, and the Typekit blog. I’m also the author of the Web Fonts Performance chapter in Smashing Book 5.</p>
 
+# Detecting System Fonts Without Flash
+<p class="subtitle">July 30, 2015</p>
+
+Many web-based text ed­i­tors allow the user to se­lect cus­tom fonts through a drop down menu. These font menus of­ten in­clude sys­tem fonts. Un­for­tu­nately, there is no web plat­form API for re­triev­ing a list of lo­cally in­stalled fonts. 
+
+![Google Docs font menu](/assets/images/google-docs-font-menu.png)
+
+Find out how you can use JavaScript to detect system fonts. [Continue reading...](detecting-system-fonts-without-flash.html)
+
 # Smashing Book 5: Web Fonts Performance
 <p class="subtitle">July 28, 2015</p>
 

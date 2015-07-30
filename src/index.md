@@ -10,6 +10,15 @@ Please follow me on Twitter if you like to receive updates on web typography, my
 
 <a class="button" href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a>
 
+# Detecting System Fonts Without Flash
+<p class="subtitle">July 30, 2015</p>
+
+Many web-based text ed­i­tors allow the user to se­lect cus­tom fonts through a drop down menu. These font menus of­ten in­clude sys­tem fonts. Un­for­tu­nately, there is no web plat­form API for re­triev­ing a list of lo­cally in­stalled fonts. 
+
+![Google Docs font menu](/assets/images/google-docs-font-menu.png)
+
+Find out how you can use JavaScript to detect system fonts. [Continue reading...](detecting-system-fonts-without-flash.html)
+
 # Smashing Book 5: Web Fonts Performance
 <p class="subtitle">July 28, 2015</p>
 
