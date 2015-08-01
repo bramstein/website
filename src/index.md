@@ -17,7 +17,7 @@ Many web-based text ed­i­tors allow the user to se­lect cus­tom fonts throug
 
 ![Google Docs font menu](/assets/images/google-docs-font-menu.png)
 
-Find out how you can use JavaScript to detect system fonts. [Continue reading...](detecting-system-fonts-without-flash.html)
+Find out how you can use JavaScript to detect system fonts. [Continue reading...](/writing/detecting-system-fonts-without-flash.html)
 
 # Smashing Book 5: Web Fonts Performance
 <p class="subtitle">July 28, 2015</p>
