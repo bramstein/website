@@ -4,7 +4,7 @@
   "private": true,
   "description": "bramstein.com",
   "scripts": {},
-  "author": "",
+  "author": "Bram Stein",
   "license": "BSD",
   "dependencies": {
     "metalsmith": "=1.7.0",
@@ -12,10 +12,12 @@
     "handlebars": "=3.0.3",
     "metalsmith-watch": "=1.0.1",
     "metalsmith-hyphenate": "=0.2.2",
-    "assetgraph-builder": "=3.8.0",
-    "node-zopfli": "=1.3.3",
+    "assetgraph-builder": "=3.9.1",
     "metalsmith-headings-identifier": "=0.0.4",
     "metalsmith-templates": "=0.7.0"
+  },
+  "optionalDependencies": {
+    "node-zopfli": "=1.3.3"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
