@@ -431,6 +431,11 @@ article ul.meta a:hover {
     line-height: 31px;
   }
 
+  article p.caption {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
   a.button {
     font-size: 20px;
   }

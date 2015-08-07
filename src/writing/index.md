@@ -6,6 +6,11 @@ classes: writing
 
 <p class="intro">My articles have appeared in PAGE Magazine, 8 Faces magazine, the Dev.Opera blog, and the Typekit blog. I’m also the author of the Web Fonts Performance chapter in Smashing Book 5.</p>
 
+# Preload Hints For Web Fonts
+<p class=subtitle>August 7, 2015</p>
+
+Web fonts are a popular topic in the web performance community. However, one fundamental problem is often overlooked: web fonts are lazy loaded. Can web font preload hints help us? [Continue reading…](preload-hints-for-web-fonts.html)
+
 # Detecting System Fonts Without Flash
 <p class="subtitle">July 30, 2015</p>
 

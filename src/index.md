@@ -10,6 +10,11 @@ Please follow me on Twitter if you like to receive updates on web typography, my
 
 <a class="button" href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a>
 
+# Preload Hints For Web Fonts
+<p class=subtitle>August 7, 2015</p>
+
+Web fonts are a popular topic in the web performance community. However, one fundamental problem is often overlooked: web fonts are lazy loaded. Can web font preload hints help us? [Continue reading…](/writing/preload-hints-for-web-fonts.html)
+
 # Detecting System Fonts Without Flash
 <p class="subtitle">July 30, 2015</p>
 
