@@ -40,6 +40,8 @@ In this example, the `<link rel=“preload”>` resource hint will ask the brows
 
 It’s important to point out that these are hints and not demands. Browsers can — and will — ignore them in certain cases. For example, if a user is on a slow or expensive data connection it makes sense for the browser to not download web fonts. In the future browsers will hopefully offer user profiles that automatically prioritise or ignore preload hints so that you get the best user experience based on your environment.
 
+**Update**: Ilya Grigorik pointed out the above is incorrect: if browsers see preload hints they must download the resource. You can use `<link rel=“prefetch”>` if you want the behaviour I described.
+
 Now for the bad news: the preload specification is still a draft and currently not implemented by any browser. Other related features like the [<abbr>CSS</abbr> font loading <abbr>API</abbr>](http://www.w3.org/TR/css-font-loading/) and the [font-display property](https://tabatkins.github.io/specs/css-font-rendering/) will let web developers simulate some of the benefits of preload hints. However they can never be as good because they rely on either JavaScript or <abbr>CSS</abbr>.
 
 We really __need__ preload hints to improve web font performance.
