@@ -1,7 +1,9 @@
 ---
 template: content.html
 title: "Smashing Book 5: Web Fonts Performance"
+collection: [writing, news]
 classes: writing
+date: 2015-06-28
 ---
 
 # Smashing Book 5: Web Fonts Performance

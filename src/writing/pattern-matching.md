@@ -1,7 +1,9 @@
 ---
 template: content.html
 title: Pattern Matching in JavaScript
+collection: [writing, news]
 classes: writing
+date: 2012-02-13
 ---
 
 # Pattern matching in JavaScript

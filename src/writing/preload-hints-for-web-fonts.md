@@ -1,7 +1,9 @@
 ---
 template: content.html
 title: Preload Hints For Web Fonts
+collection: [writing, news]
 classes: writing
+date: 2015-08-07
 ---
 
 # Preload Hints For Web Fonts

@@ -1,7 +1,9 @@
 ---
 template: content.html
 title: "Detecting System Fonts Without Flash"
+collection: [writing, news]
 classes: writing
+date: 2015-07-30
 ---
 
 <style>

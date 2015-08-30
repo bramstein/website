@@ -1,7 +1,9 @@
 ---
 template: content.html
 title: Advanced Pattern Matching in JavaScript
+collection: [writing, news]
 classes: writing
+date: 2012-05-07
 ---
 
 # Advanced Pattern Matching in JavaScript

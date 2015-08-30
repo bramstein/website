@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  var cheerio = require('cheerio');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -22,11 +23,32 @@ module.exports = function(grunt) {
         dest: 'build',
         options: {
           metadata: {
-            title: "bramstein.com"
+            title: "bramstein.com",
+            site: {
+              description: "Updates from the personal website of Bram Stein, a web developer.",
+              title: "bramstein.com news",
+              url: "https://www.bramstein.com/"
+            }
           },
           plugins: {
+           "metalsmith-collections": {
+              news: {
+                reverse: true,
+                sortBy: "date"
+              }
+            },
             "metalsmith-markdown": {
               smartypants: true
+            },
+            "metalsmith-each": function (file, filename) {
+              var $ = cheerio.load(file.contents.toString());
+              var text = "";
+
+              $('h2, p:not(.subtitle), ul, li').each(function (i, el) {
+                text += $(el).text();
+              });
+
+              file.excerpt = text.substr(0, 300).trim() + '…';
             },
             "metalsmith-headings-identifier": {
             },
@@ -35,6 +57,11 @@ module.exports = function(grunt) {
             },
             "metalsmith-hyphenate": {
               elements: ["p", "a"]
+            },
+            "metalsmith-path": true,
+            "metalsmith-feed": {
+              collection: "news",
+              limit: false
             }
           }
         }
