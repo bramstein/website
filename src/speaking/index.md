@@ -10,6 +10,17 @@ Are you interested in a talk about web typography or web development at your con
 
 <a class="button" href="mailto:b.l.stein@gmail.com">Invite me to speak at your conference or meetup</a>
 
+# Web Fonts Performance
+<p class="subtitle">14 September, 2015</p>
+
+Web fonts are great. They are also be really bad for front-end performance because they block rendering. You may have experienced this on a slow cellular network. Staring at a blank page is no fun, especially when the content has already loaded.
+
+This talk explores why browsers have placed fonts on the critical path, and how we can work around this while still delivering a good user experience. It also takes a look at what the future will bring to web font performance: preloading hints, the font-display property, and <abbr>HTTP/2</abbr>.
+
+<figure><a href="https://speakerdeck.com/bramstein/web-fonts-performance"><img alt="Web Fonts Performance opening slide" src="/assets/images/webfontperformance-talk.png"><figcaption>Slides from "Web Fonts Performance"</figcaption></a></figure>
+
+I gave this talk at Smashing Conf Freiburg. A <a href="https://vimeo.com/140641362">video recording of the talk</a> is also available.
+
 # The Consequences of Web Fonts
 <p class="subtitle">20 March, 2015</p>
 
