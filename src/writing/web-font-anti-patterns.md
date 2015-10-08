@@ -15,7 +15,7 @@ Maybe you should not use web fonts at all? Fear not, this series of articles tak
 
 1. [Overusing web fonts](web-font-anti-patterns-overusing.html)
 2. [Inlining fonts](web-font-anti-patterns-inlining.html)
-3. [Agressive subsetting](web-font-anti-patterns-subsetting.html)
+3. [Aggressive subsetting](web-font-anti-patterns-subsetting.html)
 4. Reimplementing caching (coming soon)
 5. Using local fonts (coming soon)
 6. Not styling fallback fonts (coming soon)

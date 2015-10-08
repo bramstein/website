@@ -6,7 +6,7 @@ collection: [writing, news]
 date: 2015-10-08
 ---
 
-# Web Font Anti-Pattern: Agressive subsetting
+# Web Font Anti-Pattern: Aggressive subsetting
 <p class="subtitle">October 8, 2015</p>
 
 <p class=intro>Subsetting is a great way to reduce the file size of your font. Don’t go overboard with subsetting though, there may be unexpected consequences. Subset, but subset with care.</p>
