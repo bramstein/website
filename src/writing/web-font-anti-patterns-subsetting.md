@@ -26,3 +26,5 @@ Be very careful with subsetting because it can go very wrong. Text often contain
 <p class=caption>An English-only subset used for a German city name. The “ü” (u-umlaut) is rendered in a fallback font and stands out like a sore thumb. (Yes, even in this caption.)</p>
 
 That’s not to say subsetting isn’t useful. If used carefully it can be a great way to reduce the size of your font files. Before you subset carefully analyse your existing content and think ahead to what characters you might use in the future.
+
+<p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html), and [part 3](web-font-anti-patterns-subsetting.html).</p>
