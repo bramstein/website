@@ -115,7 +115,7 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      dist: 'mkdir -p dist && ./node_modules/.bin/buildProduction --inlinehtmlstyle 16384 --optimizeimages --gzip --outroot dist --root build build/index.html build/writing/index.html build/speaking/index.html build/working/index.html'
+      dist: 'mkdir -p dist && ./node_modules/.bin/buildProduction --inlinehtmlstyle 16384 --optimizeimages --gzip --outroot dist --root build build/index.html build/writing/index.html build/speaking/index.html build/working/index.html build/writing/web-font-anti-patterns.html'
     }
   });
 
