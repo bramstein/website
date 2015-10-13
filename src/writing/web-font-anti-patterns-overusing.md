@@ -16,7 +16,7 @@ date: 2015-10-13
 ![The increase in the number of font requests per page from 2012 to 2015.](/assets/images/font-requests-per-page.png)
 <p class=caption>The average number of font requests per page has increased steadily over the past couple of years. From almost none in 2012 to roughly three fonts per page in 2015. (Source: [HTTPArchive](http://httparchive.org/))</p>
 
-Every additional font comes at a cost. It’ll increase your page load times and if you’re relying on the browser’s default behaviour it’ll also [block your site from rendering until the fonts have loaded](http://localhost:3000/writing/preload-hints-for-web-fonts.html). This is largely the reason for the recent backlash at web fonts. However, it is not necessary to use content blockers for web fonts if they are used with consideration and moderation.
+Every additional font comes at a cost. It’ll increase your page load times and if you’re relying on the browser’s default behaviour it’ll also [block your site from rendering until the fonts have loaded](preload-hints-for-web-fonts.html). This is largely the reason for the recent backlash at web fonts. However, it is not necessary to use content blockers for web fonts if they are used with consideration and moderation.
 
 It’s perfectly fine to use web fonts for headlines and body text. Ideally a web site should only use 3-6 fonts per page. More than that should be reserved for exceptional cases (such as type specimen pages and design web applications). Examine your typographic hierarchy and consider using existing fonts before adding a new font.
 
