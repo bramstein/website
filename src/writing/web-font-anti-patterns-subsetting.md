@@ -3,17 +3,17 @@ template: content.html
 title: "Web Font Anti-Pattern: Agressive subsetting"
 classes: writing
 collection: [writing, news]
-date: 2015-10-12
+date: 2015-10-13
 ---
 
 # Web Font Anti-Pattern: Aggressive subsetting
-<p class="subtitle">October 12, 2015</p>
+<p class="subtitle">October 13, 2015</p>
 
 <p class=intro>Subsetting is a great way to reduce the file size of your fonts. Don’t go overboard with subsetting though, there may be unexpected consequences. Subset, but subset with care.</p>
 
 Professionally designed fonts usually contain support for multiple languages so they can be used all over the world. However, if you only write your content in a single language, you probably don’t want to pay for the extra weight these unused characters add to your page load time.
 
-This is where subsetting comes in. It allows you to remove characters and OpenType features you don’t need from a font file. There is an almost one to one relationship between the number of characters in a font file and its file size. If you cut the number of characters in half, you will also cut the file size of a font in half. This is a great way to optimise a font and make it load faster.
+This is where subsetting comes in. It allows you to remove characters and OpenType features from a font file that you don’t need. There is an almost one to one relationship between the number of characters in a font file and its file size. If you cut the number of characters in half, you will also cut the file size of a font in half. This is a great way to optimise a font and make it load faster.
 
 ![Characters supported by an example font.](/assets/images/web-font-subsetting.png)
 <p class=caption>English does not use many characters. In this font, over half of the characters can be removed for text that is exclusively written in English.</p>

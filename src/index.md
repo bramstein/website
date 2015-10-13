@@ -10,6 +10,11 @@ Please follow me on Twitter if you like to receive updates on web typography, my
 
 <a class="button" href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a>
 
+# Web Font Anti-Patterns
+<p class=subtitle>October 13, 2015</p>
+
+There is a lot of confusion about web fonts. Are they really bad for performance? Maybe you should not use web fonts at all? This ongoing series of articles takes a look at some of the most common anti-patterns for creating, using, and loading web fonts. Web fonts can be great when used correctly and with moderation. [Continue reading…](/writing/web-font-anti-patterns.html)
+
 # Preload Hints For Web Fonts
 <p class=subtitle>August 7, 2015</p>
 
