@@ -33,7 +33,7 @@ Using web fonts for lettering becomes especially problematic in responsive desig
 Another issue with using web fonts for lettering is localisation. If you use web fonts for lettering you’ll need to [aggressively subset](web-font-anti-patterns-subsetting.html) your fonts to make them small enough so that they load quickly. By doing that you’ll also make it difficult to translate your lettering in other languages, which often uses different character set.
 
 ![](/assets/images/web-fonts-vs-lettering-de.png)
-<p class=caption>Overusing web fonts and aggressive subsetting is not a good combination. The characters `i`, `u`, `f`, `d`, `m`, and `W` are not in the original subset, but are required for a German translation. You’ll need to expand the subset for these characters, further inflating the font file size.</p>
+<p class=caption>Overusing web fonts and aggressive subsetting is not a good combination. The characters `i`, `m`, and `W` are not in the original subset, but are required for a German translation. You’ll need to expand the subset for these characters, further inflating the font file size.</p>
 
 Web fonts (and typefaces) are meant for body text and headlines. Text that can be selected, copied, and re-used. Lettering is usually a one-off thing for logos, illustrations, and art. It’s perfectly fine to do lettering in SVG. If you’re worried about accessibility (you should be!) SVG has [several good ways to increase accessibility](http://www.sitepoint.com/tips-accessible-svg/).
 
