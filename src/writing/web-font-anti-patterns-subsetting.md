@@ -27,4 +27,4 @@ Be very careful with subsetting because it can go very wrong. Text often contain
 
 That’s not to say subsetting isn’t useful. If used carefully it can be a great way to reduce the size of your font files. Before you subset carefully analyse your existing content and think ahead to what characters and OpenType features you might use in the future.
 
-<p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html), and [part 3](web-font-anti-patterns-subsetting.html).</p>
+<p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html),  [part 3](web-font-anti-patterns-subsetting.html), and [part 4](web-font-anti-patterns-local-fonts.html).</p>

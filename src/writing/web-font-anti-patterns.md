@@ -18,7 +18,7 @@ Hopefully this series of web font anti-patterns will help clarify existing pract
 1. [Overusing web fonts](web-font-anti-patterns-overusing.html)
 2. [Inlining fonts](web-font-anti-patterns-inlining.html)
 3. [Aggressive subsetting](web-font-anti-patterns-subsetting.html)
-4. Using local fonts (coming soon)
+4. [Using local fonts](web-font-anti-patterns-local-fonts.html)
 5. Reimplementing caching (coming soon)
 6. Not styling fallback fonts (coming soon)
 7. …

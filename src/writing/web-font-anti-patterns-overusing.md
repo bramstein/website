@@ -39,4 +39,4 @@ Finally, consider what happens when your web fonts fail to load. Most typefaces 
 
 Web fonts (and typefaces) are meant for body text and headlines. Text that can be selected, copied, and re-used. Lettering is usually a one-off thing for logos, illustrations, and art. It’s perfectly fine to do lettering in SVG. If you’re worried about accessibility (you should be!) SVG has [several good ways to increase accessibility](http://www.sitepoint.com/tips-accessible-svg/).
 
-<p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html), and [part 3](web-font-anti-patterns-subsetting.html).</p>
+<p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html),  [part 3](web-font-anti-patterns-subsetting.html), and [part 4](web-font-anti-patterns-local-fonts.html).</p>

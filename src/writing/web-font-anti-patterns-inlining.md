@@ -46,6 +46,6 @@ So, to sum up: unless you’re loading a lot of fonts (let’s say more than 10)
 
 With the introduction of <abbr>HTTP/2</abbr>, inlining is an even less attractive option. <abbr>HTTP/2</abbr> enables parallel downloads over the same connection. This has the same benefit as inlining (avoiding connection overhead) but none of the downsides. Caching, font format negotiation, lazy loading, and progressive rendering will continue to work as expected with <abbr>HTTP/2</abbr>. Many browsers, servers, and hosting providers already support HTTP/2, so you can start using it today instead of inlining!
 
-<p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html), and [part 3](web-font-anti-patterns-subsetting.html).</p>
+<p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html),  [part 3](web-font-anti-patterns-subsetting.html), and [part 4](web-font-anti-patterns-local-fonts.html).</p>
 
 
