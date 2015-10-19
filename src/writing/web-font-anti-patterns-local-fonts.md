@@ -16,8 +16,8 @@ The @font-face `src` property takes one or multiple <abbr>URL</abbr>s, which tel
 ```
 @font-face {
   font-family: Neue Helvetica;
-  src: local(‘Helvetica Neue’),
-       local(‘Helvetica’),
+  src: local('Helvetica Neue'),
+       local('Helvetica'),
        url(helvetica.woff);
 }
 ```
