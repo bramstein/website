@@ -35,6 +35,8 @@ Another issue with using web fonts for lettering is localisation. If you use web
 ![](/assets/images/web-fonts-vs-lettering-de.png)
 <p class=caption>Overusing web fonts and aggressive subsetting is not a good combination. The characters `i`, `m`, and `W` are not in the original subset, but are required for a German translation. You’ll need to expand the subset for these characters, further inflating the font file size.</p>
 
+Finally, consider what happens when your web fonts fail to load. Most typefaces used for lettering have no good fall back options. Most “web safe” fonts do not contain OpenType features like swashes and discretionary ligatures that are often used for lettering. Not many of the web safe fonts are scripts, so at best your fonts will fall back to a completely unrelated script font. In the worst case it will fallback to a default serif or sans-serif, because some platforms (like Android) only come with a sans-serif, serif, and monospace typeface.
+
 Web fonts (and typefaces) are meant for body text and headlines. Text that can be selected, copied, and re-used. Lettering is usually a one-off thing for logos, illustrations, and art. It’s perfectly fine to do lettering in SVG. If you’re worried about accessibility (you should be!) SVG has [several good ways to increase accessibility](http://www.sitepoint.com/tips-accessible-svg/).
 
 <p class=info>This article is part one of an ongoing series on web font anti-patterns. Read the [introduction](web-font-anti-patterns.html),  [part 1](web-font-anti-patterns-overusing.html), [part 2](web-font-anti-patterns-inlining.html), and [part 3](web-font-anti-patterns-subsetting.html).</p>
