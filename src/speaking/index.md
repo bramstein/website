@@ -4,11 +4,18 @@ title: Speaking
 classes: speaking
 ---
 
-<p class="intro">I give talks on web typography and web development all over the world. In the coming months I'll speak at SmashingConf in Freiburg, and the dsgnday conference in Amsterdam.</p>
-
-Are you interested in a talk about web typography or web development at your conference or meetup? Send me an email and let's talk.
+<p class="intro">I give talks on web typography and web development all over the world. Are you interested in a talk about web typography or web development at your conference or meetup? Send me an email and let's talk.</p>
 
 <a class="button" href="mailto:b.l.stein@gmail.com">Invite me to speak at your conference or meetup</a>
+
+# The Science of Typography
+<p class="subtitle">13 November, 2015</p>
+
+This is going to be a weird talk. You’ve probably all seen automated “design” software and algorithms come and go. They promise the sky but often restrict you and produce bland and generic results. Should you not use such software at all? What if there are tools that analyse and guide you to create better designs? This talk will explore typographic analysis and what we as designers can learn from math and computer science.
+
+<figure><a href="https://speakerdeck.com/bramstein/the-science-of-typography"><img alt="The Science of Typography opening slide" src="/assets/images/thescienceoftypography-talk.png"><figcaption>Slides from "The Science of Typography"</figcaption></a></figure>
+
+I gave the talk on November 13 at the [dsgnday conference](http://dsgnday.nl/) in Amsterdam.
 
 # Web Fonts Performance
 <p class="subtitle">14 September, 2015</p>
