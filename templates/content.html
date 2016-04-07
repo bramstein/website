@@ -5,6 +5,36 @@
     <meta charset="utf-8">
     <link rel="prefetch" href="https://use.typekit.net/sta3bzx.js">
     <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <script>
+      (function () {
+        if (sessionStorage.fontsLoaded) {
+          document.documentElement.classList.add('fonts-loading');
+        }
+
+        var typekit = document.createElement('script');
+        typekit.src = 'https://use.typekit.net/sta3bzx.js';
+        typekit.async = true;
+        typekit.onload = function () {
+          setTimeout(function () {
+            Promise.all(Typekit.kit.map(function (font) {
+              return new Typekit.Font(font.family, font.source, font.descriptors, false).load();
+            })).then(function (fonts) {
+              fonts.forEach(function (font) {
+                Typekit.fonts.add(font);
+              });
+              document.documentElement.classList.remove('fonts-loading');
+              document.documentElement.classList.add('fonts-active');
+              sessionStorage.fontsLoaded = true;
+            }, function () {
+              document.documentElement.classList.remove('fonts-loading');
+              document.documentElement.classList.add('fonts-inactive');
+            });
+          }, 0);
+        };
+
+        document.head.appendChild(typekit);
+      }());
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -29,6 +59,6 @@
     <footer>
     <p>Copyright © 2010–2015 Bram Stein. Text set in Expo Serif Pro, Expo Sans Pro and Source Code Pro. If you have any questions send an email to <a href="mailto:b.l.stein@gmail.com">b.l.stein@gmail.com</a> or <a href="https://twitter.com/bram_stein/">follow me on Twitter</a>.</p>
     </footer>
-    <script async src="/assets/js/typekit.js"></script>
+    <script async src="/assets/js/ga.js"></script>
   </body>
 </html>
