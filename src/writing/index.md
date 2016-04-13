@@ -6,6 +6,11 @@ classes: writing
 
 <p class="intro">My articles have appeared in PAGE Magazine, 8 Faces magazine, the Dev.Opera blog, and the Typekit blog. I’m also the author of the Web Fonts Performance chapter in Smashing Book 5.</p>
 
+# Web Font Loading Patterns
+<p class=subtitle>April 13, 2016</p>
+
+Web font loading may seem complicated, but it is actually quite simple if you follow some simple font loading patterns. By combining patterns you can create custom font loading behaviours that work in all browsers. [Continue reading…](web-font-loading-patterns.html)
+
 # Web Font Anti-Patterns
 <p class=subtitle>October 13, 2015</p>
 

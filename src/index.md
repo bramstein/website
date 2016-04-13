@@ -10,6 +10,11 @@ Please follow me on Twitter if you like to receive updates on web typography, my
 
 <a class="button" href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a>
 
+# Web Font Loading Patterns
+<p class=subtitle>April 13, 2016</p>
+
+Web font loading may seem complicated, but it is actually quite simple if you follow some simple font loading patterns. By combining patterns you can create custom font loading behaviours that work in all browsers. [Continue reading…](/writing/web-font-loading-patterns.html)
+
 # Web Font Anti-Patterns
 <p class=subtitle>October 13, 2015</p>
 
