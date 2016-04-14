@@ -25,6 +25,18 @@ It’s impossible to recommend a single pattern that works best for everyone. Ta
 
 ## Basic font loading
 
+Font Face Observer gives you control over web font loading using a simple promise based interface. It doesn’t matter where your fonts come from: you can host them yourself, or use a web font service such as [Google Fonts](http://www.google.com/fonts), [Typekit](http://typekit.com/), [Fonts.com](https://fonts.com/), and [Webtype](http://webtype.com/).
+
+To keep the patterns simple this article assumes you’re self-hosting web fonts. This means you should have one or multiple `@font-face` rules in your <abbr>CSS</abbr> files for the web fonts you want to load using Font Face Observer. For the sake of brevity, the `@font-face` rules won’t be included in each font loading patterns, but they should be assumed to be there.
+
+```css
+@font-face {
+  font-family: Output Sans;
+  src: url(output-sans.woff2) format("woff2"),
+       url(output-sans.woff) format("woff");
+}
+```
+
 The most basic pattern is to load one or multiple individual fonts. You can do this by creating several `FontFaceObserver` instances, one for each web font, and calling their `load` method.
 
 ```javascript
@@ -40,7 +52,7 @@ input.load().then(function () {
 });
 ```
 
-This will load each web font independently, which is useful when the fonts are unrelated and supposed to render progressively (i.e. as soon as they load).
+This will load each web font independently, which is useful when the fonts are unrelated and supposed to render progressively (i.e. as soon as they load). Unlike the [native font loading <abbr>API</abbr>](https://www.w3.org/TR/css-font-loading/) you don’t pass font <abbr>URL</abbr>s to Font Face Observer. It will use the `@font-face` rules already available in your <abbr>CSS</abbr> to load fonts. This allows you to load your web fonts manually using JavaScript, with a graceful degradation to basic <abbr>CSS</abbr>.
 
 ## Loading groups of fonts
 
