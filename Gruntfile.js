@@ -84,7 +84,8 @@ module.exports = function(grunt) {
         files: [
           {
             cwd: 'dist',
-            src: ['**/*.gz'],
+            src: ['**/*.gz', '**/*.html'],
+            exclude: ['**/*.html.gz'],
             dest: '/',
             expand: true,
             params: {
