@@ -56,15 +56,6 @@ Hypher is a fast and small hyphenation engine written in JavaScript. It works in
   <li><a href="https://github.com/bramstein/hypher/issues/">Report an issue</a></li>
 </ul>
 
-# Font Loader
-
-This polyfill implements the [<abbr>W3C</abbr> Font Load Events API](http://drafts.csswg.org/css-font-loading/). It detects when fonts have loaded and provides events for each font. You can use the Font Loader polyfill to prevent the Flash Of Invisible Text (<abbr>FOIT</abbr>) or execute JavaScript code when fonts have loaded.
-
-<ul class="meta">
-  <li><a href="https://github.com/bramstein/fontloader/">View Source Code</a></li>
-  <li><a href="https://github.com/bramstein/fontloader/issues/">Report an issue</a></li>
-</ul>
-
 # Typeset
 
 Typeset is an implementation of the Knuth and Plass line breaking algorithm in JavaScript. By manually breaking paragraphs into lines it is possible to achieve higher quality typesetting than offered by modern browsers. It also opens up the possibility of using custom text shapes as shown below.
