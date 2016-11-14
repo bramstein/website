@@ -16,18 +16,16 @@
         typekit.async = true;
         typekit.onload = function () {
           setTimeout(function () {
-            Promise.all(Typekit.kit.map(function (font) {
-              return new Typekit.Font(font.family, font.source, font.descriptors, false).load();
-            })).then(function (fonts) {
-              fonts.forEach(function (font) {
-                Typekit.fonts.add(font);
-              });
-              document.documentElement.classList.remove('fonts-loading');
-              document.documentElement.classList.add('fonts-active');
-              sessionStorage.fontsLoaded = true;
-            }, function () {
-              document.documentElement.classList.remove('fonts-loading');
-              document.documentElement.classList.add('fonts-inactive');
+            Typekit.load({
+              active: function () {
+                document.documentElement.classList.remove('fonts-loading');
+                document.documentElement.classList.add('fonts-active');
+                sessionStorage.fontsLoaded = true;
+              },
+              inactive: function () {
+                document.documentElement.classList.remove('fonts-loading');
+                document.documentElement.classList.add('fonts-inactive');
+              }
             });
           }, 0);
         };
