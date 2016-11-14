@@ -78,13 +78,12 @@ module.exports = function(grunt) {
     aws_s3: {
       deploy: {
         options: {
-          bucket: 'bramstein',
-          gzipRename: 'ext'
+          bucket: 'bramstein'
         },
         files: [
           {
             cwd: 'dist',
-            src: ['**/*.gz'],
+            src: ['**/*'],
             dest: '/',
             expand: true,
             params: {
@@ -94,7 +93,6 @@ module.exports = function(grunt) {
           {
             cwd: 'dist',
             src: ['static/**'],
-            exclude: ['**/*.gz'],
             dest: '/',
             expand: true,
             params: {
@@ -115,7 +113,7 @@ module.exports = function(grunt) {
     },
 
     exec: {
-      dist: 'mkdir -p dist && ./node_modules/.bin/buildProduction --inlinehtmlstyle 16384 --optimizeimages --gzip --outroot dist --root build build/index.html build/writing/index.html build/speaking/index.html build/working/index.html'
+      dist: 'mkdir -p dist && ./node_modules/.bin/buildProduction --inlinehtmlstyle 16384 --optimizeimages --outroot dist --root build build/index.html build/writing/index.html build/speaking/index.html build/working/index.html'
     }
   });
 
