@@ -29,6 +29,7 @@ Font Face Observer is a small library that provides JavaScript font load events.
 The Filament Group has an excellent article on [how to use Font Face Observer's font events](https://www.filamentgroup.com/lab/font-events.html) to efficiently load fonts. The “Professional Web Typography” book by Donny Truong also has a section on [how to use Font Face Observer](https://prowebtype.com/delivering-web-fonts/#observer).
 
 <ul class="meta">
+  <li><a href="https://fontfaceobserver.com/">Visit Font Face Observer</a></li>
   <li><a href="https://github.com/bramstein/fontfaceobserver/">View Source Code</a></li>
   <li><a href="https://github.com/bramstein/fontfaceobserver/issues/">Report an issue</a></li>
 </ul>
