@@ -4,7 +4,20 @@ title: Writing
 classes: writing
 ---
 
-<p class="intro">My articles have appeared in PAGE Magazine, 8 Faces magazine, the Dev.Opera blog, and the Typekit blog. I’m also the author of the Web Fonts Performance chapter in Smashing Book 5.</p>
+<p class="intro">My articles have appeared in PAGE Magazine, Net Magazine, 8 Faces magazine, and the Typekit blog. I’m also the author of the Web Fonts Performance chapter in Smashing Book 5.</p>
+
+# Net Magazine: CSS font loading API
+<p class="subtitle">February 23, 2017</p>
+
+I wrote a short introduction to the CSS font loading API for the April 2017 issue of [Net Magazine](http://www.creativebloq.com/net-magazine). The article highlights the most useful parts of the API and how it can be used to load web fonts asynchronously.
+![Net Magazine Issue 291](/assets/images/net-magazine.jpg)
+
+It's still possible to [back order the April 2017 issue of Net Magazine](https://www.my­favouritemagazines.co.uk/design/net-magazine-back-issues/net-april-2017-issue-291/).
+
+# Performance Calendar 2016: Loading Web Fonts Asynchronously
+<p class="subtitle">December 21, 2016</p>
+
+The Web Performance Calendar is a recurring advent calendar focused on web performance. I wrote an [article on loading web fonts asynchronously](https://calendar.perfplanet.com/2016/loading-web-fonts-asynchronously/) for the 2016 calendar. The article concisely describes why web font performance matters, and how to use [Font Face Observer](https://fontfaceobserver.com) to get the best possible performance and user experience.
 
 # Web Font Loading Patterns
 <p class=subtitle>April 13, 2016</p>
