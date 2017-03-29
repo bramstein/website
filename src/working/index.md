@@ -83,7 +83,7 @@ Most websites display the same design to all users, no matter what browser or de
   <li><a href="https://github.com/treesaver/treesaver/issues/">Report an issue</a></li>
 </ul>
 
-# 
+<hr>
 
 I've created and contributed to several other interesting projects:
 
