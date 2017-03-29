@@ -14,6 +14,10 @@
         var typekit = document.createElement('script');
         typekit.src = 'https://use.typekit.net/sta3bzx.js';
         typekit.async = true;
+        typekit.onerror = function () {
+          document.documentElement.classList.remove('fonts-loading');
+          document.documentElement.classList.add('fonts-inactive');
+        };
         typekit.onload = function () {
           setTimeout(function () {
             Typekit.load({
