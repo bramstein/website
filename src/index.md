@@ -10,6 +10,28 @@ Please follow me on Twitter if you like to receive updates on web typography, my
 
 <a class="button" href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a>
 
+# Net Magazine: CSS font loading API
+<p class="subtitle">February 23, 2017</p>
+
+I wrote a short introduction to the CSS font loading API for the April 2017 issue of [Net Magazine](http://www.creativebloq.com/net-magazine). The article highlights the most useful parts of the API and how it can be used to load web fonts asynchronously.
+![Net Magazine Issue 291](/assets/images/net-magazine.jpg)
+
+It's still possible to [back order the April 2017 issue of Net Magazine](https://www.my­favouritemagazines.co.uk/design/net-magazine-back-issues/net-april-2017-issue-291/).
+
+# Responsive Web Design podcast: Variable Fonts
+<p class="subtitle">January 31, 2017</p>
+
+My colleague Tim Brown and I joined Ethan Marcotte on the [Responsive Web Design podcast](https://responsivewebdesign.com/podcast/) to talk about variable fonts. We talked about what variable fonts are, and how they will affect responsive design and web performance.
+
+<figure><a href="https://responsivewebdesign.com/podcast/variable-fonts/"><img alt="Variable Fonts on the Responsive Web Design podcast" src="/assets/images/rwd-podcast.png"><figcaption>Responsive Web Design Podcast 116: Variable Fonts</figcaption></a></figure>
+
+You can [listen to the podcast](https://responsivewebdesign.com/podcast/variable-fonts/), or [read the transcript](https://responsivewebdesign.com/podcast/variable-fonts/#podcast-transcript).
+
+# Performance Calendar 2016: Loading Web Fonts Asynchronously
+<p class="subtitle">December 21, 2016</p>
+
+The Web Performance Calendar is a recurring advent calendar focused on web performance. I wrote an [article on loading web fonts asynchronously](https://calendar.perfplanet.com/2016/loading-web-fonts-asynchronously/) for the 2016 calendar. The article concisely describes why web font performance matters, and how to use [Font Face Observer](https://fontfaceobserver.com) to get the best possible performance and user experience.
+
 # Web Font Loading Patterns
 <p class=subtitle>April 13, 2016</p>
 
