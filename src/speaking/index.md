@@ -10,7 +10,7 @@ classes: speaking
 
 # Responsive Web Design podcast: Variable Fonts
 
-My colleague Tim Brown and I joined Ethan Marcotte on the [Responsive Web Design podcast](https://responsivewebdesign.com/podcast/) to talk about variable fonts. We talked about what variable fonts are, and how they will affect responsive design and web performance.
+My colleague [Tim Brown](http://tbrown.org/) and I joined Ethan Marcotte on the [Responsive Web Design podcast](https://responsivewebdesign.com/podcast/) to talk about variable fonts. We talked about what variable fonts are, and how they will affect responsive design and web performance.
 
 <figure><a href="https://responsivewebdesign.com/podcast/variable-fonts/"><img alt="Variable Fonts on the Responsive Web Design podcast" src="/assets/images/rwd-podcast.png"><figcaption>Responsive Web Design Podcast 116: Variable Fonts</figcaption></a></figure>
 
