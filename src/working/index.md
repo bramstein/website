@@ -26,6 +26,8 @@ The site is frequently updated with new data and entirely open source. Any addit
 
 Font Face Observer is a small library that provides JavaScript font load events. It will detect when a web font has loaded and notify you. It is compatible with all web font services and self-hosted fonts.
 
+[![Font Face Observer](/assets/images/fontfaceobserver.png)](https://www.fontfaceobserver.com/)
+
 The Filament Group has an excellent article on [how to use Font Face Observer's font events](https://www.filamentgroup.com/lab/font-events.html) to efficiently load fonts. The “Professional Web Typography” book by Donny Truong also has a section on [how to use Font Face Observer](https://prowebtype.com/delivering-web-fonts/#observer).
 
 <ul class="meta">
