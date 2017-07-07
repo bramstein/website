@@ -6,7 +6,7 @@ classes: home
 
 <p class="intro">Hello, I'm <strong>Bram Stein</strong>, a developer and product manager working at Adobe Typekit. I care a lot about web typography and I'm happiest working at the intersection between design and technology.</p>
 
-Please follow me on Twitter if you like to receive updates on web typography, my libraries, talks, or writing. Feel free to get in touch if you have an idea or a question -- I love collaborating and talking with other people.
+Follow me on Twitter if you like to receive updates on web typography, my libraries, talks, or writing. Feel free to get in touch if you have an idea or a question -- I love collaborating and discussing ideas with other people.
 
 <a class="button" href="https://twitter.com/bram_stein">Follow me on Twitter for news and updates</a>
 
