@@ -29,6 +29,11 @@ Web font loading may seem complicated, but it is actually quite simple if you fo
 
 There is a lot of confusion about web fonts. Are they really bad for performance? Maybe you should not use web fonts at all? This ongoing series of articles takes a look at some of the most common anti-patterns for creating, using, and loading web fonts. Web fonts can be great when used correctly and with moderation. [Continue reading…](web-font-anti-patterns.html)
 
+# Typography.Guru interview
+<p class=subtitle>August 3, 2015</p>
+
+I answered seven questions about web typography and the State of Web Type in this [Typography.Guru interview](https://typography.guru/seven-questions-for/the-state-of-web-type-7-questions-for-bram-stein-r8/).
+
 # Preload Hints For Web Fonts
 <p class=subtitle>August 7, 2015</p>
 
