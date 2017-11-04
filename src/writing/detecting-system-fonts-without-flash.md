@@ -55,6 +55,8 @@ date: 2015-07-30
 # Detecting System Fonts Without Flash
 <p class="subtitle">July 30, 2015</p>
 
+Update 2017-11-04: The latest version of Font Face Observer no longer supports detecting local fonts, so you'll need to [grab an old copy](https://github.com/bramstein/fontfaceobserver/releases/tag/v1.7.3) to use the code in this article.
+
 Many web-based text editors allow the user to select custom fonts through a drop down menu. These font menus often include system fonts. Unfortunately, there is no web platform <abbr>API</abbr> for retrieving a list of locally installed fonts, so many of these applications rely on a [Flash library](http://www.maratz.com/blog/archives/2006/08/18/detect-visitors-fonts-with-flash/) to detect which fonts are installed on the user’s system.
 
 ![Google Docs font menu](/assets/images/google-docs-font-menu.png)
@@ -116,7 +118,7 @@ Lalit Patel has implemented a [similar solution](http://www.lalit.org/lab/javasc
 
 Finally, Zach Leatherman uses the same technique for detecting locally installed fonts for [fontfamily.io](http://fontfamily.io/).
 
-<script src="/assets/js/fontfaceobserver.js"></script>
+<script src="/assets/js/fontfaceobserver-old.js"></script>
 <script>
   var fonts = {
     'Arial': ['Arial', 'sans-serif'],
@@ -161,7 +163,7 @@ Finally, Zach Leatherman uses the same technique for detecting locally installed
     
     stack.pop();
     
-    var observer = new FontFaceObserver(stack.join(','));
+    var observer = new FFO(stack.join(','));
     
     observer.check(null, 1000).then(function () {
       var item = document.querySelector('[data-font="' + family + '"]');
