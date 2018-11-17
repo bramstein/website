@@ -8,7 +8,7 @@ classes: working
 
 Below is just a small selection of my most well-known open source projects. My [Github profile](https://github.com/bramstein) contains several other useful libraries and tools.
 
-# The State Of Web Type
+# The State Of Web Type (defunct)
 
 The State of Web Type contains up to date browser support data for type and typographic features. I created the State of Web Type because no other browser support data site goes into the necessary detail for type and typography features.
 
