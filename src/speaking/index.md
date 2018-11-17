@@ -8,6 +8,33 @@ classes: speaking
 
 <a class="button" href="mailto:b.l.stein@gmail.com">Invite me to speak at your conference or meetup</a>
 
+# Are variable fonts the future of web typography?
+
+You may have heard about variable fonts and how amazing they are. But what exactly are variable fonts, and why are so many people excited about them? Is it because they offer exciting new ways to animate type? Or to endlessly tweak your typography? Or are they the answer to all your webfont performance problems? In this talk I explore all these questions and try to answer that question (hint: Yes!)
+
+<figure><a href="https://speakerdeck.com/bramstein/are-variable-fonts-the-future-of-web-typography"><img alt="Variable Fonts opening slide" src="/assets/images/variable-fonts-talk.png"><figcaption>Slides from "Variable Fonts"</figcaption></a></figure>
+
+Presented at the [CSS Minks JS conference](https://css-minsk-js.by/) (Minsk, Belarus.)
+
+
+# Line Breaking, Justification, and Variable Fonts
+
+I explain how line breaking and justification works, and how variable fonts will improve justified text even further.
+
+<figure><a href="https://speakerdeck.com/bramstein/line-breaking-justification-and-variable-fonts"><img alt="Line Breaking, Justification, and Variable Fonts opening slide" src="/assets/images/line-breaking-variable-fonts.png"><figcaption>Slides from "Line Breaking, Justification, and Variable Fonts"</figcaption></a></figure>
+
+Presented at the [Robothon Conference 2018](http://typemedia.org/robothon/) (The Hague, The Netherlands.)
+
+# The Big Web Show podcast: Webfont Festival with Bram Stein
+
+I join Jeffrey Zeldman on the Big Web Show to talk about web fonts, font stacks, variable fonts, and of course my new book: the [Webfont Handbook](https://abookapart.com/products/webfont-handbook).
+
+<figure><a href="http://5by5.tv/bigwebshow/165"><img alt="The Big Web Show with Jeffrey Zeldman" src="/assets/images/big-web-show.jpg"></a><figcaption>The Big Web Show 165: Webfont Festival with Jeffrey Zeldman and Bram Stein</figcaption></a></figure>
+
+You can [listen to the podcast online](http://5by5.tv/bigwebshow/165), or [download the audio file](http://director.5by5.tv/d/bigwebshow/cdn.5by5.tv/audio/broadcasts/bigwebshow/2017/bigwebshow-165.mp3).
+
+
+
 # Responsive Web Design podcast: Variable Fonts
 
 My colleague [Tim Brown](http://tbrown.org/) and I joined Ethan Marcotte on the [Responsive Web Design podcast](https://responsivewebdesign.com/podcast/) to talk about variable fonts. We talked about what variable fonts are, and how they will affect responsive design and web performance.
