@@ -6,14 +6,15 @@ classes: writing
 
 <p class="intro">My articles have appeared in PAGE Magazine, Net Magazine, 8 Faces magazine, and the Typekit blog. I’m also the author of the [Webfont Handbook](https://abookapart.com/products/webfont-handbook), and co-author of [Smashing Book 5](https://shop.smashingmagazine.com/products/smashing-book-5-real-life-responsive-web-design).</p>
 
-# Coming soon: Webfont Handbook
-<p class="subtitle">July 11, 2017</p>
+
+# Webfont Handbook
+<p class="subtitle">September 5, 2017</p>
 
 There’s more to choosing a webfont than aesthetics—rendering, language support, hosting, and licensing are equally crucial to communicating your message. Think of webfonts as progressive enhancement, and learn how to harness CSS and browser features to improve performance. From selection to optimization, the Webfont Handbook shows you how webfonts can make the web a more visually diverse, efficient, and readable environment.
 
 <figure><a href="https://abookapart.com/products/webfont-handbook"><img title="Buy the Webfont Handbook" src="/assets/images/webfont-handbook.png"></a></figure>
 
-The Webfont Handbook will be available soon on the [A Book Apart website](https://abookapart.com/products/webfont-handbook).
+The Webfont Handbook is available on the [A Book Apart website](https://abookapart.com/products/webfont-handbook).
 
 # Net Magazine: CSS font loading API
 <p class="subtitle">February 23, 2017</p>
